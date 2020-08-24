@@ -177,6 +177,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
 
   create_table "starting_stats", force: :cascade do |t|
     t.integer "type_id"
+    t.integer "race_id"
     t.integer "strength"
     t.integer "dexterity"
     t.integer "charisma"
@@ -200,6 +201,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
     t.integer "mana_pool"
     t.integer "starting_stat_id"
     t.integer "xp"
+    t.integer "hp"
     t.integer "recovery_pool"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -234,7 +236,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
   create_table "weapons", force: :cascade do |t|
     t.string "name"
     t.string "type"
-    t.string "damage"
+    t.integer "damage"
     t.string "text"
     t.integer "cost"
     t.datetime "created_at", precision: 6, null: false

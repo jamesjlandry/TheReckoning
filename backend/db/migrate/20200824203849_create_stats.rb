@@ -14,6 +14,7 @@ class CreateStats < ActiveRecord::Migration[6.0]
       t.integer :mana_pool
       t.integer :starting_stat_id
       t.integer :xp
+      t.integer :hp
       t.integer :recovery_pool
 
       t.timestamps

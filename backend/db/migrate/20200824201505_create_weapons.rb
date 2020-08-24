@@ -3,7 +3,7 @@ class CreateWeapons < ActiveRecord::Migration[6.0]
     create_table :weapons do |t|
       t.string :name
       t.string :type
-      t.string :damage
+      t.integer :damage
       t.string :text
       t.integer :cost
 
