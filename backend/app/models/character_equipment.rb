@@ -1,0 +1,2 @@
+class CharacterEquipment < ApplicationRecord
+end

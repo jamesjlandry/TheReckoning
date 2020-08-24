@@ -1,0 +1,2 @@
+class CharacterCurseAbility < ApplicationRecord
+end

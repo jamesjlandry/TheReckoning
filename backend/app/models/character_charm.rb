@@ -1,0 +1,2 @@
+class CharacterCharm < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class StartingStat < ApplicationRecord
+end

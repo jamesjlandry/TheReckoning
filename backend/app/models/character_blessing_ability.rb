@@ -1,0 +1,2 @@
+class CharacterBlessingAbility < ApplicationRecord
+end

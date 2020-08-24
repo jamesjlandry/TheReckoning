@@ -1,0 +1,2 @@
+class TypeLevel < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class CurseLevel < ApplicationRecord
+end

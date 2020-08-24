@@ -1,0 +1,2 @@
+class CharacterTypeAbility < ApplicationRecord
+end
