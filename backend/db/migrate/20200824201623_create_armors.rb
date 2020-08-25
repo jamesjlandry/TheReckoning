@@ -6,7 +6,6 @@ class CreateArmors < ActiveRecord::Migration[6.0]
       t.integer :defense
       t.string :text
       t.integer :cost
-
       t.timestamps
     end
   end

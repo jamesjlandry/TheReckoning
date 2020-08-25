@@ -38,35 +38,35 @@ BlessingLevel.create(name: "Shadow Blade", blessing_id: 1, level: 1, text: "You 
 
 BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 2, text: "Sample Text for Ability description.")
 
-BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 2, text: "Sample Text for Ability description.")
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 1, level: 2, text: "Sample Text for Ability description 2.")
 
 BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 3, text: "Sample Text for Ability description.")
 
-BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 3, text: "Sample Text for Ability description.")
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 1, level: 3, text: "Sample Text for Ability description 2.")
 
 BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 4, text: "Sample Text for Ability description.")
 
-BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 4, text: "Sample Text for Ability description.")
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 1, level: 4, text: "Sample Text for Ability description 2.")
 
 BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 5, text: "Sample Text for Ability description.")
 
-BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 5, text: "Sample Text for Ability description.")
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 1, level: 5, text: "Sample Text for Ability description 2.")
 
 BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 6, text: "Sample Text for Ability description.")
 
-BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 6, text: "Sample Text for Ability description.")
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 1, level: 6, text: "Sample Text for Ability description 2.")
 
 BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 7, text: "Sample Text for Ability description.")
 
-BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 7, text: "Sample Text for Ability description.")
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 1, level: 7, text: "Sample Text for Ability description 2.")
 
 BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 8, text: "Sample Text for Ability description.")
 
-BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 8, text: "Sample Text for Ability description.")
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 1, level: 8, text: "Sample Text for Ability description 2.")
 
 BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 9, text: "Sample Text for Ability description.")
 
-BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 9, text: "Sample Text for Ability description.")
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 1, level: 9, text: "Sample Text for Ability description 2.")
 
 Curse.create(name: "Aura of Cold", text: "The temperature around you is several degrees cooler than the rest of the area. In warm climates, this is not necessarily a problem, as standning near you can cool others off. Your skin is also noticeably cooler than others however and tends to cause an adverse reaction to anyone who touches you.", blessing_id: 1)
 
@@ -92,9 +92,61 @@ Blessing.create(name: "Blessing of the Mind", text: "Telekinesis, Telepathy, you
 
 BlessingLevel.create(name: "Warding Mind", blessing_id: 2, level: 1, text: "You bend attacks away from you. Provides a + 3 to defense for the next 10 minutes. Cost: 1 Magic point")
 
-Curse.create(name: "Aura of Stillness", text: "The air around you always seems heavy. Anyone moving feels labored. This effect is not enough to hunder normal tasks.")
+BlessingLevel.create(name: "Sample Name", blessing_id: 2, level: 1, text: "Sample text.")
 
-CurseLevel.create(name: "Tangible Air", curse_id: 2, text: "Whenever you use at least 1 point from your Magic pool, every creature adjacent to you, including yourself, is slowed for 1 round. While slowed, you can only move or take an action, but not both.")
+BlessingLevel.create(name: "Sample Name", blessing_id: 2, level: 2, text: "Sample text.")
+
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 2, level: 2, text: "Sample text 2.")
+
+BlessingLevel.create(name: "Sample Name", blessing_id: 2, level: 3, text: "Sample text.")
+
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 2, level: 3, text: "Sample text 2.")
+
+BlessingLevel.create(name: "Sample Name", blessing_id: 2, level: 4, text: "Sample text.")
+
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 2, level: 4, text: "Sample text 2.")
+
+BlessingLevel.create(name: "Sample Name", blessing_id: 2, level: 5, text: "Sample text.")
+
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 2, level: 5, text: "Sample text 2.")
+
+BlessingLevel.create(name: "Sample Name", blessing_id: 2, level: 6, text: "Sample text.")
+
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 2, level: 6, text: "Sample text 2.")
+
+BlessingLevel.create(name: "Sample Name", blessing_id: 2, level: 7, text: "Sample text.")
+
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 2, level: 7, text: "Sample text 2.")
+
+BlessingLevel.create(name: "Sample Name", blessing_id: 2, level: 8, text: "Sample text.")
+
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 2, level: 8, text: "Sample text 2.")
+
+BlessingLevel.create(name: "Sample Name", blessing_id: 2, level: 9, text: "Sample text.")
+
+BlessingLevel.create(name: "Sample Name 2", blessing_id: 2, level: 9, text: "Sample text 2.")
+
+Curse.create(name: "Aura of Stillness", text: "The air around you always seems heavy. Anyone moving feels labored. This effect is not enough to hunder normal tasks.", blessing_id: 2)
+
+CurseLevel.create(name: "Tangible Air", level: 1, curse_id: 2, text: "Whenever you use at least 1 point from your Magic pool, every creature adjacent to you, including yourself, is slowed for 1 round. While slowed, you can only move or take an action, but not both.")
+
+CurseLevel.create(name: "Sample Name", level: 2, curse_id: 2, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name ", level: 2, curse_id: 2, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 3, curse_id: 2, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 4, curse_id: 2, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 5, curse_id: 2, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name ", level: 6, curse_id: 2, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 7, curse_id: 2, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 8, curse_id: 2, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 9, curse_id: 2, text: "Sample Curse Description.")
 
 TypeLevel.create(name: "Surprise Attack", type_id: 3, level: 1, text: "Whenever you attack a foe who has not yet acted in combat, and you are attacking wiht a light weapon, add 3 to your normal weapon damage. Cost: 1 Dexterity Point.")
 
@@ -116,25 +168,67 @@ TypeLevel.create(name: "Precise Shot", type_id: 3, level: 4, text: "You target a
 
 TypeLevel.create(name: "Sample Name", type_id: 3, level: 5, text: "Sample Text for Ability Description.")
 
-TypeLevel.create(name: "Sample Name", type_id: 3, level: 5, text: "Sample Text for Ability Description.")
+TypeLevel.create(name: "Sample Name 2", type_id: 3, level: 5, text: "Sample Text for Ability Description 2.")
 
 TypeLevel.create(name: "Sample Name", type_id: 3, level: 5, text: "Sample Text for Ability Description.")
 
-TypeLevel.create(name: "Sample Name", type_id: 3, level: 6, text: "Sample Text for Ability Description.")
+TypeLevel.create(name: "Sample Name 2", type_id: 3, level: 6, text: "Sample Text for Ability Description 2.")
 
 TypeLevel.create(name: "Sample Name", type_id: 3, level: 6, text: "Sample Text for Ability Description.")
 
-TypeLevel.create(name: "Sample Name", type_id: 3, level: 7, text: "Sample Text for Ability Description.")
+TypeLevel.create(name: "Sample Name 2", type_id: 3, level: 7, text: "Sample Text for Ability Description 2.")
 
 TypeLevel.create(name: "Sample Name", type_id: 3, level: 7, text: "Sample Text for Ability Description.")
 
-TypeLevel.create(name: "Sample Name", type_id: 3, level: 8, text: "Sample Text for Ability Description.")
+TypeLevel.create(name: "Sample Name 2", type_id: 3, level: 8, text: "Sample Text for Ability Description 2.")
 
 TypeLevel.create(name: "Sample Name", type_id: 3, level: 8, text: "Sample Text for Ability Description.")
 
-TypeLevel.create(name: "Sample Name", type_id: 3, level: 9, text: "Sample Text for Ability Description.")
+TypeLevel.create(name: "Sample Name 2", type_id: 3, level: 9, text: "Sample Text for Ability Description 2.")
 
 TypeLevel.create(name: "Sample Name", type_id: 3, level: 9, text: "Sample Text for Ability Description.")
+
+//
+
+TypeLevel.create(name: "Sample Name", type_id: 1, level: 1, text: "Sample Ability Description Text.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 1, level: 1, text: "Sample Ability Text.")
+
+TypeLevel.create(name: "Sample Name 3", type_id: 1, level: 1, text: "Sample Text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 1, level: 2, text: "Sample Ability Text.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 1, level: 2, text: "Sample Text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 1, level: 3, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 1, level: 3, text: "Sample text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 1, level: 4, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 1, level: 4, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 1, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 1, level: 5, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 1, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 1, level: 6, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 1, level: 6, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 1, level: 7, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 1, level: 7, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 1, level: 8, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 1, level: 8, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 1, level: 9, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 1, level: 9, text: "Sample Text for Ability Description.")
 
 StartingStat.create(type_id: 1, race_id: 1, strength: 5, dexterity: 5, charisma: 5, wisdom: 5, magic: 2 )
 
@@ -184,11 +278,91 @@ StartingStat.create(type_id: 4, race_id: 5, strength: 5, dexterity: 6, charisma:
 
 StartingStat.create(type_id: 4, race_id: 6, strength: 5, dexterity: 5, charisma: 5, wisdom: 6, magic: 5)
 
+TypeLevel.create(name: "Sample Name", type_id: 2, level: 1, text: "Sample Ability Description Text.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 2, level: 1, text: "Sample Ability Text.")
+
+TypeLevel.create(name: "Sample Name 3", type_id: 2, level: 1, text: "Sample Text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 2, level: 2, text: "Sample Ability Text.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 2, level: 2, text: "Sample Text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 2, level: 3, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 2, level: 3, text: "Sample text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 2, level: 4, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 2, level: 4, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 2, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 2, level: 5, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 2, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 2, level: 6, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 2, level: 6, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 2, level: 7, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 2, level: 7, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 2, level: 8, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 2, level: 8, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 2, level: 9, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 2, level: 9, text: "Sample Text for Ability Description.")
+
 Armor.create(name: "Leather Armor", type: "Light", defense: 1, text: "Basic leather armor.", cost: 3)
 
 Armor.create(name: "Hardened Leather Armor", type: "Medium", defense: 2, text: "Thicker than normal leather armor, this armor provides better protection, however will slow you down.", cost: 5)
 
 Armor.create(name: "Dragon Scale Armor", type: "Heavy", defense: 3, text: "This armor is made of interlocking dragon scales. It provides great protection, however will significantly slow you down.", cost: 15)
+
+TypeLevel.create(name: "Sample Name", type_id: 4, level: 1, text: "Sample Ability Description Text.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 4, level: 1, text: "Sample Ability Text.")
+
+TypeLevel.create(name: "Sample Name 3", type_id: 4, level: 1, text: "Sample Text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 4, level: 2, text: "Sample Ability Text.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 4, level: 2, text: "Sample Text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 4, level: 3, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 4, level: 3, text: "Sample text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 4, level: 4, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 4, level: 4, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 4, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 4, level: 5, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 4, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 4, level: 6, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 4, level: 6, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 4, level: 7, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 4, level: 7, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 4, level: 8, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 4, level: 8, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 4, level: 9, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 4, level: 9, text: "Sample Text for Ability Description.")
 
 Equipment.create(name: "Explorer's pack", text: "Contains a cloak, boots, a bed roll, 50' of rope, hammer and spikes, 4 minor glow stones, and rations for 3 days.", cost: 20)
 
@@ -237,6 +411,46 @@ Weapon.create(name: "Morning Star", type: "Heavy", damage: 6, text: "Large club 
 Weapon.create(name: "Glaive", type: "Heavy", damage: 6, text: "Long pole with large blade attached to one end. Requires two hands to wield.", cost: 5)
 
 Weapon.create(name: "Heavy Crossbow", type: "Heavy", damage: 6, text: "Long ranged. Action to reload. Comes with 12 bolts.", cost: 8)
+
+TypeLevel.create(name: "Sample Name", type_id: 5, level: 1, text: "Sample Ability Description Text.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 5, level: 1, text: "Sample Ability Text.")
+
+TypeLevel.create(name: "Sample Name 3", type_id: 5, level: 1, text: "Sample Text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 5, level: 2, text: "Sample Ability Text.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 5, level: 2, text: "Sample Text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 5, level: 3, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 5, level: 3, text: "Sample text.")
+
+TypeLevel.create(name: "Sample Name", type_id: 5, level: 4, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 5, level: 4, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 5, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 5, level: 5, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 5, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 5, level: 6, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 5, level: 6, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 5, level: 7, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 5, level: 7, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 5, level: 8, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 5, level: 8, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name 2", type_id: 5, level: 9, text: "Sample Text for Ability Description 2.")
+
+TypeLevel.create(name: "Sample Name", type_id: 5, level: 9, text: "Sample Text for Ability Description.")
 
 Skill.create(name: "Perception", text: "You are always alert and always studying. Provides + 5 on tasks involving noticing small details, whether through visual, auditory, or other means.")
 

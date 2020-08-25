@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
     t.integer "race_id"
     t.integer "user_id"
     t.integer "curse_id"
-    t.string "status"
     t.integer "level"
     t.string "image"
     t.integer "coins"
@@ -203,7 +202,10 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
     t.integer "starting_stat_id"
     t.integer "xp"
     t.integer "hp"
+    t.string "status"
     t.integer "recovery_pool"
+    t.integer "armor_id"
+    t.integer "armor_cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -15,8 +15,10 @@ class CreateStats < ActiveRecord::Migration[6.0]
       t.integer :starting_stat_id
       t.integer :xp
       t.integer :hp
+      t.string  :status
       t.integer :recovery_pool
-
+      t.integer :armor_id
+      t.integer :armor_cost
       t.timestamps
     end
   end

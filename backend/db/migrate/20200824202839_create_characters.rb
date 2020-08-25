@@ -7,7 +7,6 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.integer :race_id
       t.integer :user_id
       t.integer :curse_id
-      t.string :status
       t.integer :level
       t.string :image
       t.integer :coins
