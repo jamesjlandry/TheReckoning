@@ -318,11 +318,11 @@ TypeLevel.create(name: "Sample Name 2", type_id: 2, level: 9, text: "Sample Text
 
 TypeLevel.create(name: "Sample Name", type_id: 2, level: 9, text: "Sample Text for Ability Description.")
 
-Armor.create(name: "Leather Armor", type: "Light", defense: 1, text: "Basic leather armor.", cost: 3)
+Armor.create(name: "Leather Armor", style: "Light", defense: 1, text: "Basic leather armor.", cost: 3)
 
-Armor.create(name: "Hardened Leather Armor", type: "Medium", defense: 2, text: "Thicker than normal leather armor, this armor provides better protection, however will slow you down.", cost: 5)
+Armor.create(name: "Hardened Leather Armor", style: "Medium", defense: 2, text: "Thicker than normal leather armor, this armor provides better protection, however will slow you down.", cost: 5)
 
-Armor.create(name: "Dragon Scale Armor", type: "Heavy", defense: 3, text: "This armor is made of interlocking dragon scales. It provides great protection, however will significantly slow you down.", cost: 15)
+Armor.create(name: "Dragon Scale Armor", style: "Heavy", defense: 3, text: "This armor is made of interlocking dragon scales. It provides great protection, however will significantly slow you down.", cost: 15)
 
 TypeLevel.create(name: "Sample Name", type_id: 4, level: 1, text: "Sample Ability Description Text.")
 
@@ -370,47 +370,47 @@ Equipment.create(name: "Grappling hook", text: "Basic grappling with 4 extendabl
 
 Equipment.create(name: "First Aid Kit", text: "Contains bandages, thread and needles and healing salves. Provides + 5 to heal checks.", cost: 10)
 
-Weapon.create(name: "Blowgun", type: "Light", damage: 2, text: "Comes with 12 dars. Short Range.", cost: 4)
+Weapon.create(name: "Blowgun", style: "Light", damage: 2, text: "Comes with 12 dars. Short Range.", cost: 4)
 
-Weapon.create(name: "Dagger", type: "Light", damage: 2, text: "Can be thrown at short range.", cost: 1)
+Weapon.create(name: "Dagger", style: "Light", damage: 2, text: "Can be thrown at short range.", cost: 1)
 
-Weapon.create(name: "Arm Blade", type: "Light", damage: 2, text: "Retractable blade that attaches to your forearm.", cost: 4)
+Weapon.create(name: "Arm Blade", style: "Light", damage: 2, text: "Retractable blade that attaches to your forearm.", cost: 4)
 
-Weapon.create(name: "Knife", type: "Light", damage: 2, text: "Can be thrown at short range.", cost: 1)
+Weapon.create(name: "Knife", style: "Light", damage: 2, text: "Can be thrown at short range.", cost: 1)
 
-Weapon.create(name: "Rapier", type: "Light", damage: 2, text: "Thin sword that uses speed more than strength.", cost: 1)
+Weapon.create(name: "Rapier", style: "Light", damage: 2, text: "Thin sword that uses speed more than strength.", cost: 1)
 
-Weapon.create(name: "Whip", type: "Light", damage: 2, text: "Can reach up to short range.", cost: 3)
+Weapon.create(name: "Whip", style: "Light", damage: 2, text: "Can reach up to short range.", cost: 3)
 
-Weapon.create(name: "Unarmed", type: "Light", damage: 1, text: "Punches, kicks, throws, etc.", cost: 0)
+Weapon.create(name: "Unarmed", style: "Light", damage: 1, text: "Punches, kicks, throws, etc.", cost: 0)
 
-Weapon.create(name: "Boomerang", type: "Light", damage: 2, text: "Usually made of a light sturdy wood, rarer boomerangs are made of light metal and infused with magic to strengthen. Can be thrown short range. Returns to the wielder when missing the target.", cost: 3)
+Weapon.create(name: "Boomerang", style: "Light", damage: 2, text: "Usually made of a light sturdy wood, rarer boomerangs are made of light metal and infused with magic to strengthen. Can be thrown short range. Returns to the wielder when missing the target.", cost: 3)
 
-Weapon.create(name: "Iron Fan", type: "Light", damage: 4, text: "Foldable metal fan with sharpened edges. Originated from a dancing form of martial arts.", cost: 3)
+Weapon.create(name: "Iron Fan", style: "Light", damage: 4, text: "Foldable metal fan with sharpened edges. Originated from a dancing form of martial arts.", cost: 3)
 
-Weapon.create(name: "Tanto", type: "Light", damage: 2, text: "Curved blade the size of a large dagger. Small companion to the Katana and Wakizashi.", cost: 3)
+Weapon.create(name: "Tanto", style: "Light", damage: 2, text: "Curved blade the size of a large dagger. Small companion to the Katana and Wakizashi.", cost: 3)
 
-Weapon.create(name: "Bow", type: "Medium", damage: 4, text: "Long Range. Comes with 12 arrows.", cost: 8)
+Weapon.create(name: "Bow", style: "Medium", damage: 4, text: "Long Range. Comes with 12 arrows.", cost: 8)
 
-Weapon.create(name: "Broadsword", type: "Medium", damage: 4, text: "Short sword with double edged blade. ", cost: 3)
+Weapon.create(name: "Broadsword", style: "Medium", damage: 4, text: "Short sword with double edged blade. ", cost: 3)
 
-Weapon.create(name: "Wakizashi", type: "Medium", damage: 4, text: "Short sword with curved blade. Smaller companion to Katana.", cost: 5)
+Weapon.create(name: "Wakizashi", style: "Medium", damage: 4, text: "Short sword with curved blade. Smaller companion to Katana.", cost: 5)
 
-Weapon.create(name: "Spear", type: "Medium", damage: 4, text: "Two handed. Can be thrown up to long range.", cost: 3)
+Weapon.create(name: "Spear", style: "Medium", damage: 4, text: "Two handed. Can be thrown up to long range.", cost: 3)
 
-Weapon.create(name: "Javelin", type: "Medium", damage: 4, text: "Can be thrown up to long range. Hindered for use in melee", cost: 3)
+Weapon.create(name: "Javelin", style: "Medium", damage: 4, text: "Can be thrown up to long range. Hindered for use in melee", cost: 3)
 
-Weapon.create(name: "Machete", type: "Medium", damage: 4, text: "It's a machete, what do you want from me?", cost: 3)
+Weapon.create(name: "Machete", style: "Medium", damage: 4, text: "It's a machete, what do you want from me?", cost: 3)
 
-Weapon.create(name: "Katana", type: "Heavy", damage: 6, text: "Two handed curved long sword.", cost: 7)
+Weapon.create(name: "Katana", style: "Heavy", damage: 6, text: "Two handed curved long sword.", cost: 7)
 
-Weapon.create(name: "Greatsword", type: "Heavy", damage: 6, text: "Requires two hands to wield.", cost: 5)
+Weapon.create(name: "Greatsword", style: "Heavy", damage: 6, text: "Requires two hands to wield.", cost: 5)
 
-Weapon.create(name: "Morning Star", type: "Heavy", damage: 6, text: "Large club or mace with varied spikes on the end. Requires two hands to wield.", cost: 5)
+Weapon.create(name: "Morning Star", style: "Heavy", damage: 6, text: "Large club or mace with varied spikes on the end. Requires two hands to wield.", cost: 5)
 
-Weapon.create(name: "Glaive", type: "Heavy", damage: 6, text: "Long pole with large blade attached to one end. Requires two hands to wield.", cost: 5)
+Weapon.create(name: "Glaive", style: "Heavy", damage: 6, text: "Long pole with large blade attached to one end. Requires two hands to wield.", cost: 5)
 
-Weapon.create(name: "Heavy Crossbow", type: "Heavy", damage: 6, text: "Long ranged. Action to reload. Comes with 12 bolts.", cost: 8)
+Weapon.create(name: "Heavy Crossbow", style: "Heavy", damage: 6, text: "Long ranged. Action to reload. Comes with 12 bolts.", cost: 8)
 
 TypeLevel.create(name: "Sample Name", type_id: 5, level: 1, text: "Sample Ability Description Text.")
 

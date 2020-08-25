@@ -4,6 +4,7 @@ class Character < ApplicationRecord
     belongs_to :blessing
     belongs_to :race
     belongs_to :curse
+    has_many :stats
     has_many :character_skills
     has_many :skills, through: :character_skills
     has_many :character_artifacts
@@ -15,12 +16,11 @@ class Character < ApplicationRecord
     has_many :character_charms
     has_many :charms, through: :character_charms
     has_many :character_type_abilities
-    has_many :type_levels, through: character_type_abilities
+    has_many :type_levels, through: :character_type_abilities
     has_many :character_weapons
     has_many :weapons, through: :character_weapons
     has_many :character_blessing_abilities
     has_many :blessing_levels, through: :character_blessing_abilities
     has_many :character_curse_abilities
     has_many :curse_levels, through: :character_curse_abilities
-
 end

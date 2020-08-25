@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
 
   create_table "armors", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "style"
     t.integer "defense"
     t.string "text"
     t.integer "cost"
@@ -239,7 +239,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
 
   create_table "weapons", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "style"
     t.integer "damage"
     t.string "text"
     t.integer "cost"
