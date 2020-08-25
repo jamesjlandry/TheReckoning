@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
   create_table "curses", force: :cascade do |t|
     t.string "name"
     t.string "text"
+    t.integer "blessing_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -182,7 +183,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
     t.integer "dexterity"
     t.integer "charisma"
     t.integer "wisdom"
-    t.integer "mana"
+    t.integer "magic"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -192,13 +193,13 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
     t.integer "strength"
     t.integer "charisma"
     t.integer "wisdom"
-    t.integer "mana"
+    t.integer "magic"
     t.integer "recovery"
     t.integer "strength_pool"
     t.integer "dexterity_pool"
     t.integer "charisma_pool"
     t.integer "wisdom_pool"
-    t.integer "mana_pool"
+    t.integer "magic_pool"
     t.integer "starting_stat_id"
     t.integer "xp"
     t.integer "hp"
@@ -229,6 +230,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
+    t.string "account_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

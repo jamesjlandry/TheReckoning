@@ -7,17 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Type.create(name: "Champion", text: "You are a born warrior and always seem to have the upper hand in a fight. Champions are a call back to past society when rulers selected the best of the best to be their champion in battle. Now the name persists for anyone who stands above the rest when it comes to battle. Many people claim the name, but in truth, only a select few are worthy of the title. As a Champion, you have 2 additional Stat Points in Strength. You have an additional 4 Stat Points to place however you like.")
+Type.create(name: "Champion", text: "You are a born warrior and always seem to have the upper hand in a fight. Champions are a call back to past society when rulers selected the best of the best to be their champion in battle. Now the name persists for anyone who stands above the rest when it comes to battle. Many people claim the name, but in truth, only a select few are worthy of the title. As a Champion, you have 2 additional Stat Points in either Strength or Dexterity. You have an additional 4 Stat Points to place however you like.")
 
-Type.create(name: "Mage", text: "While magic permeates the world around, you are able to grasp its powers much easier than most. Your natural attunement to magic helps you to use magical devices and artifacts easier than most. As a Mage, you start the game with 2 additional Stat Points in Mana. You have an additional 4 Stat Points to place however you like.")
+Type.create(name: "Mage", text: "While magic permeates the world around, you are able to grasp its powers much easier than most. Your natural attunement to magic helps you to use magical devices and artifacts easier than most. As a Mage, you start the game with 2 additional Stat Points in magic. You have an additional 4 Stat Points to place however you like.")
 
-Type.create(name: "Rogue", text: "Your best work is done in the shadows. This isn't to say that your intentions aren't noble, you just know how to get things done. Skills are where a Rogue shines best. You may not have all the powers of a Mage or the fighting ability of a Champion, but your wit and your skills have always gotten you out of a scrape. And likely gotten you into a bit more coin. As a Rogue, you have 2 additional points in Dexterity. You have an additional 4 Stat Points to place however you like .")
+Type.create(name: "Rogue", text: "Your best work is done in the shadows. This isn't to say that your intentions aren't noble, you just know how to get things done. Skills are where a Rogue shines best. You may not have all the powers of a Mage or the fighting ability of a Champion, but your wit and your skills have always gotten you out of a scrape. And likely gotten you into a bit more coin. Choose 3 of the following skills to start: Deception, Perception, Stealth, Swimming, CLimbing, Balancing, Initiative. You have 2 additional points in Dexterity. You have an additional 4 Stat Points to place however you like.")
 
-Type.create(name: "Artificer", text: "Artificers are more than mere craftsment. You infuse your creations with magic. Yet not everyone who crafts magical items can call themselves Artificers though. But for a true Artificer, this practice is so engrained in them that they likely would struggle making a mundane object without 'life'. As an Artificer, you have 1 additional point in Mana and 1 additional point in Wisdom. You have an additional 4 Stat Points to place however you like.")
+Type.create(name: "Artificer", text: "Artificers are more than mere craftsment. You infuse your creations with magic. Yet not everyone who crafts magical items can call themselves Artificers though. But for a true Artificer, this practice is so engrained in them that they likely would struggle making a mundane object without 'life'. As an Artificer, you have 1 additional point in magic and 1 additional point in Wisdom. You have an additional 4 Stat Points to place however you like.")
 
 Type.create(name: "Emissary", text: "You're not just good with words, you are trained in them. You read a face in a moment and know exactly what to say to leverage what you see. As an Emissary you start the game with 2 additional points in Charisma. You have an additional 4 Stat Points to place however you like.")
 
-Race.create(name: "Human", text: "Humans are the most populous race on the planet, and have spread themselves out across the globe, integrating themselves into many cultures. As a Human, you do not gain any additional Stat Points, however you start the game with an extra Skill of your choosing.")
+Race.create(name: "Human", text: "Humans are the most populous race on the planet, and have spread themselves out across the globe, integrating themselves into many cultures. As a Human, you start the game with 1 additional Stat Point to place in any Stat of your choosing and with 1 extra Skill of your choosing.")
 
 Race.create(name: "Goblin", text: "For many years a missunderstanding between cultures kept Goblins on the outskirts of society. Diplomacy between the Goblins and the Halflings eventually allowed Goblins to integrate into other societies. Goblins are slightly larger than halflings and very strong for their size. While they are not evil as most races once thought, Goblins tend to be very shrewd and are highly intelligent. As a Goblin, you gain 2 points in Wisdom to start the game.")
 
@@ -27,56 +27,162 @@ Race.create(name: "Trollkin", text: "Trollkin are the only known remaining desce
 
 Race.create(name: "Dark Elf", text: "Not much is known about the history of Dark Elves, even amongst themselves. Due to their war with the Light Elves, much of their previous history and culture was lost. Even the history of the war has been mostly lost. While no one has seen a Light Elf for over 1000 years, the distinction is still made amongst the races. Dark Elves appearance range in color from pitch black skin to a dusky blue-grey. As a Dark Elf, you start the game with 1 additional point in Dexterity and 1 additional point in Wisdom.")
 
-Race.create(name: "Feytouched", text: "The descendants of Humans and Fey, Feytouched still hold a spark of the old magic. While Feytouched appear mostly human, they almost always have some unique mark of their Fey ancestry. Sometimes this mark is as discrete as unnatural colored eyes, or as ornate as large antlers, horns, or a prehensile tail. Feytouched start the game with 2 additional point in Mana.")
+Race.create(name: "Feytouched", text: "The descendants of Humans and Fey, Feytouched still hold a spark of the old magic. While Feytouched appear mostly human, they almost always have some unique mark of their Fey ancestry. Sometimes this mark is as discrete as unnatural colored eyes, or as ornate as large antlers, horns, or a prehensile tail. Feytouched start the game with 2 additional point in Magic.")
 
 
-StartingStat.create(type_id: 1, race_id: 1, strength: 7, dexterity: 5, charisma: 5, wisdom: 5, mana: 1 )
+Blessing.create(name: "Blessing of Shadows", text: "Shadows are not something to be feared, they are yours to controll. You have the ability to move and bend shadows to your will. Not only that, but you can make them take physical form, and use them as armor for defense, or even shape them into weapons.")
 
-StartingStat.create(type_id: 1, race_id: 2, strength: 7, dexterity: 5, charisma: 5, wisdom: 7, mana: 1 )
+BlessingLevel.create(name: "Shadow Armor", blessing_id: 1, level: 1, text: "You call nearby shadows to surround you, providing a + 2 to your armor for the next 10 minutes. Cost: 1 Magic point")
 
-StartingStat.create(type_id: 1, race_id: 3, strength: 6, dexterity: 7, charisma: 6, wisdom: 5, mana: 1 )
+BlessingLevel.create(name: "Shadow Blade", blessing_id: 1, level: 1, text: "You call nearby shadow to your hand, shaping it into a blade of your choosing for the next 10 minutes. The blade counts as a light weapon, even if its shape would be considered otherwise. The shadow blade does 1d6 + 5 damage. Cost: 1 Magic point")
 
-StartingStat.create(type_id: 1, race_id: 4, strength: 9, dexterity: 5, charisma: 5, wisdom: 5, mana: 1 )
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 2, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 1, race_id: 5, strength: 7, dexterity: 6, charisma: 5, wisdom: 6, mana: 1 )
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 2, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 1, race_id: 6, strength: 7, dexterity: 5, charisma: 5, wisdom: 5, mana: 3 )
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 3, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 2, race_id: 1, strength: 5, dexterity: 5, charisma: 5, wisdom: 5, mana: 3)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 3, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 2, race_id: 2, strength: 5, dexterity: 5, charisma: 5, wisdom: 7, mana: 3)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 4, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 2, race_id: 3, strength: 4, dexterity: 2, charisma: 6, wisdom: 5, mana: 3)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 4, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 2, race_id: 4, strength: 7, dexterity: 5, charisma: 5, wisdom: 5, mana: 3)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 5, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 2, race_id: 5, strength: 5, dexterity: 1, charisma: 5, wisdom: 1, mana: 3)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 5, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 2, race_id: 6, strength: 5, dexterity: 5, charisma: 5, wisdom: 5, mana: 5)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 6, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 3, race_id: 1, strength: 5, dexterity: 7, charisma: 5, wisdom: 5, mana: 1)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 6, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 3, race_id: 2, strength: 5, dexterity: 7, charisma: 5, wisdom: 7, mana: 1)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 7, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 3, race_id: 3, strength: 4, dexterity: 9, charisma: 6, wisdom: 5, mana: 1)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 7, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 3, race_id: 4, strength: 7, dexterity: 7, charisma: 5, wisdom: 5, mana: 1)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 8, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 3, race_id: 5, strength: 5, dexterity: 8, charisma: 5, wisdom: 6, mana: 1)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 8, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 3, race_id: 6, strength: 5, dexterity: 7, charisma: 5, wisdom: 5, mana: 3)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 9, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 4, race_id: 1, strength: 5, dexterity: 5, charisma: 5, wisdom: 6, mana: 2)
+BlessingLevel.create(name: "Sample Name", blessing_id: 1, level: 9, text: "Sample Text for Ability description.")
 
-StartingStat.create(type_id: 4, race_id: 2, strength: 5, dexterity: 5, charisma: 5, wisdom: 8, mana: 2)
+Curse.create(name: "Aura of Cold", text: "The temperature around you is several degrees cooler than the rest of the area. In warm climates, this is not necessarily a problem, as standning near you can cool others off. Your skin is also noticeably cooler than others however and tends to cause an adverse reaction to anyone who touches you.", blessing_id: 1)
 
-StartingStat.create(type_id: 4, race_id: 3, strength: 4, dexterity: 7, charisma: 6, wisdom: 6, mana: 2)
+CurseLevel.create(name: "Bitter Cold", level: 1, curse_id: 1, text: "Whenever you use at least 1 point of Magic, every creature adjacent to you, including yourself, takes 1 point of damage from a sudden drop in temperature. This effect lasts 1 round.")
 
-StartingStat.create(type_id: 4, race_id: 4, strength: 7, dexterity: 5, charisma: 5, wisdom: 6, mana: 2)
+CurseLevel.create(name: "Expanded Aura", level: 2, curse_id: 1, text: "Whenever you use at least 1 point of Magic, your auro of cold extends to a 10' radius around you, lasting until the spell ends. This effect extends the radius for the Biting Cold effect as well.")
 
-StartingStat.create(type_id: 4, race_id: 5, strength: 5, dexterity: 6, charisma: 5, wisdom: 7, mana: 2)
+CurseLevel.create(name: "Biting Cold", level: 3, curse_id: 1, text: "Whenever you use at least 1 point of Magic, you take 1 additional point of damage. Additionally, all creatures within your Aura (including you) take damage equal to the amount of Magic points used.")
 
-StartingStat.create(type_id: 4, race_id: 6, strength: 5, dexterity: 5, charisma: 5, wisdom: 6, mana: 4)
+CurseLevel.create(name: "Sample Name", level: 4, curse_id: 1, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 5, curse_id: 1, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 6, curse_id: 1, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 7, curse_id: 1, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 8, curse_id: 1, text: "Sample Curse Description.")
+
+CurseLevel.create(name: "Sample Name", level: 9, curse_id: 1, text: "Sample Curse Description.")
+
+Blessing.create(name: "Blessing of the Mind", text: "Telekinesis, Telepathy, you're not sure what to call it, you just know you can do things with your mind others must use their hands to do. You have the ability to move small objects with your mind. This ability cannot be used to make attacks and cannot lift anything that you cannot easily carry with one hand.")
+
+BlessingLevel.create(name: "Warding Mind", blessing_id: 2, level: 1, text: "You bend attacks away from you. Provides a + 3 to defense for the next 10 minutes. Cost: 1 Magic point")
+
+Curse.create(name: "Aura of Stillness", text: "The air around you always seems heavy. Anyone moving feels labored. This effect is not enough to hunder normal tasks.")
+
+CurseLevel.create(name: "Tangible Air", curse_id: 2, text: "Whenever you use at least 1 point from your Magic pool, every creature adjacent to you, including yourself, is slowed for 1 round. While slowed, you can only move or take an action, but not both.")
+
+TypeLevel.create(name: "Surprise Attack", type_id: 3, level: 1, text: "Whenever you attack a foe who has not yet acted in combat, and you are attacking wiht a light weapon, add 3 to your normal weapon damage. Cost: 1 Dexterity Point.")
+
+TypeLevel.create(name: "Feint", type_id: 3, level: 1, text: "You make a feint attack, lowering your target's defense. You gain a + 5 attack bonus, but subtract 2 from your damage dealt. Cost: 1 Dexterity Point.")
+
+TypeLevel.create(name: "Evasive", type_id: 3, level: 1, text: "When an area effect would do damage to you, you may reduce that damage by 2 points. Cost: 1 Dexterity Point.")
+
+TypeLevel.create(name: "Uncanny Awareness", type_id: 3, level: 2, text: "You gain a + 3 bonus to defense rolls for the next 10 minutes. Cost: 2 Dexterity Points.")
+
+TypeLevel.create(name: "Study Foe", type_id: 3, level: 2, text: "As an immediate action, you study your foe before attacking gaining either a + 2 bonus to your attack roll, or a + 2 bonus to damage. Cost: 1 Wisdom point.")
+
+TypeLevel.create(name: "Swift Attack", type_id: 3, level: 3, text: "On a successful melee or ranged attack with a light weapon, you may immediately make a second attack with that weapon. If the attack is ranged thrown, you must be weilding a second light weapon in your off hand. Cost: 2 Dexterity Points.")
+
+TypeLevel.create(name: "Precise Cut", type_id: 3, level: 3, text: "You place a precise attack with your light bladed or light or medium ranged attack, causing 3 bleed damage on your foe's turn for 1D6 rounds. Cost: 2 Dexterity points.")
+
+TypeLevel.create(name: "Dual Light Wield", type_id: 3, level: 4, text: "You can weild 2 light melee weapons at once, dealing 1D6 + 2 extra damage on a successful attack. Requires Dexterity of 10 or higher.")
+
+TypeLevel.create(name: "Precise Shot", type_id: 3, level: 4, text: "You target a specific area of your foe with a ranged attack. On a successful attack the target take an additional 2d6 damage. You can forgo the extra damage to instead choose from one of the following effects: Your strike causes your foe to drop their weapon. Your strike causes your foe to fall prone. Your strike lodges in a major joint and slows your opponent for 1 D6 rounds. Cost: 4 Dexterity points.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 5, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 6, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 6, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 7, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 7, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 8, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 8, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 9, text: "Sample Text for Ability Description.")
+
+TypeLevel.create(name: "Sample Name", type_id: 3, level: 9, text: "Sample Text for Ability Description.")
+
+StartingStat.create(type_id: 1, race_id: 1, strength: 5, dexterity: 5, charisma: 5, wisdom: 5, magic: 2 )
+
+StartingStat.create(type_id: 1, race_id: 2, strength: 5, dexterity: 5, charisma: 5, wisdom: 7, magic: 2 )
+
+StartingStat.create(type_id: 1, race_id: 3, strength: 5, dexterity: 7, charisma: 6, wisdom: 5, magic: 2 )
+
+StartingStat.create(type_id: 1, race_id: 4, strength: 7, dexterity: 5, charisma: 5, wisdom: 5, magic: 2 )
+
+StartingStat.create(type_id: 1, race_id: 5, strength: 5, dexterity: 6, charisma: 5, wisdom: 6, magic: 2 )
+
+StartingStat.create(type_id: 1, race_id: 6, strength: 5, dexterity: 5, charisma: 5, wisdom: 5, magic: 4 )
+
+StartingStat.create(type_id: 2, race_id: 1, strength: 5, dexterity: 5, charisma: 5, wisdom: 5, magic: 4)
+
+StartingStat.create(type_id: 2, race_id: 2, strength: 5, dexterity: 5, charisma: 5, wisdom: 7, magic: 4)
+
+StartingStat.create(type_id: 2, race_id: 3, strength: 4, dexterity: 2, charisma: 6, wisdom: 5, magic: 4)
+
+StartingStat.create(type_id: 2, race_id: 4, strength: 7, dexterity: 5, charisma: 5, wisdom: 5, magic: 4)
+
+StartingStat.create(type_id: 2, race_id: 5, strength: 5, dexterity: 1, charisma: 5, wisdom: 1, magic: 4)
+
+StartingStat.create(type_id: 2, race_id: 6, strength: 5, dexterity: 5, charisma: 5, wisdom: 5, magic: 6)
+
+StartingStat.create(type_id: 3, race_id: 1, strength: 5, dexterity: 7, charisma: 5, wisdom: 5, magic: 2)
+
+StartingStat.create(type_id: 3, race_id: 2, strength: 5, dexterity: 7, charisma: 5, wisdom: 7, magic: 2)
+
+StartingStat.create(type_id: 3, race_id: 3, strength: 4, dexterity: 9, charisma: 6, wisdom: 5, magic: 2)
+
+StartingStat.create(type_id: 3, race_id: 4, strength: 7, dexterity: 7, charisma: 5, wisdom: 5, magic: 2)
+
+StartingStat.create(type_id: 3, race_id: 5, strength: 5, dexterity: 8, charisma: 5, wisdom: 6, magic: 2)
+
+StartingStat.create(type_id: 3, race_id: 6, strength: 5, dexterity: 7, charisma: 5, wisdom: 5, magic: 4)
+
+StartingStat.create(type_id: 4, race_id: 1, strength: 5, dexterity: 5, charisma: 5, wisdom: 6, magic: 3)
+
+StartingStat.create(type_id: 4, race_id: 2, strength: 5, dexterity: 5, charisma: 5, wisdom: 8, magic: 3)
+
+StartingStat.create(type_id: 4, race_id: 3, strength: 4, dexterity: 7, charisma: 6, wisdom: 6, magic: 3)
+
+StartingStat.create(type_id: 4, race_id: 4, strength: 7, dexterity: 5, charisma: 5, wisdom: 6, magic: 3)
+
+StartingStat.create(type_id: 4, race_id: 5, strength: 5, dexterity: 6, charisma: 5, wisdom: 7, magic: 3)
+
+StartingStat.create(type_id: 4, race_id: 6, strength: 5, dexterity: 5, charisma: 5, wisdom: 6, magic: 5)
 
 Armor.create(name: "Leather Armor", type: "Light", defense: 1, text: "Basic leather armor.", cost: 3)
 
@@ -104,7 +210,7 @@ Weapon.create(name: "Whip", type: "Light", damage: 2, text: "Can reach up to sho
 
 Weapon.create(name: "Unarmed", type: "Light", damage: 1, text: "Punches, kicks, throws, etc.", cost: 0)
 
-Weapon.create(name: "Boomerang", type: "Light", damage: 2, text: "Usually made of a light sturdy wood, rarer boomerangs are made of light metal and infused with magic to strengthen. Can be thrown short range. Returns to the wielded when missing the target.", cost: 3)
+Weapon.create(name: "Boomerang", type: "Light", damage: 2, text: "Usually made of a light sturdy wood, rarer boomerangs are made of light metal and infused with magic to strengthen. Can be thrown short range. Returns to the wielder when missing the target.", cost: 3)
 
 Weapon.create(name: "Iron Fan", type: "Light", damage: 4, text: "Foldable metal fan with sharpened edges. Originated from a dancing form of martial arts.", cost: 3)
 

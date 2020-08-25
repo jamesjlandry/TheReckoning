@@ -7,7 +7,7 @@ class CreateStartingStats < ActiveRecord::Migration[6.0]
       t.integer :dexterity
       t.integer :charisma
       t.integer :wisdom
-      t.integer :mana
+      t.integer :magic
 
       t.timestamps
     end

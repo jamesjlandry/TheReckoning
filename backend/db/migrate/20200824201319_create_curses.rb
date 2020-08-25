@@ -3,7 +3,7 @@ class CreateCurses < ActiveRecord::Migration[6.0]
     create_table :curses do |t|
       t.string :name
       t.string :text
-
+      t.integer :blessing_id
       t.timestamps
     end
   end
