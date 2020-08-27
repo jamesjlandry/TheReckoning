@@ -10,12 +10,11 @@ function CharacterBlessing() {
         <div className="selection_options">
              <div className="character_box ">
              
-                 {blessings.map(blessing=> <div onClick={() => { dispatch({ type: 'SELECT_BLESSING', }) }} >
-              <h1>{character.name}</h1>
-              </div>)}
+                 {blessings.map(blessing=> <div onClick={() => { dispatch({ type: 'SELECT_BLESSING', selectedBlessing: blessing}) }} >
+    {blessing.name}</div>)}
               
           </div>
-      );
+
         </div>
       );
   }
