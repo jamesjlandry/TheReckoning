@@ -30,11 +30,7 @@ import {useDispatch} from 'react-redux';
         method: 'DELETE'
     })
     let loggedOut = await response.json()
-    console.log(loggedOut)
-    this.setState({
-        currentUser: {},
-        loggedIn: false
-    })
+    useDispatch({type: "LOG_OUT" })
 }
 
 export const createUser = (user) => {

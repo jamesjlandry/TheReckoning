@@ -13,32 +13,41 @@ function LogIn()  {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [register, setRegister] = useState(false)
+    const dispatch = useDispatch()
 
-     
+   let logIn = async (user) => {
+       console.log(user)
+        let response = await fetch('http://localhost:3000/login', {
+            credentials: 'include',
+            method: "POST",
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        let currentUser = await response.json()
+        if (currentUser !== null) {
+            dispatch({type: "SET_USER", currentUser: currentUser})
+    }
+    }
 
-    //   let usernameChange = (e) => {
-    //       setState({
-    //           username: e.target.value
-    //       })
-    //   }
-
-    //   let passwordChange = (e) => {
-    //       setState({
-    //           password: e.target.value
-    //       })
-    //   }
-
-    //   let registerUser = () => {
-    //       setState({
-    //           register: !register
-    //       })
-    //   }
-
-    //   let fieldChange = (account) => {
-    //     setState({
-    //         accountType: account
-    //     })
-    //   }
+   const createUser = (user) => {
+        fetch('http://localhost:3000/users', {
+            credentials: 'include',
+            method: 'POST',
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(currentUser => {
+                dispatch({type: "SET_USER", currentUser: currentUser})
+    
+            })
+    }
 
       let handleSubmit = (e) => {
         e.preventDefault();
@@ -46,7 +55,7 @@ function LogIn()  {
             username: username,
             password: password,
         }
-        
+        logIn(user)
         }
 
       let handleRegister = (e) => {
@@ -59,7 +68,7 @@ function LogIn()  {
             firstName: firstName,
             lastName: lastName,
         }
-        
+        createUser(user)
       }
 
     

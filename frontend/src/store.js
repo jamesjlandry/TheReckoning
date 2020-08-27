@@ -1,6 +1,7 @@
 import {createStore} from 'redux';
 
 
+
 const reducer = (currentState, action) => {
   if (action.type === 'SELECT_CHARACTER') {
     return {
@@ -10,10 +11,23 @@ const reducer = (currentState, action) => {
    }
    else if (action.type === 'SET_USER'){
      return {...currentState, 
-      // currentUser: user,
+      currentUser: action.currentUser,
       loggedIn: true
       }
    }
+   else if (action.type === 'CREATE_CHARACTER_MODE'){
+    return {...currentState, 
+     currentUser: action.currentUser,
+     createCharacter: !action.createCharacter
+     }
+  }
+  else if (action.type === 'LOG_OUT'){
+    return {...currentState, 
+     loggedIn: false,
+     currentUser: {}
+     }
+  }
+  
     return currentState
 }
 
@@ -22,6 +36,7 @@ const reducer = (currentState, action) => {
 let initialState = {
     currentUser: {},
     loggedIn: false,
+    createCharacter: false,
     characters: [],
     blessings: [],
     curses: [],

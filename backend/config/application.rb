@@ -28,18 +28,17 @@ module Backend
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    Rails.application.config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-    
-        resource '*',
-          headers: :any,
-          methods: [:get, :post, :put, :patch, :delete, :options, :head]
-      end
+    config.session_store :cookie_store, key: '_session', same_site: :strict
+    config.middleware.insert_before 0, Rack::Cors do
+        allow do
+            origins 'http://localhost:3000', 'http://localhost:3001'
+            resource '*', headers: :any, methods: [:get, :post, :patch, :delete], credentials: true
+            
+        end
     end
+    config.api_only = false
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-    config.api_only = true
   end
 end
