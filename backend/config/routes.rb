@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   resources :blessing_levels
   resources :curse_levels
   resources :type_levels
-  resources :options
+  resources :character_options
+  resources :equipment_options
 end

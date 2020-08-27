@@ -1,4 +1,4 @@
-class OptionsController < ApplicationController
+class CharacterOptionsController < ApplicationController
 
     def index
 
