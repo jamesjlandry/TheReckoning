@@ -53,7 +53,7 @@ function App() {
       {loggedIn ? 
       <React.Fragment>
       <Header className="App-header" />
-      <CharacterIndex/>
+      <CharacterIndex />
       
       </React.Fragment>
       :

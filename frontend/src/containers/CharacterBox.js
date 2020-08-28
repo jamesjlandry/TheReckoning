@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import NewCharacter from '../components/NewCharacter'
 import SelectedCharacter from '../components/SelectedCharacter'
+import CharacterOptionContainer from '../containers/CharacterOptionContainer'
 
 
 
@@ -13,7 +14,7 @@ function CharacterBox() {
     let dispatch = useDispatch()
     return (
         <div className="character_box">
-            {createCharacter ? <NewCharacter/> : <SelectedCharacter/>}
+            {createCharacter ? <CharacterOptionContainer/> : <SelectedCharacter/>}
                 
         </div>
     );

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import OptionModal from '../components/OptionModal'
 
 function CharacterBlessing() {
     let dispatch = useDispatch()
@@ -9,12 +10,7 @@ function CharacterBlessing() {
     return (
         <div className="selection_options">
              <div className="character_box ">
-             
-                 {blessings.map(blessing=> 
-                 
-                            {/* <button onClick={() => { dispatch({ type: 'SELECT_BLESSING', selectedBlessing: blessing}) }}>Select Blessing</button> */}
-                    
-                )}
+                 {blessings.map(blessing=> <OptionModal blessing={blessing}/>)}
               
           </div>
 
