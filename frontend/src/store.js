@@ -88,7 +88,49 @@ const reducer = (currentState, action) => {
 
   else if (action.type === 'SELECT_BLESSING'){
     return {...currentState, 
-     characterBlessing: action.blessing
+     characterBlessing: action.option
+     }
+  }
+
+  else if (action.type === 'SELECT_BLESSING_LEVEL'){
+    return {...currentState, 
+     characterBlessingLevel: [action.option, ...currentState.characterBlessingLevel]
+     }
+  }
+
+  else if (action.type === 'SELECT_TYPE_LEVEL'){
+    return {...currentState, 
+     characterTypeLevel: [action.option, ...currentState.characterTypeLevel]
+     }
+  }
+
+  else if (action.type === 'SELECT_TYPE'){
+    return {...currentState, 
+     characterType: action.option
+     }
+  }
+
+  else if (action.type === 'SELECT_RACE'){
+    return {...currentState, 
+     characterRace: action.option
+     }
+  }
+
+  else if (action.type === 'SELECT_EQUIPMENT'){
+    return {...currentState, 
+     characterEquipment: [action.option, ...currentState.characterEquipment]
+     }
+  }
+
+  else if (action.type === 'SELECT_ARMOR'){
+    return {...currentState, 
+     characterArmor: [action.option, ...currentState.characterArmor]
+     }
+  }
+
+  else if (action.type === 'SELECT_WEAPON'){
+    return {...currentState, 
+     characterWeapons: [action.option, ...currentState.characterWeapons]
      }
   }
 
@@ -97,7 +139,13 @@ const reducer = (currentState, action) => {
      blessings: action.options.blessings,
      curses: action.options.curses,
      types: action.options.types,
-     races: action.options.races
+     races: action.options.races,
+     blessinglevels: action.options.blessinglevels,
+     curselevels: action.options.curselevels,
+     typelevels: action.options.typelevels,
+     equipments: action.options.equipments,
+     armors: action.options.armors,
+     weapons: action.options.weapons
      }
   }
   
@@ -113,10 +161,15 @@ let initialState = {
     editCharacter: false,
     characters: [],
     blessings: [],
+    blessinglevels: [],
     curses: [],
+    curselevels: [],
     types: [],
+    typelevels: [],
     races: [],
     equipments: [],
+    armors: [],
+    weapons: [],
     users: [],
     selectedCharacter: null,
     raceModal: false,
@@ -124,14 +177,18 @@ let initialState = {
     blessingModal: false,
     equipmentModal: false,
     characterSheet: false,
-    characterBlessing: {},
-    characterCurse: {},
-    characterType: {},
-    characterRace: {},
-    characterStats: {},
-    characterEquipment: {},
-    characterArmor: {},
-    characterWeapons: {},
+    characterBlessing: null,
+    characterBlessingLevel: [],
+    characterCurse: null,
+    characterCurseLevel: [],
+    characterType: null,
+    characterTypeLevel: [],
+    characterRace: null,
+    characterStats: null,
+    characterEquipment: [],
+    characterArmor: [],
+    characterWeapons: [],
+    coins: 0,
     characterLevel: 1
   }
 

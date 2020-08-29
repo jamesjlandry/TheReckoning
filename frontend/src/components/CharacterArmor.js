@@ -2,17 +2,17 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import EquipmentOptionModal from '../containers/EquipmentOptionModal'
 
-function CharacterEquipment() {
-    let equipments = useSelector(state => state.equipments)
+function CharacterArmor() {
+    let armors = useSelector(state => state.armors)
     let dispatch = useDispatch()
-    let selectOptions = 'SELECT_EQUIPMENT'
+    let selectOptions = 'SELECT_ARMOR'
   
     
   
     return (
       <div className="selection_options">
              <div className="character_box ">
-                 {equipments.map(equipment=> <EquipmentOptionModal option={equipment} selectOptions={selectOptions}/>)}
+                 {armors.map(armor=> <EquipmentOptionModal option={armor} selectOptions={selectOptions}/>)}
               
           </div>
 
@@ -20,4 +20,4 @@ function CharacterEquipment() {
     );
   }
   
-  export default CharacterEquipment;
+  export default CharacterArmor;
