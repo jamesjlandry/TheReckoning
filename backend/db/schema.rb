@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
   create_table "blessings", force: :cascade do |t|
     t.string "name"
     t.string "text"
+    t.string "curse_name"
+    t.string "curse_text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -118,12 +120,28 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
     t.integer "blessing_id"
     t.integer "race_id"
     t.integer "user_id"
-    t.integer "curse_id"
     t.integer "level"
     t.string "image"
     t.integer "coins"
     t.string "background"
     t.string "notes"
+    t.integer "strength"
+    t.integer "charisma"
+    t.integer "wisdom"
+    t.integer "magic"
+    t.integer "recovery"
+    t.integer "strength_pool"
+    t.integer "dexterity_pool"
+    t.integer "charisma_pool"
+    t.integer "wisdom_pool"
+    t.integer "magic_pool"
+    t.integer "starting_stat_id"
+    t.integer "xp"
+    t.integer "hp"
+    t.string "status"
+    t.integer "recovery_pool"
+    t.integer "armor_cost"
+    t.integer "equipped_armor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -138,17 +156,9 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
 
   create_table "curse_levels", force: :cascade do |t|
     t.string "name"
-    t.integer "curse_id"
+    t.integer "blessing_id"
     t.integer "level"
     t.string "text"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "curses", force: :cascade do |t|
-    t.string "name"
-    t.string "text"
-    t.integer "blessing_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -183,29 +193,8 @@ ActiveRecord::Schema.define(version: 2020_08_24_205132) do
     t.integer "charisma"
     t.integer "wisdom"
     t.integer "magic"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "stats", force: :cascade do |t|
-    t.integer "character_id"
-    t.integer "strength"
-    t.integer "charisma"
-    t.integer "wisdom"
-    t.integer "magic"
-    t.integer "recovery"
-    t.integer "strength_pool"
-    t.integer "dexterity_pool"
-    t.integer "charisma_pool"
-    t.integer "wisdom_pool"
-    t.integer "magic_pool"
-    t.integer "starting_stat_id"
-    t.integer "xp"
-    t.integer "hp"
-    t.string "status"
-    t.integer "recovery_pool"
-    t.integer "armor_id"
-    t.integer "armor_cost"
+    t.integer "remaining_stat_points"
+    t.integer "skill_slots"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

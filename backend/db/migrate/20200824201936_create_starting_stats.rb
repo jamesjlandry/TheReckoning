@@ -8,6 +8,8 @@ class CreateStartingStats < ActiveRecord::Migration[6.0]
       t.integer :charisma
       t.integer :wisdom
       t.integer :magic
+      t.integer :remaining_stat_points
+      t.integer :skill_slots
 
       t.timestamps
     end

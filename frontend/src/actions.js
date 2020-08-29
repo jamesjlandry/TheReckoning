@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 
 
 
-  
+  dispatch = useDispatch()
   
   export const logIn = async (user) => {
     let response = await fetch('http://localhost:3000/login', {
@@ -17,7 +17,7 @@ import {useDispatch} from 'react-redux';
     })
     let currentUser = await response.json()
     if (currentUser.username === user.username) {
-       useDispatch( { type: "SET_USER", user: currentUser  })
+       dispatch( { type: "SET_USER", user: currentUser  })
     } else {
         alert("username or password incorrect")
     }
