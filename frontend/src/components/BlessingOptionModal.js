@@ -2,30 +2,34 @@ import React from 'react'
 import { Button, Icon, Image, Modal } from 'semantic-ui-react'
 import { useSelector, useDispatch } from 'react-redux';
 
-const CharacterOptionModal = (props) => {
+const BlessingOptionModal = (props) => {
   const [open, setOpen] = React.useState(false)
   const dispatch = useDispatch()
-  const selectOptions = props.selectOptions
+ 
 
   return (
     <Modal
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
-  trigger={<Button>{props.option.name}</Button>}
+      trigger={<Button>{props.blessingOption.name}</Button>}
     >
-      <Modal.Header>{props.option.name}</Modal.Header>
+      <Modal.Header>{props.blessingOption.name}</Modal.Header>
       <Modal.Content image scrolling>
 
         <Modal.Description>
           <p >
-           {props.option.text}
+           {props.blessingOption.text}
           </p>
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => {setOpen(false)
-           dispatch({type: selectOptions, option: props.option})}} primary>
+           dispatch({type: "SELECT_BLESSING_LEVEL", option: {
+               blessing: props.blessingOption, 
+               curse: props.curseLevel
+               }})
+               }} primary>
           Choose this Option <Icon name='chevron right' />
         </Button>
         <Button onClick={() => setOpen(false)} primary>
@@ -36,4 +40,4 @@ const CharacterOptionModal = (props) => {
   )
 }
 
-export default CharacterOptionModal
+export default BlessingOptionModal

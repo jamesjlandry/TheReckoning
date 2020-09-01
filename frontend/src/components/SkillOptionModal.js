@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Icon, Image, Modal } from 'semantic-ui-react'
 import { useSelector, useDispatch } from 'react-redux';
 
-const CharacterOptionModal = (props) => {
+const SkillOptionModal = (props) => {
   const [open, setOpen] = React.useState(false)
   const dispatch = useDispatch()
   const selectOptions = props.selectOptions
@@ -36,4 +36,4 @@ const CharacterOptionModal = (props) => {
   )
 }
 
-export default CharacterOptionModal
+export default SkillOptionModal

@@ -41,7 +41,6 @@ function App() {
   useEffect( async () => {
     let response = await fetch('http://localhost:3000/character_options')
     let options = await response.json()
-    console.log(options)
     dispatch({type: "SET_OPTIONS", options: options})
 
   },[])

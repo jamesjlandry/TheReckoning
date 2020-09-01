@@ -12,6 +12,7 @@ function CharacterEquipment() {
     return (
       <div className="selection_options">
              <div className="character_box ">
+             <div> </div>
                  {equipments.map(equipment=> <EquipmentOptionModal option={equipment} selectOptions={selectOptions}/>)}
               
           </div>

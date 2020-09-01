@@ -13,6 +13,7 @@ function CharacterRace() {
     return (
       <div className="selection_options">
              <div className="character_box ">
+               <div>Choose one of the following Races: </div>
                  {races.map(race=> <CharacterOptionModal option={race} selectOptions={selectOptions}/>)}
               
           </div>

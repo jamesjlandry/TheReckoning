@@ -11,6 +11,7 @@ function CharacterType() {
     return (
         <div className="selection_options">
              <div className="character_box ">
+             <div>Choose one of the following Types: </div>
                  {types.map(type=> <CharacterOptionModal option={type} selectOptions={selectOptions}/>)}
               
           </div>

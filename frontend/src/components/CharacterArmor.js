@@ -12,6 +12,7 @@ function CharacterArmor() {
     return (
       <div className="selection_options">
              <div className="character_box ">
+             <div> </div>
                  {armors.map(armor=> <EquipmentOptionModal option={armor} selectOptions={selectOptions}/>)}
               
           </div>

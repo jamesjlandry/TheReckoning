@@ -2,13 +2,15 @@ import {createStore, bindActionCreators} from 'redux';
 
 
 
+
 const reducer = (currentState, action) => {
   if (action.type === 'SELECT_CHARACTER') {
     return {
       ...currentState, 
       selectedCharacter: action.selectedCharacter,
       editCharacter: true,
-      createCharacter: false,    
+      createCharacter: false,
+      coins: action.selectedCharacter.coins   
     }
    }
    else if (action.type === 'SET_USER'){
@@ -17,10 +19,18 @@ const reducer = (currentState, action) => {
       loggedIn: true
       }
    }
+
+   else if (action.type === 'SET_STATS'){
+    return {...currentState, 
+     characterStats: action.characterStats
+     }
+  }
+
    else if (action.type === 'CREATE_CHARACTER_MODE'){
     return {...currentState, 
      createCharacter: true,
      editCharacter: false,
+     coins: 20
      }
   }
 
@@ -94,7 +104,8 @@ const reducer = (currentState, action) => {
 
   else if (action.type === 'SELECT_BLESSING_LEVEL'){
     return {...currentState, 
-     characterBlessingLevel: [action.option, ...currentState.characterBlessingLevel]
+     characterBlessingLevel: [action.option.blessing, ...currentState.characterBlessingLevel],
+     characterCurseLevel: [action.option.curse]
      }
   }
 
@@ -145,7 +156,9 @@ const reducer = (currentState, action) => {
      typelevels: action.options.typelevels,
      equipments: action.options.equipments,
      armors: action.options.armors,
-     weapons: action.options.weapons
+     weapons: action.options.weapons,
+     skills: action.options.skills,
+     startingStats: action.options.startingstats
      }
   }
   
@@ -170,6 +183,8 @@ let initialState = {
     equipments: [],
     armors: [],
     weapons: [],
+    skills: [],
+    startingStats: [],
     users: [],
     selectedCharacter: null,
     raceModal: false,
@@ -179,12 +194,12 @@ let initialState = {
     characterSheet: false,
     characterBlessing: null,
     characterBlessingLevel: [],
-    characterCurse: null,
-    characterCurseLevel: [],
+    characterCurseLevel: null,
     characterType: null,
     characterTypeLevel: [],
     characterRace: null,
     characterStats: null,
+    characterSkills: null,
     characterEquipment: [],
     characterArmor: [],
     characterWeapons: [],

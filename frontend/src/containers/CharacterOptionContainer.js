@@ -9,6 +9,9 @@ import CharacterArmor from '../components/CharacterArmor'
 import CharacterWeapon from '../components/CharacterWeapon'
 import CharacterTypeLevel from '../components/CharacterTypeLevel'
 import CharacterBlessingLevel from '../components/CharacterBlessingLevel'
+import CharacterStats from '../components/CharacterStats'
+import CharacterBuild from '../components/CharacterBuild'
+import CharacterSkills from '../components/CharacterSkills'
 
 
   
@@ -16,18 +19,19 @@ import CharacterBlessingLevel from '../components/CharacterBlessingLevel'
 
     const selectedType = useSelector(state => state.characterType)
     const selectedBlessing = useSelector(state => state.characterBlessing)
-    const selectedCurse = useSelector(state => state.characterCurse)
     const selectedRace = useSelector(state => state.characterRace)
     const currentUser = useSelector(state => state.currentUser)
     const selectedTypeLevels = useSelector(state => state.characterTypeLevel)
+    const selectedBlessingLevels = useSelector(state => state.characterBlessingLevel)
     const coins = useSelector(state => state.coins)
+    const characterStats = useSelector(state => state.characterStats)
+    const characterSkills = useSelector(state => state.characterSkills)
     
     
     const selectedCharacter = {
         name: '',
         type_id: selectedType?.id,
         blessing_id: selectedBlessing?.id,
-        // curse_id: selectedCurse?.id,
         race_id: selectedRace?.id,
         user_id: currentUser?.id,
         level: 1, 
@@ -56,7 +60,25 @@ import CharacterBlessingLevel from '../components/CharacterBlessingLevel'
         else if (selectedTypeLevels.length === 1) 
             panes.push({ menuItem: 'Type Level Options 2', render: () => <Tab.Pane><CharacterTypeLevel/></Tab.Pane> })
     }
-    if(selectedBlessing) panes.push({ menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel/></Tab.Pane> })
+    if(selectedBlessing) {
+        if(selectedBlessingLevels.length === 0)
+        panes.push({ menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel/></Tab.Pane> })
+    } 
+
+    if(selectedType && selectedRace && selectedBlessing) {
+        
+            panes.push({ menuItem: 'Stats', render: () => <Tab.Pane><CharacterStats/></Tab.Pane> })
+    }
+
+    if(selectedType && selectedRace && selectedBlessing) {
+        
+      panes.push({ menuItem: 'Skills', render: () => <Tab.Pane><CharacterSkills/></Tab.Pane> })
+}
+
+    if(selectedType && selectedRace && selectedBlessing && characterStats && characterSkills) {
+        
+      panes.push({ menuItem: 'Review Character', render: () => <Tab.Pane><CharacterBuild/></Tab.Pane> })
+}
     let createCharacter = () => {
 
     }
