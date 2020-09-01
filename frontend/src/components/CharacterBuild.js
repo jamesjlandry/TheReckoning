@@ -19,11 +19,21 @@ function CharacterBuild() {
     let coins = useSelector(state => state.coins)
     let characterBlessingLevel = useSelector(state => state.characterBlessingLevel)
     let characterCurseLevel = useSelector(state => state.characterCurseLevel)
+    let characterTypeLevel = useSelector(state => state.characterTypeLevel)
     let strengthPool = Math.floor(characterStats.strength / 2)
     let dexterityPool = Math.floor(characterStats.dexterity / 2)
     let charismaPool = Math.floor(characterStats.charisma / 2)
     let wisdomPool = Math.floor(characterStats.wisdom / 2)
     let magicPool = Math.floor(characterStats.magic / 2)
+    let characterSkills = useSelector(state => state.characterSkills)
+
+    let armorIds = characterArmor.map(armor => armor.id)
+    let skillIds = characterSkills.map(skill => skill.id)
+    let curseLevelIds = characterCurseLevel.map(curse => curse.id)
+    let typeLevelIds = characterTypeLevel.map(type => type.id)
+    let blessingLevelIds = characterBlessingLevel.map(blessing => blessing.id)
+    let equipmentIds = characterEquipment.map(equipment => equipment.id)
+    let weaponIds = characterWeapons.map(weapon => weapon.id)
     const [name, setName] = useState('');
 
 
@@ -51,13 +61,18 @@ function CharacterBuild() {
             wisdom_pool: wisdomPool,
             charisma_pool: charismaPool,
             magic_pool: magicPool,
-            starting_stat_id: 1,
             xp: 0,
             hp: 20,
             status: '',
             recovery_pool: 4,
             armor_cost: 0,
-            equipped_armor_id: null,
+            armor_ids: armorIds,
+            weapon_ids: weaponIds,
+            equipment_ids: equipmentIds,
+            type_level_ids: typeLevelIds,
+            blessing_level_ids: blessingLevelIds,
+            curse_level_ids: curseLevelIds,
+            skill_ids: skillIds,
         }
         let response = await fetch('http://localhost:3000/characters', {
             'credentials': 'include',
@@ -68,10 +83,11 @@ function CharacterBuild() {
             },
             body: JSON.stringify(newCharacter)
         })
-        let selectedCharacter= await response.json()
-        if (selectedCharacter !== null) {
-            dispatch({type: "SELECT_CHARACTER", selectedCharacter: selectedCharacter})
+        let selectedCharacter = await response.json()
+        if (selectedCharacter.errors) {
+            console.log(selectedCharacter)
         } 
+            dispatch({type: "SELECT_CHARACTER", selectedCharacter: selectedCharacter})
         }
 
     
