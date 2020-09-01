@@ -26,6 +26,12 @@ const reducer = (currentState, action) => {
      }
   }
 
+  else if (action.type === 'SET_SKILLS'){
+    return {...currentState, 
+     characterSkills: action.characterSkills
+     }
+  }
+
    else if (action.type === 'CREATE_CHARACTER_MODE'){
     return {...currentState, 
      createCharacter: true,

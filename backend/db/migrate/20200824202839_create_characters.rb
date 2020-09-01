@@ -12,6 +12,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string :background
       t.string :notes
       t.integer :strength
+      t.integer :dexterity
       t.integer :charisma
       t.integer :wisdom
       t.integer :magic
@@ -21,7 +22,6 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.integer :charisma_pool
       t.integer :wisdom_pool
       t.integer :magic_pool
-      t.integer :starting_stat_id
       t.integer :xp
       t.integer :hp
       t.string  :status

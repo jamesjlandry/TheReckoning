@@ -4,7 +4,6 @@ class Character < ApplicationRecord
     belongs_to :blessing
     belongs_to :race
     belongs_to :curse
-    belongs_to :starting_stat
     has_many :stats
     has_many :character_skills
     has_many :skills, through: :character_skills

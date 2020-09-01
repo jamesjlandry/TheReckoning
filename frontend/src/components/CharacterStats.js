@@ -11,7 +11,6 @@ function CharacterStats() {
     let characterType = useSelector(state => state.characterType)
     let characterRace = useSelector(state => state.characterRace)
     let statOptions = startingStats.filter(stat => stat.type_id === characterType.id && stat.race_id === characterRace.id)
-    const [name, setName] = useState('');
     const [remainingStats, setRemainingStats] = useState(statOptions[0].remaining_stat_points);
     const [dexterity, setDexterity] = useState(statOptions[0].dexterity)
     const [strength, setStrength] = useState(statOptions[0].strength)
