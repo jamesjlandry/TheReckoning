@@ -7,7 +7,7 @@ function CharacterSheet() {
 
     const character = useSelector(state => state.selectedCharacter)
     let race = useSelector(state => state.characterRace)
-    let type = useSelector(state => state.chracterType)
+    let type = useSelector(state => state.characterType)
     let blessing = useSelector(state => state.characterBlessing)
     let skills = useSelector(state => state.characterSkills)
     let armor = useSelector(state => state.characterArmor)
@@ -15,6 +15,9 @@ function CharacterSheet() {
     let equipment = useSelector(state => state.characterEquipment)
     let charms = useSelector(state => state.characterCharms)
     let artifacts = useSelector(state => state.characterArtifacts)
+    let typeAbilities = useSelector(state => state.characterTypeLevel)
+    let blessingAbilities = useSelector(state => state.characterBlessingLevel)
+    let curseAbilities = useSelector(state => state.characterCurseLevel)
     const [strength_pool, setStrengthPool] = useState(character.strength_pool)
     const [dexterity_pool, setDexterityPool] = useState(character.dexterity_pool)
     const [wisdom_pool, setWisdomPool] = useState(character.wisdom_pool)
@@ -25,6 +28,7 @@ function CharacterSheet() {
     const [XP, setXP] = useState(character.xp)
     const [HP, setHP] = useState(character.hp)
     const [coins, setCoins] = useState(character.coins)
+
 
     return(
         <React.Fragment>
@@ -250,15 +254,32 @@ function CharacterSheet() {
                 <div>
                     Artifacts: {artifacts.map(artifact => <div>{artifact.name}</div>)}
                 </div>
+                <div>
+                    Abilities: 
+                        <div>
+                            {typeAbilities.map(ability => <div>{ability.name}</div>)}
+                        </div>
+                        <div>
+                            {blessingAbilities.map(ability => <div>{ability.name}</div>)}
+                        </div>
+                </div>
+                <div>
+                    Curse effects: 
+                        <div>
+                            {curseAbilities.map(ability => <div>{ability.name}</div>)}
+                        </div>
+                </div>
         </form>  
 
         <Button>
             Ye Olde Item Shop
         </Button>
-
-        <Button>
-            Level Up
+        
+        <Button >
+            Save Character
         </Button>
+       
+        
         </React.Fragment>
 
     )

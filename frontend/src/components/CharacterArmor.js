@@ -4,6 +4,7 @@ import EquipmentOptionModal from '../containers/EquipmentOptionModal'
 
 function CharacterArmor() {
     let armors = useSelector(state => state.armors)
+    let coins = useSelector(state => state.coins)
     let dispatch = useDispatch()
     let selectOptions = 'SELECT_ARMOR'
   
@@ -12,7 +13,7 @@ function CharacterArmor() {
     return (
       <div className="selection_options">
              <div className="character_box ">
-             <div> </div>
+            <div> Coins: {coins}</div>
                  {armors.map(armor=> <EquipmentOptionModal option={armor} selectOptions={selectOptions}/>)}
               
           </div>

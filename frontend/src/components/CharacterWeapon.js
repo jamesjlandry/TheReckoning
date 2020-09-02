@@ -6,6 +6,7 @@ function CharacterWeapon() {
     let weapons = useSelector(state => state.weapons)
     let dispatch = useDispatch()
     let selectOptions = 'SELECT_WEAPON'
+    let coins = useSelector(state => state.coins)
 
   
     
@@ -13,7 +14,7 @@ function CharacterWeapon() {
     return (
       <div className="selection_options">
              <div className="character_box ">
-             <div> </div>
+             <div>Coins: {coins}</div>
                  {weapons.map(weapon=> <EquipmentOptionModal option={weapon} selectOptions={selectOptions}/>)}
               
           </div>

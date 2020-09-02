@@ -86,8 +86,8 @@ function CharacterBuild() {
         let selectedCharacter = await response.json()
         if (selectedCharacter.errors) {
             console.log(selectedCharacter)
+            dispatch({type: 'SET_CHARACTERS', selectedCharacter: selectedCharacter})
         } 
-            dispatch({type: "SELECT_CHARACTER", selectedCharacter: selectedCharacter})
         }
 
     

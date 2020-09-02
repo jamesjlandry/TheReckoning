@@ -25,16 +25,6 @@ function App() {
       } 
   }, [])
 
-  // useEffect( () => {
-  //   Promise.all([fetch('http://localhost:3000/logged_in', {
-  //   credentials: 'include'}), fetch('http://localhost:3000/character_options')])
-  //   .then(([res1, res2]) => ({res1: res1.json(), res2: res2.json()}))
-  //   .then(({res1, res2}) => { if (res1 !== null) {
-  //     dispatch({type: "SET_USER", currentUser: res1})
-  //   } 
-  //   console.log(res2)})
-   
-  // }, [])
 
 
 

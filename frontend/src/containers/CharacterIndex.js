@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import {useState} from 'react';
 import CharacterBox from '../containers/CharacterBox'
 
 
@@ -12,11 +13,11 @@ function CharacterIndex() {
 
   
 
-    let getCharachter =  async (character) => {
+    let getCharacter =  async (character) => {
         let response = await fetch(`http://localhost:3000/characters/${character.id}`)
         let selectedCharacter = await response.json()
         console.log(selectedCharacter)
-        dispatch({ type: 'SELECT_CHARACTER', selectedCharacter: character })
+        dispatch({ type: 'SELECT_CHARACTER', selectedCharacter: selectedCharacter})
     }
     return (
         <React.Fragment>
@@ -24,7 +25,7 @@ function CharacterIndex() {
             <a className ='active item'></a> 
                     {characters.map(character => 
             
-                    <a className='item' onClick={() => {getCharachter(character)}}>
+                    <a className='item' onClick={() => {getCharacter(character)}}>
                     {character.name}
                     </a>
                     )}

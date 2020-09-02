@@ -6,6 +6,9 @@ const EquipmentOptionModal = (props) => {
   const [open, setOpen] = React.useState(false)
   const dispatch = useDispatch()
   const selectOptions = props.selectOptions
+  let availableCoins = useSelector(state => state.coins)
+  
+
 
   return (
     <Modal
@@ -27,12 +30,20 @@ const EquipmentOptionModal = (props) => {
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={() => {
+      { availableCoins >= props.option.cost ? 
+        <Button onClick={() => {
           setOpen(false)
-           dispatch({type: selectOptions, option: props.option})
+           dispatch({type: selectOptions, option: props.option, cost: props.option.cost})
            }} primary>
           Add Item <Icon name='chevron right' />
         </Button>
+        :
+        <Button 
+        type='button'
+          disabled>
+            Add Item
+        </Button>
+        }
         <Button onClick={() => setOpen(false)} primary>
           Close <Icon name='chevron right' />
         </Button>

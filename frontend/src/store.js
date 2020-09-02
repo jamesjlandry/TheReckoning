@@ -32,6 +32,12 @@ const reducer = (currentState, action) => {
       }
    }
 
+   else if (action.type === 'SET_CHARACTERS') {
+     return {...currentState,
+     characters: [...currentState.characters, action.selectedCharacter] 
+     }
+   }
+
    else if (action.type === 'SET_STATS'){
     return {...currentState, 
      characterStats: action.characterStats
@@ -48,7 +54,7 @@ const reducer = (currentState, action) => {
     return {...currentState, 
      createCharacter: true,
      editCharacter: false,
-     coins: 20
+     coins: 30
      }
   }
 
@@ -147,19 +153,22 @@ const reducer = (currentState, action) => {
 
   else if (action.type === 'SELECT_EQUIPMENT'){
     return {...currentState, 
-     characterEquipment: [action.option, ...currentState.characterEquipment]
+     characterEquipment: [action.option, ...currentState.characterEquipment],
+     coins: currentState.coins - action.option.cost
      }
   }
 
   else if (action.type === 'SELECT_ARMOR'){
     return {...currentState, 
-     characterArmor: [action.option, ...currentState.characterArmor]
+     characterArmor: [action.option, ...currentState.characterArmor],
+     coins: currentState.coins - action.option.cost
      }
   }
 
   else if (action.type === 'SELECT_WEAPON'){
     return {...currentState, 
-     characterWeapons: [action.option, ...currentState.characterWeapons]
+     characterWeapons: [action.option, ...currentState.characterWeapons],
+     coins: currentState.coins - action.option.cost
      }
   }
 
