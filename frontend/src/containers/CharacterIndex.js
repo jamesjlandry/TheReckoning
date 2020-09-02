@@ -11,7 +11,7 @@ function CharacterIndex() {
     let dispatch = useDispatch()
     return (
         <React.Fragment>
-            <div class="ui inverted vertical menu">
+            <div className="ui inverted vertical menu">
             <a className ='active item'></a> 
                     {characters.map(character => 
             
@@ -19,9 +19,9 @@ function CharacterIndex() {
                     {character.name}</a>
                     )}
             
-    
+            <a className='item' onClick={() => { dispatch({ type: 'CREATE_CHARACTER_MODE'}) }}>New Character</a>
                 </div>
-                <a className='item' onClick={() => { dispatch({ type: 'CREATE_CHARACTER_MODE'}) }}>New Character</a>
+               
 
                 
                 <div className="edit_create_character_box">

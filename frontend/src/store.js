@@ -164,7 +164,8 @@ const reducer = (currentState, action) => {
      armors: action.options.armors,
      weapons: action.options.weapons,
      skills: action.options.skills,
-     startingStats: action.options.startingstats
+     startingStats: action.options.startingstats,
+     characters: action.options.characters
      }
   }
   
