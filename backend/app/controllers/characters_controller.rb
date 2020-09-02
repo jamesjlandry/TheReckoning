@@ -1,9 +1,9 @@
 class CharactersController < ApplicationController
 
-    def index 
-        user = User.find_by(id: params[:user_id])
-        characters = user.characters
-        render json: characters
+    def show
+        character = Character.find_by(id: params[:id])
+        
+        render json: character, :include => [:blessing_levels, :curse_levels, :type_levels, :armors, :weapons, :equipments, :skills, :charms, :artifacts, :blessing, :type, :race]
     end
 
     def create

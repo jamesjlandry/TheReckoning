@@ -6,12 +6,22 @@ import {Button} from 'semantic-ui-react'
 function CharacterSheet() {
 
     const character = useSelector(state => state.selectedCharacter)
+    let race = useSelector(state => state.characterRace)
+    let type = useSelector(state => state.chracterType)
+    let blessing = useSelector(state => state.characterBlessing)
+    let skills = useSelector(state => state.characterSkills)
+    let armor = useSelector(state => state.characterArmor)
+    let weapons = useSelector(state => state.characterWeapons)
+    let equipment = useSelector(state => state.characterEquipment)
+    let charms = useSelector(state => state.characterCharms)
+    let artifacts = useSelector(state => state.characterArtifacts)
     const [strength_pool, setStrengthPool] = useState(character.strength_pool)
     const [dexterity_pool, setDexterityPool] = useState(character.dexterity_pool)
     const [wisdom_pool, setWisdomPool] = useState(character.wisdom_pool)
     const [charisma_pool, setCharismaPool] = useState(character.charisma_pool)
     const [magic_pool, setMagicPool] = useState(character.magic_pool)
     const [recovery_pool, setRecoveryPool] = useState(character.recovery_pool)
+    const [armor_cost, setArmorCost] = useState(character.armor_cost)
     const [XP, setXP] = useState(character.xp)
     const [HP, setHP] = useState(character.hp)
     const [coins, setCoins] = useState(character.coins)
@@ -40,6 +50,19 @@ function CharacterSheet() {
             <div>
                 Level {character.level}
             </div>
+            <div>
+                Race {race.name}
+            </div>
+            <div>
+                Type {type.name}
+            </div>
+            <div>
+               {blessing.name}
+            </div>
+            <div>
+                Curse {blessing.curse_name}
+            </div>
+
             <div>
                 <label>HP: </label>
                 <input
@@ -193,8 +216,49 @@ function CharacterSheet() {
                     max={character.recovery_pool}
                     />
                 </div>
-                    
+                <div>
+                        <label>Armor Cost: </label>
+                    <input
+                    className="input" 
+                    onChange={(event) => {
+                        setArmorCost(parseInt(event.target.value)) 
+                        }} 
+                    id="armor_cost"
+                    name="armor_cost" 
+                    placeholder={character.armor_cost}
+                    type="number" 
+                    value={armor_cost}
+                    min='0'
+                    max='3'
+                    />
+                </div>
+                <div>
+                    Skills: {skills.map(skill => <div>{skill.name}</div>)}
+                </div>
+                <div>
+                    Armor: {armor.map(armor => <div>{armor.name}</div>)}
+                </div>
+                <div>
+                    Weapons: {weapons.map(weapon => <div>{weapon.name}</div>)}
+                </div>
+                <div>
+                    Equipment: {equipment.map(item => <div>{item.name}</div>)}
+                </div>
+                <div>
+                    Magic Items: {charms.map(charm => <div>{charm.name}</div>)}
+                </div>
+                <div>
+                    Artifacts: {artifacts.map(artifact => <div>{artifact.name}</div>)}
+                </div>
         </form>  
+
+        <Button>
+            Ye Olde Item Shop
+        </Button>
+
+        <Button>
+            Level Up
+        </Button>
         </React.Fragment>
 
     )

@@ -3,7 +3,6 @@ import {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import NewCharacter from '../components/NewCharacter'
-import SelectedCharacter from '../components/SelectedCharacter'
 import CharacterOptionContainer from '../containers/CharacterOptionContainer'
 import CharacterSheet from '../components/CharacterSheet'
 

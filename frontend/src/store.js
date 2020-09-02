@@ -10,7 +10,19 @@ const reducer = (currentState, action) => {
       selectedCharacter: action.selectedCharacter,
       editCharacter: true,
       createCharacter: false,
-      coins: action.selectedCharacter.coins   
+      coins: action.selectedCharacter.coins,   
+      characterBlessing: action.selectedCharacter.blessing,
+      characterType: action.selectedCharacter.type,
+      characterRace: action.selectedCharacter.race,
+      characterBlessingLevel: action.selectedCharacter.blessing_levels,
+      characterCurseLevel: action.selectedCharacter.curse_levels,
+      characterTypeLevel: action.selectedCharacter.type_levels,
+      characterSkills: action.selectedCharacter.skills,
+      characterArmor: action.selectedCharacter.armors,
+      characterWeapons: action.selectedCharacter.weapons,
+      characterEquipment: action.selectedCharacter.equipments,
+      characterCharms: action.selectedCharacter.charms,
+      characterArtifacts: action.selectedCharacter.artifacts
     }
    }
    else if (action.type === 'SET_USER'){
@@ -188,6 +200,8 @@ let initialState = {
     typelevels: [],
     races: [],
     equipments: [],
+    artifacts: [],
+    charms: [],
     armors: [],
     weapons: [],
     skills: [],
@@ -210,6 +224,8 @@ let initialState = {
     characterEquipment: [],
     characterArmor: [],
     characterWeapons: [],
+    characterCharms: [],
+    characterArtifacts: [],
     coins: 0,
     characterLevel: 1
   }
