@@ -26,7 +26,8 @@ import CharacterSkills from '../components/CharacterSkills'
     const coins = useSelector(state => state.coins)
     const characterStats = useSelector(state => state.characterStats)
     const characterSkills = useSelector(state => state.characterSkills)
-    
+    const characterLevel = useSelector(state => state.characterLevel)
+    const availableTypeAbilities = characterLevel + 2
     
     const selectedCharacter = {
         name: '',
@@ -44,44 +45,51 @@ import CharacterSkills from '../components/CharacterSkills'
    
     
     const panes = [
-        { menuItem: 'Race', render: () => <Tab.Pane><CharacterRace/></Tab.Pane> },
-        { menuItem: 'Type', render: () => <Tab.Pane><CharacterType/></Tab.Pane> },
+       
         // { menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel/></Tab.Pane> },
-        { menuItem: 'Blessing', render: () => <Tab.Pane><CharacterBlessing/></Tab.Pane> },
+        
         // { menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel/></Tab.Pane> },
         { menuItem: 'Armor', render: () => <Tab.Pane><CharacterArmor/></Tab.Pane> },
         { menuItem: 'Weapons', render: () => <Tab.Pane><CharacterWeapon/></Tab.Pane> },
         { menuItem: 'Equipment', render: () => <Tab.Pane><CharacterEquipment/></Tab.Pane> },
       ]
 
+    if(characterLevel === 1) {
+      panes.unshift({ menuItem: 'Race', render: () => <Tab.Pane><CharacterRace/></Tab.Pane>  }, 
+      { menuItem: 'Type', render: () => <Tab.Pane><CharacterType/></Tab.Pane> }, 
+      { menuItem: 'Blessing', render: () => <Tab.Pane><CharacterBlessing/></Tab.Pane>  } )
+    }
+
     if(selectedType) {
-        if(selectedTypeLevels.length === 0)
+        if(selectedTypeLevels.length < 2 && characterLevel === 1)
             panes.push({ menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel/></Tab.Pane> })
-        else if (selectedTypeLevels.length === 1) 
-            panes.push({ menuItem: 'Type Level Options 2', render: () => <Tab.Pane><CharacterTypeLevel/></Tab.Pane> })
+       
+        else if (selectedTypeLevels.length < availableTypeAbilities && characterLevel !==1)
+            panes.unshift({ menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel/></Tab.Pane> })
     }
     if(selectedBlessing) {
-        if(selectedBlessingLevels.length === 0)
+        if(selectedBlessingLevels.length === 0 && characterLevel === 1) {
         panes.push({ menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel/></Tab.Pane> })
+        } else if (selectedBlessingLevels.length < characterLevel) {
+        panes.unshift({ menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel/></Tab.Pane> })
+        }
     } 
 
     if(selectedType && selectedRace && selectedBlessing) {
-        
+
             panes.push({ menuItem: 'Stats', render: () => <Tab.Pane><CharacterStats/></Tab.Pane> })
     }
 
-    if(selectedType && selectedRace && selectedBlessing) {
-        
+    if(selectedType && selectedRace && selectedBlessing && characterLevel === 1 || characterLevel === 2 || characterLevel === 6 ) {
+    
       panes.push({ menuItem: 'Skills', render: () => <Tab.Pane><CharacterSkills/></Tab.Pane> })
 }
 
-    if(selectedType && selectedRace && selectedBlessing && characterStats && characterSkills) {
+    if(selectedType && selectedRace && selectedBlessing && characterStats && characterSkills || characterLevel >=2 && characterStats ) {
         
       panes.push({ menuItem: 'Review Character', render: () => <Tab.Pane><CharacterBuild/></Tab.Pane> })
 }
-    let createCharacter = () => {
 
-    }
     console.log(Object.values(selectedCharacter))
     return (
         <React.Fragment>

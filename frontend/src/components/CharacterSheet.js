@@ -32,28 +32,28 @@ function CharacterSheet() {
     let characterLevel = useSelector(state => state.characterLevel)
 
    if(XP >= 100 &&  characterLevel === 1) {
-       dispatch({type: "SET_LEVEL_UP"})
+       dispatch({type: "SET_LEVEL_UP", characterXP: XP})
    } 
    else if(XP >= 200 && characterLevel === 2) {
-       dispatch({type: "SET_LEVEL_UP"})
+       dispatch({type: "SET_LEVEL_UP", characterXP: XP})
    }
    else if(XP >= 300  && characterLevel === 3) {
-    dispatch({type: "SET_LEVEL_UP"})
+    dispatch({type: "SET_LEVEL_UP", characterXP: XP})
     }
     else if(XP >= 400  && characterLevel === 4) {
-        dispatch({type: "SET_LEVEL_UP"})
+        dispatch({type: "SET_LEVEL_UP", characterXP: XP})
     }
     else if(XP >= 500  && characterLevel === 5) {
-        dispatch({type: "SET_LEVEL_UP"})
+        dispatch({type: "SET_LEVEL_UP", characterXP: XP})
     }
     else if(XP >= 600  && characterLevel === 6) {
-        dispatch({type: "SET_LEVEL_UP"})
+        dispatch({type: "SET_LEVEL_UP", characterXP: XP})
     }
     else if(XP >= 700 && characterLevel === 7) {
-        dispatch({type: "SET_LEVEL_UP"})
+        dispatch({type: "SET_LEVEL_UP", characterXP: XP})
     }
     else if(XP >= 800 && characterLevel === 8) {
-        dispatch({type: "SET_LEVEL_UP"})
+        dispatch({type: "SET_LEVEL_UP", characterXP: XP})
     }
 
 //    let levelUpTable = { 
@@ -71,7 +71,7 @@ function CharacterSheet() {
         <React.Fragment>
              {
                 levelUp ?
-            <Button onClick={dispatch({type: "SET_LEVEL_UP_OPTIONS" }) }>
+            <Button onClick={() => {dispatch({type: "CREATE_CHARACTER_MODE" }) }}>
                 Level Up
             </Button>
             :

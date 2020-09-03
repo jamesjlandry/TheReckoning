@@ -35,15 +35,8 @@ const reducer = (currentState, action) => {
    else if (action.type === 'SET_LEVEL_UP'){
     return {...currentState, 
      levelUp: true,
-     characterLevel: currentState.characterLevel + 1
-     }
-  }
-
-  else if (action.type === 'SET_LEVEL_UP_OPTIONS'){
-    return {...currentState, 
-     levelUpOptions: true,
-     characterSheet: false,
-     
+     characterLevel: currentState.characterLevel + 1,
+     characterXP: action.characterXP
      }
   }
 
@@ -62,15 +55,14 @@ const reducer = (currentState, action) => {
 
   else if (action.type === 'SET_SKILLS'){
     return {...currentState, 
-     characterSkills: action.characterSkills
+     characterSkills: [...currentState.characterSkills, action.characterSkills]
      }
   }
 
    else if (action.type === 'CREATE_CHARACTER_MODE'){
     return {...currentState, 
      createCharacter: true,
-     editCharacter: false,
-     coins: 30
+     editCharacter: false
      }
   }
 
@@ -145,7 +137,7 @@ const reducer = (currentState, action) => {
   else if (action.type === 'SELECT_BLESSING_LEVEL'){
     return {...currentState, 
      characterBlessingLevel: [action.option.blessing, ...currentState.characterBlessingLevel],
-     characterCurseLevel: [action.option.curse]
+     characterCurseLevel: [action.option.curse, ...currentState.characterCurseLevel]
      }
   }
 
@@ -251,8 +243,9 @@ let initialState = {
     characterWeapons: [],
     characterCharms: [],
     characterArtifacts: [],
-    coins: 0,
+    coins: 35,
     characterLevel: 1,
+    characterXP: 0,
     levelUp: false,
   }
 
