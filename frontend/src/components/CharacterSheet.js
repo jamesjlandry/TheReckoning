@@ -4,7 +4,7 @@ import {useState} from 'react';
 import {Button} from 'semantic-ui-react'
 
 function CharacterSheet() {
-
+    const dispatch = useDispatch()
     const character = useSelector(state => state.selectedCharacter)
     let race = useSelector(state => state.characterRace)
     let type = useSelector(state => state.characterType)
@@ -28,10 +28,55 @@ function CharacterSheet() {
     const [XP, setXP] = useState(character.xp)
     const [HP, setHP] = useState(character.hp)
     const [coins, setCoins] = useState(character.coins)
+    let levelUp = useSelector(state => state.levelUp)
+    let characterLevel = useSelector(state => state.characterLevel)
 
+   if(XP >= 100 &&  characterLevel === 1) {
+       dispatch({type: "SET_LEVEL_UP"})
+   } 
+   else if(XP >= 200 && characterLevel === 2) {
+       dispatch({type: "SET_LEVEL_UP"})
+   }
+   else if(XP >= 300  && characterLevel === 3) {
+    dispatch({type: "SET_LEVEL_UP"})
+    }
+    else if(XP >= 400  && characterLevel === 4) {
+        dispatch({type: "SET_LEVEL_UP"})
+    }
+    else if(XP >= 500  && characterLevel === 5) {
+        dispatch({type: "SET_LEVEL_UP"})
+    }
+    else if(XP >= 600  && characterLevel === 6) {
+        dispatch({type: "SET_LEVEL_UP"})
+    }
+    else if(XP >= 700 && characterLevel === 7) {
+        dispatch({type: "SET_LEVEL_UP"})
+    }
+    else if(XP >= 800 && characterLevel === 8) {
+        dispatch({type: "SET_LEVEL_UP"})
+    }
+
+//    let levelUpTable = { 
+//     100: function() { if (characterLevel === 1)dispatch({type: "SET_LEVEL_UP"})},
+//     200: function() { if (characterLevel === 2) dispatch({type: "SET_LEVEL_UP"})},
+//     300: function() { if (characterLevel === 3) dispatch({type: "SET_LEVEL_UP"})},
+//     400: function() { if (characterLevel === 4) dispatch({type: "SET_LEVEL_UP"})}
+//    }
+
+//  function processLevelUp(command)  {
+//        levelUpTable[command]()
+//    }
 
     return(
         <React.Fragment>
+             {
+                levelUp ?
+            <Button onClick={dispatch({type: "SET_LEVEL_UP_OPTIONS" }) }>
+                Level Up
+            </Button>
+            :
+            null
+            }   
         <form>
             <div>
                 Name: {character.name}
@@ -42,6 +87,7 @@ function CharacterSheet() {
                   className="input" 
                   onChange={(event) => {
                       setXP(parseInt(event.target.value)) 
+                    //   processLevelUp(event.target.value)
                     }} 
                   id="XP"
                   name="XP" 
@@ -276,7 +322,7 @@ function CharacterSheet() {
         </Button>
         
         <Button >
-            Save Character
+            Save and Close
         </Button>
        
         

@@ -32,6 +32,22 @@ const reducer = (currentState, action) => {
       }
    }
 
+   else if (action.type === 'SET_LEVEL_UP'){
+    return {...currentState, 
+     levelUp: true,
+     characterLevel: currentState.characterLevel + 1
+     }
+  }
+
+  else if (action.type === 'SET_LEVEL_UP_OPTIONS'){
+    return {...currentState, 
+     levelUpOptions: true,
+     characterSheet: false,
+     
+     }
+  }
+
+ 
    else if (action.type === 'SET_CHARACTERS') {
      return {...currentState,
      characters: [...currentState.characters, action.selectedCharacter] 
@@ -236,7 +252,8 @@ let initialState = {
     characterCharms: [],
     characterArtifacts: [],
     coins: 0,
-    characterLevel: 1
+    characterLevel: 1,
+    levelUp: false,
   }
 
 const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
