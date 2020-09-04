@@ -70,7 +70,6 @@ function LevelUpCharacterSubmit() {
             skill_ids: skillIds,
         }
    
-       debugger
         let response = await fetch(`http://localhost:3000/characters/${selectedCharacter.id}`, {
             method: "PATCH", 
             headers: {
@@ -79,11 +78,10 @@ function LevelUpCharacterSubmit() {
             },
             body: JSON.stringify(character)
         })
-        let selectedCharacter = await response.json()
-        if (selectedCharacter.errors) {
-            console.log(selectedCharacter)
+        let updatedCharacter = await response.json()
+        if (updatedCharacter.errors) {
         } 
-        dispatch({type: 'SET_CHARACTERS', selectedCharacter: selectedCharacter})
+        dispatch({type: 'SET_CHARACTERS', selectedCharacter: updatedCharacter})
         }
 
     

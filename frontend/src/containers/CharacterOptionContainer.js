@@ -80,7 +80,7 @@ import CharacterSkills from '../components/CharacterSkills'
             panes.push({ menuItem: 'Stats', render: () => <Tab.Pane><CharacterStats/></Tab.Pane> })
     }
 
-    if(selectedType && selectedRace && selectedBlessing && characterLevel === 1 || characterLevel === 2 || characterLevel === 6 ) {
+    if(selectedType && selectedRace && selectedBlessing && characterLevel === 1 || characterLevel === 2 || characterLevel === 4 || characterLevel === 6 ) {
     
       panes.push({ menuItem: 'Skills', render: () => <Tab.Pane><CharacterSkills/></Tab.Pane> })
 }
