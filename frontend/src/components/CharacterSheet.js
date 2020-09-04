@@ -18,6 +18,25 @@ function CharacterSheet() {
     let typeAbilities = useSelector(state => state.characterTypeLevel)
     let blessingAbilities = useSelector(state => state.characterBlessingLevel)
     let curseAbilities = useSelector(state => state.characterCurseLevel)
+    let armorIds = armor.map(armor => armor.id)
+    let skillIds = skills.map(skill => skill.id)
+    let curseLevelIds = curseAbilities.map(curse => curse.id)
+    let typeLevelIds = typeAbilities.map(type => type.id)
+    let blessingLevelIds = blessingAbilities.map(blessing => blessing.id)
+    let equipmentIds = equipment.map(equipment => equipment.id)
+    let weaponIds = weapons.map(weapon => weapon.id)
+    const characterStrength = useSelector(state => state.selectedCharacter.strength)
+    const characterDexterity = useSelector(state => state.selectedCharacter.dexterity)
+    const characterCharisma = useSelector(state => state.selectedCharacter.charisma)
+    const characterWisdom = useSelector(state => state.selectedCharacter.wisdom)
+    const characterMagic = useSelector(state => state.selectedCharacter.magic)
+    const characterCurrentLevel = useSelector(state => state.selectedCharacter.level)
+    const maxRecoveryPool = Math.floor(( 4 + characterCurrentLevel) / 2)
+    const maxMagicPool = Math.floor(characterMagic / 2)
+    const maxStrengthPool = Math.floor(characterStrength / 2)
+    const maxCharismaPool = Math.floor(characterCharisma / 2)
+    const maxWisdomPool = Math.floor(characterWisdom / 2)
+    const maxDexterityPool = Math.floor(characterDexterity / 2)
     const [strength_pool, setStrengthPool] = useState(character.strength_pool)
     const [dexterity_pool, setDexterityPool] = useState(character.dexterity_pool)
     const [wisdom_pool, setWisdomPool] = useState(character.wisdom_pool)
@@ -55,6 +74,53 @@ function CharacterSheet() {
     else if(XP >= 800 && characterLevel === 8) {
         dispatch({type: "SET_LEVEL_UP", characterXP: XP})
     }
+
+    let handleUpdate = async (e) => {
+        e.preventDefault();
+        let updatedCharacter = {
+            name: character.name,
+            image: '',
+            coins: coins,
+            background: '',
+            notes: '',
+            strength: character.strength,
+            charisma: character.charisma,
+            wisdom: character.wisdom,
+            dexterity: character.dexterity,
+            magic: character.magic,
+            recovery: 4,
+            strength_pool: strength_pool,
+            dexterity_pool: dexterity_pool,
+            wisdom_pool: wisdom_pool,
+            charisma_pool: charisma_pool,
+            magic_pool: magic_pool,
+            xp: XP,
+            hp: HP,
+            status: '',
+            recovery_pool: recovery_pool,
+            armor_cost: 0,
+            armor_ids: armorIds,
+            weapon_ids: weaponIds,
+            equipment_ids: equipmentIds,
+            type_level_ids: typeLevelIds,
+            blessing_level_ids: blessingLevelIds,
+            curse_level_ids: curseLevelIds,
+            skill_ids: skillIds,
+        }
+        let response = await fetch(`http://localhost:3000/characters/${character.id}`, {
+            method: "PATCH", 
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedCharacter)
+        })
+        let selectedCharacter = await response.json()
+        if (selectedCharacter.errors) {
+            console.log(selectedCharacter)
+        } 
+        dispatch({type: 'UPDATE_CHARACTERS', selectedCharacter: selectedCharacter})
+        }
 
 //    let levelUpTable = { 
 //     100: function() { if (characterLevel === 1)dispatch({type: "SET_LEVEL_UP"})},
@@ -166,7 +232,7 @@ function CharacterSheet() {
                     type="number" 
                     value={strength_pool}
                     min='0'
-                    max={character.strength_pool}
+                    max={maxStrengthPool}
                     />
                 </div>
                 <div>
@@ -182,7 +248,7 @@ function CharacterSheet() {
                     type="number" 
                     value={dexterity_pool}
                     min='0'
-                    max={character.dexterity_pool}
+                    max={maxDexterityPool}
                     />
                 </div>
 
@@ -199,7 +265,7 @@ function CharacterSheet() {
                     type="number" 
                     value={wisdom_pool}
                     min='0'
-                    max={character.wisdom_pool}
+                    max={maxWisdomPool}
                     />
                 </div>
                 <div>
@@ -215,7 +281,7 @@ function CharacterSheet() {
                     type="number" 
                     value={charisma_pool}
                     min='0'
-                    max={character.charisma_pool}
+                    max={maxCharismaPool}
                     />
                 </div>
                 <div>
@@ -231,25 +297,10 @@ function CharacterSheet() {
                     type="number" 
                     value={magic_pool}
                     min='0'
-                    max={character.magic_pool}
+                    max={maxMagicPool}
                     />
                 </div>
-                <div>
-                    <label>Recovery Pool: </label>
-                    <input
-                    className="input" 
-                    onChange={(event) => {
-                        setRecoveryPool(parseInt(event.target.value)) 
-                        }} 
-                    id="recovery_pool"
-                    name="recovery_pool" 
-                    placeholder={character.recovery_pool}
-                    type="number" 
-                    value={recovery_pool}
-                    min='0'
-                    max={character.recovery_pool}
-                    />
-                </div>
+            
                 <div>
                         <label>Recovery Pool: </label>
                     <input
@@ -263,7 +314,7 @@ function CharacterSheet() {
                     type="number" 
                     value={recovery_pool}
                     min='0'
-                    max={character.recovery_pool}
+                    max={maxRecoveryPool}
                     />
                 </div>
                 <div>
@@ -321,7 +372,7 @@ function CharacterSheet() {
             Ye Olde Item Shop
         </Button>
         
-        <Button >
+        <Button onClick={event => handleUpdate(event)}>
             Save and Close
         </Button>
        

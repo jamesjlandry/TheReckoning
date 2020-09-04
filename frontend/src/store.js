@@ -47,6 +47,12 @@ const reducer = (currentState, action) => {
      }
    }
 
+   else if (action.type === 'UPDATE_CHARACTERS') {
+    return {...currentState,
+
+    }
+  }
+
    else if (action.type === 'SET_STATS'){
     return {...currentState, 
      characterStats: action.characterStats

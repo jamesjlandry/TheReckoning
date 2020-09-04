@@ -27,6 +27,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string  :status
       t.integer :recovery_pool
       t.integer :armor_cost
+
       t.timestamps
     end
   end

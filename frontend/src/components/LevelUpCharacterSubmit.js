@@ -81,7 +81,7 @@ function LevelUpCharacterSubmit() {
         let updatedCharacter = await response.json()
         if (updatedCharacter.errors) {
         } 
-        dispatch({type: 'SET_CHARACTERS', selectedCharacter: updatedCharacter})
+        dispatch({type: 'UPDATE_CHARACTERS', selectedCharacter: updatedCharacter})
         }
 
     
