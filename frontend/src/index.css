@@ -1,13 +1,138 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+button {
+  border: 1px solid rgba(141, 141, 141, 0.6);
+
+  background-color: rgb(97, 97, 97);
+
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+  font-size: 80%;
+  color: rgb(83, 83, 83)
+}
+
+button:hover {
+  box-shadow: 0 0 5px rgba(122, 122, 122, 0.8);
+}
+
 body {
+  padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: lightslategrey
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.header {
+  display: flex;
+  flex-flow: column wrap;
+  position: relative;
+
+  align-content: left;
+
+  align-items: left;
+  text-align: left;
+
+  margin-bottom: 0;
+  padding-bottom: 2%;
+  padding-left: 2%;
+
+  font-family: 'Kanit', sans-serif;
+  color: rgb(36, 41, 46);
+
+  background: rgb(53, 68, 78);
+}
+
+.profile_box {
+  display:block;
+
+  height: 30%;
+  margin-bottom: 2%;
+  margin-left: 80%;
+  margin-right: 2%;
+  padding: 1%;
+
+  border-bottom: 2px solid rgb(76, 107, 107);
+  border-left: 2px solid darkslategray;
+
+  background-color: rgb(112, 128, 143);
+}
+
+
+.test-button{
+  font-size: 20px;
+  color: gray;
+  padding: 5px;
+  margin: 20px;
+}
+.modals {
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height: 300px;
+}
+.modal-wrapper{
+  position: absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  top: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  width: 200px;
+  background: #fff;
+  border-radius: 5px;
+  min-width: 500px;
+  position: relative;
+}
+.text {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 20px 0;
+    text-align: center;
+}
+.buttons {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+}
+.modal-button {
+  font-size: 15px;
+  color: gray;
+  padding: 5px;
+  border-radius: 5px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  cursor: pointer;
+}
+.modal-content {
+  background:  rgba(193, 29, 29,0.5);
+  color: #fff;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

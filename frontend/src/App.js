@@ -1,24 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import Header from './containers/Header';
+import CharacterIndex from './containers/CharacterIndex';
+import LogIn from './containers/LogIn'
+import CharacterBox from './containers/CharacterBox';
 
+let user 
+let options
 function App() {
+  
+  let loggedIn = useSelector(state => state.loggedIn)
+  let dispatch = useDispatch()
+
+  useEffect( async () => {
+   
+      let response = await fetch('http://localhost:3000/logged_in', {
+          'credentials': 'include'
+      })
+      let currentUser = await response.json()
+      if (currentUser !== null) {
+          dispatch({type: "SET_USER", currentUser: currentUser})
+      } 
+  }, [])
+
+
+
+
+  useEffect( async () => {
+    let response = await fetch('http://localhost:3000/character_options')
+    let options = await response.json()
+    dispatch({type: "SET_OPTIONS", options: options})
+
+  },[])
+
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {loggedIn ? 
+      <React.Fragment>
+      <Header className="App-header" />
+      <CharacterIndex />
+      
+      </React.Fragment>
+      :
+      <LogIn />
+        }   
     </div>
   );
 }
