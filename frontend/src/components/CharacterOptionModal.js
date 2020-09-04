@@ -21,6 +21,20 @@ const CharacterOptionModal = (props) => {
           <p >
            {props.option.text}
           </p>
+          <br></br>
+          <p>
+            {props.option.curse_name ?
+            <div>Along with  {props.option.name} you have the following Curse:<br></br>
+            <br></br>
+              <strong>{props.option.curse_name}</strong>
+            <br></br>
+            <br></br>
+            {props.option.curse_text}
+            </div>
+            :
+            null
+            }
+          </p>
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>

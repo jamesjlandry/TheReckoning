@@ -1,7 +1,7 @@
 ::-webkit-scrollbar {
   display: none;
 }
-
+/* 
 button {
   border: 1px solid rgba(141, 141, 141, 0.6);
 
@@ -15,7 +15,7 @@ button {
 
 button:hover {
   box-shadow: 0 0 5px rgba(122, 122, 122, 0.8);
-}
+} */
 
 body {
   padding: 0;
@@ -27,7 +27,16 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: lightslategrey
 }
+.notes {
 
+  word-wrap: break-word;
+  resize: none;
+  overflow: auto;
+  outline: none;
+  width: 600px;
+  height: 130px;
+  border: 1px solid #cccccc;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -67,9 +76,82 @@ code {
 
   background-color: rgb(112, 128, 143);
 }
+.box_background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
 
+}
+.box_background img{
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+.box{
+  width: 300px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #252424;
+  text-align: center;
+  border-radius: 24px;
+}
 
-.test-button{
+.box h1{
+  color: rgb(121, 56, 56);
+  text-transform: uppercase;
+}
+
+.box input[type = "text"],.box input[type = 'password'] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+/* .box input[type = 'text']:focus,.box input[type= "password"]:focus{
+  width: 280px;
+  border-color: #2ecc71;
+} */
+
+.box input[type = "submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.box input[type = "submit"]:hover{
+  background: #2eec71
+}
+
+/* .test-button{
   font-size: 20px;
   color: gray;
   padding: 5px;
@@ -130,9 +212,9 @@ code {
 }
 .modal-content {
   background:  rgba(193, 29, 29,0.5);
-  color: #fff;
+  color: rgb(160, 104, 104);
   height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */

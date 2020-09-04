@@ -32,7 +32,9 @@ const reducer = (currentState, action) => {
       characterArmorCost: action.selectedCharacter.armor_cost,
       characterRecoveryPool: action.selectedCharacter.recovery_pool,
       characterHP: action.selectedCharacter.hp,
-      coins: action.selectedCharacter.coins
+      coins: action.selectedCharacter.coins,
+      characterBackground: action.selectedCharacter.background,
+      characterNotes: action.selectedCharacter.notes
     }
    }
    else if (action.type === 'SET_USER'){
@@ -132,6 +134,18 @@ const reducer = (currentState, action) => {
   else if (action.type === 'SET_RECOVERY_POOL'){
     return {...currentState, 
      characterRecoveryPool: action.recoveryPool
+     }
+  }
+
+  else if (action.type === 'SET_BACKGROUND'){
+    return {...currentState, 
+     characterBackground: action.characterBackground
+     }
+  }
+
+  else if (action.type === 'SET_NOTES'){
+    return {...currentState, 
+     characterNotes: action.characterNotes
      }
   }
 
@@ -302,6 +316,11 @@ const reducer = (currentState, action) => {
      characters: action.options.characters
      }
   }
+  else if (action.type === "SET_REGISTER") {
+    return { ...currentState,
+    registerAccount: !currentState.registerAccount
+    }
+  }
   
     return currentState
 }
@@ -311,6 +330,7 @@ const reducer = (currentState, action) => {
 let initialState = {
     currentUser: null,
     loggedIn: false,
+    registerAccount: false,
     createCharacter: false,
     editCharacter: false,
     characters: [],
@@ -360,7 +380,9 @@ let initialState = {
     characterMagicPool: 0,
     characterArmorCost: 0,
     characterRecoveryPool: 0,
-    levelUp: false,
+    characterBackground: '',
+    characterNotes: '',
+   
   }
 
 const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

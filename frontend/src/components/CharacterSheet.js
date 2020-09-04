@@ -27,6 +27,8 @@ function CharacterSheet() {
     let recovery_pool = useSelector(state => state.characterRecoveryPool)
     let characterHP = useSelector(state => state.characterHP)
     let characterCoins = useSelector(state => state.coins)
+    let characterBackground = useSelector(state => state.characterBackground)
+    let characterNotes = useSelector(state => state.characterNotes)
     let armorIds = armor.map(armor => armor.id)
     let skillIds = skills.map(skill => skill.id)
     let curseLevelIds = curseAbilities.map(curse => curse.id)
@@ -47,17 +49,13 @@ function CharacterSheet() {
     const maxCharismaPool = Math.floor(characterCharisma / 2)
     const maxWisdomPool = Math.floor(characterWisdom / 2)
     const maxDexterityPool = Math.floor(characterDexterity / 2)
-    console.log(maxRecoveryPool)
-    // const [XP, setXP] = useState(characterXP)
-    // const [HP, setHP] = useState(character.hp)
-    // const [coins, setCoins] = useState(character.coins)
     let levelUp = useSelector(state => state.levelUp)
     let characterLevel = useSelector(state => state.characterLevel)
 
-   if(characterXP >= 100 &&  characterLevel === 1) {
+   if(characterXP >= 100 &&  characterLevel === 1 && character.level === 1) {
        dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
    } 
-   else if(characterXP >= 200 && characterLevel === 2) {
+   else if(characterXP >= 200 && characterLevel === 2 && character.level === 2) {
        dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
    }
    else if(characterXP >= 300  && characterLevel === 3) {
@@ -86,8 +84,8 @@ function CharacterSheet() {
             image: '',
             level: character.level,
             coins: characterCoins,
-            background: '',
-            notes: '',
+            background: characterBackground,
+            notes: characterNotes,
             strength: character.strength,
             charisma: character.charisma,
             wisdom: character.wisdom,
@@ -371,6 +369,36 @@ function CharacterSheet() {
                         <div>
                             {curseAbilities.map(ability => <div>{ability.name}</div>)}
                         </div>
+                </div>
+                <div>
+                    Background: 
+                        <input
+                            className="notes"
+                            type="textarea"
+                            name={character.background}
+                            value={characterBackground}
+                            rows='990'
+                            cols='600'
+
+                            onChange={(event) => dispatch({type: "SET_BACKGROUND", characterBackground: event.target.value})}
+                        >
+
+                            
+                        </input>
+                </div>
+
+                <div>
+                    Notes: 
+                        <input
+                            className="notes"
+                            type="textarea"
+                            name={character.notes}
+                            value={characterNotes}
+                            onChange={(event) => dispatch({type: "SET_NOTES", characterNotes: event.target.value})}
+                        >
+
+                            
+                        </input>
                 </div>
         </form>  
 

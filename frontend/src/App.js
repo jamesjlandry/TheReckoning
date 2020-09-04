@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import Header from './containers/Header';
 import CharacterIndex from './containers/CharacterIndex';
-import LogIn from './containers/LogIn'
+import LogInMain from './containers/LogInMain'
 import CharacterBox from './containers/CharacterBox';
 
 let user 
@@ -46,7 +46,7 @@ function App() {
       
       </React.Fragment>
       :
-      <LogIn />
+      <LogInMain />
         }   
     </div>
   );
