@@ -22,7 +22,17 @@ const reducer = (currentState, action) => {
       characterWeapons: action.selectedCharacter.weapons,
       characterEquipment: action.selectedCharacter.equipments,
       characterCharms: action.selectedCharacter.charms,
-      characterArtifacts: action.selectedCharacter.artifacts
+      characterArtifacts: action.selectedCharacter.artifacts,
+      characterXP: action.selectedCharacter.xp,
+      characterStrengthPool: action.selectedCharacter.strength_pool,
+      characterDexterityPool: action.selectedCharacter.dexterity_pool,
+      characterWisdomPool: action.selectedCharacter.wisdom_pool,
+      characterCharismaPool: action.selectedCharacter.charisma_pool,
+      characterMagicPool: action.selectedCharacter.magic_pool,
+      characterArmorCost: action.selectedCharacter.armor_cost,
+      characterRecoveryPool: action.selectedCharacter.recovery_pool,
+      characterHP: action.selectedCharacter.hp,
+      coins: action.selectedCharacter.coins
     }
    }
    else if (action.type === 'SET_USER'){
@@ -49,13 +59,79 @@ const reducer = (currentState, action) => {
 
    else if (action.type === 'UPDATE_CHARACTERS') {
     return {...currentState,
-
+    
     }
   }
 
    else if (action.type === 'SET_STATS'){
     return {...currentState, 
      characterStats: action.characterStats
+     }
+  }
+
+  else if (action.type === 'SET_XP'){
+    return {...currentState, 
+     characterXP: action.xp
+     }
+  }
+
+   else if (action.type === 'SET_HP'){
+    return {...currentState, 
+     characterHP: action.hp
+     }
+  }
+
+  else if (action.type === 'SET_COINS'){
+    return {...currentState, 
+     coins: action.coins
+     }
+  }
+
+  else if (action.type === 'SET_HP'){
+    return {...currentState, 
+     characterHP: action.hp
+     }
+  }
+
+  else if (action.type === 'SET_ARMOR_COST'){
+    return {...currentState, 
+     characterArmorCost: action.armorCostPool
+     }
+  }
+
+  else if (action.type === 'SET_STRENGTH_POOL'){
+    return {...currentState, 
+     characterStrengthPool: action.strengthPool
+     }
+  }
+
+  else if (action.type === 'SET_DEXTERITY_POOL'){
+    return {...currentState, 
+     characterDexterityPool: action.dexterityPool
+     }
+  }
+
+  else if (action.type === 'SET_WISDOM_POOL'){
+    return {...currentState, 
+     characterWisdomPool: action.wisdomPool
+     }
+  }
+
+  else if (action.type === 'SET_CHARISMA_POOL'){
+    return {...currentState, 
+     characterCharismaPool: action.charismaPool
+     }
+  }
+
+  else if (action.type === 'SET_MAGIC_POOL'){
+    return {...currentState, 
+     characterMagicPool: action.magicPool
+     }
+  }
+
+  else if (action.type === 'SET_RECOVERY_POOL'){
+    return {...currentState, 
+     characterRecoveryPool: action.recoveryPool
      }
   }
 
@@ -274,7 +350,16 @@ let initialState = {
     characterArtifacts: [],
     coins: 35,
     characterLevel: 1,
+    currentCharacterLevel: 1,
     characterXP: 0,
+    characterHP: 0,
+    characterStrengthPool: 0,
+    characterDexterityPool: 0,
+    characterWisdomPool: 0,
+    characterCharismaPool: 0,
+    characterMagicPool: 0,
+    characterArmorCost: 0,
+    characterRecoveryPool: 0,
     levelUp: false,
   }
 
