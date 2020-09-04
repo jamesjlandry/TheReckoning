@@ -68,6 +68,29 @@ const reducer = (currentState, action) => {
    else if (action.type === 'CREATE_CHARACTER_MODE'){
     return {...currentState, 
      createCharacter: true,
+     editCharacter: false,
+     selectedCharacter: null,
+     characterSkills: [],
+    characterEquipment: [],
+    characterArmor: [],
+    characterWeapons: [],
+    characterCharms: [],
+    characterArtifacts: [],
+    coins: 35,
+    characterRace: null,
+    characterStats: null,
+    characterType: null,
+    characterBlessing: null,
+    characterBlessingLevel: [],
+    characterCurseLevel: [],
+    characterTypeLevel: [],
+    characterLevel: 1
+     }
+  }
+
+  else if (action.type === 'LEVEL_UP_MODE'){
+    return {...currentState, 
+     createCharacter: true,
      editCharacter: false
      }
   }

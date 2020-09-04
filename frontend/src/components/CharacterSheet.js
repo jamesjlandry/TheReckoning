@@ -137,7 +137,7 @@ function CharacterSheet() {
         <React.Fragment>
              {
                 levelUp ?
-            <Button onClick={() => {dispatch({type: "CREATE_CHARACTER_MODE" }) }}>
+            <Button onClick={() => {dispatch({type: "LEVEL_UP_MODE" }) }}>
                 Level Up
             </Button>
             :
