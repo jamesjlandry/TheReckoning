@@ -11,15 +11,15 @@ import CharacterSkillsLevelUp from '../components/CharacterSkillsLevelUp';
 
 function CharacterSkill() {
     
-    let characterLevel = useSelector(state => state.characterLevel)
+    let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     
-    console.log(characterLevel)
+    console.log(currentEligibleLevel)
     
     return (
       <div className="selection_options">
              <div className="character_box ">
              
-                {characterLevel === 1 
+                {currentEligibleLevel === 1 
                 ? 
                 <CharacterSkillsNew />
                 :

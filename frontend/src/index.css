@@ -107,7 +107,7 @@ code {
 }
 
 .box h1{
-  color: rgb(121, 56, 56);
+  color: #db3434;
   text-transform: uppercase;
 }
 
@@ -117,7 +117,7 @@ code {
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #3498db;
+  border: 2px solid #a09c9c;
   padding: 14px 10px;
   width: 200px;
   outline: none;
@@ -126,18 +126,18 @@ code {
   transition: 0.25s;
 }
 
-/* .box input[type = 'text']:focus,.box input[type= "password"]:focus{
-  width: 280px;
-  border-color: #2ecc71;
-} */
+.box input[type = 'text']:hover,.box input[type= "password"]:hover{
+  
+  border-color: #db3434;
+}
 
-.box input[type = "submit"] {
+.box button[type = "submit"] {
   border: 0;
   background: none;
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #2ecc71;
+  border: 2px solid #a09c9c;
   padding: 14px 40px;
   width: 200px;
   outline: none;
@@ -147,8 +147,10 @@ code {
   cursor: pointer;
 }
 
-.box input[type = "submit"]:hover{
-  background: #2eec71
+.box button[type = "submit"]:hover{
+  background: #db3434;
+  border-color:  #db3434;
+  
 }
 
 /* .test-button{

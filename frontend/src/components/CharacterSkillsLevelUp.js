@@ -9,7 +9,7 @@ import CheckBox from '../components/CheckBox'
 
 function CharacterSkillsLevelUp() {
     
-    let characterLevel = useSelector(state => state.characterLevel)
+    let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     let selectedCharacter = useSelector(state => state.selectedCharacter)
     let currentSkills = useSelector(state => state.characterSkills)
     let skills = useSelector(state => state.skills)

@@ -8,7 +8,7 @@ import LevelUpCharacterSubmit from '../components/LevelUpCharacterSubmit'
 
 function CharacterBuild() {
 
-   let characterLevel = useSelector(state => state.characterLevel)
+   let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
 
     
   
@@ -16,7 +16,7 @@ function CharacterBuild() {
         <div className="selection_options">
              <div className="character_box ">
             {
-                characterLevel === 1 
+                currentEligibleLevel === 1 
                 ?
                 <NewCharacterSubmit/>
                 :

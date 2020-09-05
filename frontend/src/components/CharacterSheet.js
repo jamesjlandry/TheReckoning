@@ -43,37 +43,38 @@ function CharacterSheet() {
     const characterWisdom = useSelector(state => state.selectedCharacter.wisdom)
     const characterMagic = useSelector(state => state.selectedCharacter.magic)
     const characterCurrentLevel = useSelector(state => state.selectedCharacter.level)
-    const maxRecoveryPool = Math.floor(( 8 + characterCurrentLevel) / 2)
+    const maxRecoveryPool = Math.floor(( 7 + characterCurrentLevel) / 2)
     const maxMagicPool = Math.floor(characterMagic / 2)
     const maxStrengthPool = Math.floor(characterStrength / 2)
     const maxCharismaPool = Math.floor(characterCharisma / 2)
     const maxWisdomPool = Math.floor(characterWisdom / 2)
     const maxDexterityPool = Math.floor(characterDexterity / 2)
-    let levelUp = useSelector(state => state.levelUp)
-    let characterLevel = useSelector(state => state.characterLevel)
+    
+    let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
+    let levelUp = currentEligibleLevel > character.level //useSelector(state => state.levelUp)
 
-   if(characterXP >= 100 &&  characterLevel === 1 && character.level === 1) {
+   if(characterXP >= 100 &&  currentEligibleLevel === 1 ) {
        dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
    } 
-   else if(characterXP >= 200 && characterLevel === 2 && character.level === 2) {
+   else if(characterXP >= 200 && currentEligibleLevel === 2 && character.level === 2) {
        dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
    }
-   else if(characterXP >= 300  && characterLevel === 3) {
+   else if(characterXP >= 300  && currentEligibleLevel === 3 && character.level === 3) {
     dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
-    else if(characterXP >= 400  && characterLevel === 4) {
+    else if(characterXP >= 400  && currentEligibleLevel === 4 && character.level === 4) {
         dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
-    else if(characterXP >= 500  && characterLevel === 5) {
+    else if(characterXP >= 500  && currentEligibleLevel === 5 && character.level === 5) {
         dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
-    else if(characterXP >= 600  && characterLevel === 6) {
+    else if(characterXP >= 600  && currentEligibleLevel === 6 && character.level === 6) {
         dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
-    else if(characterXP >= 700 && characterLevel === 7) {
+    else if(characterXP >= 700 && currentEligibleLevel === 7 && character.level === 7) {
         dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
-    else if(characterXP >= 800 && characterLevel === 8) {
+    else if(characterXP >= 800 && currentEligibleLevel === 8 && character.level === 8) {
         dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
 
@@ -126,10 +127,10 @@ function CharacterSheet() {
         }
 
 //    let levelUpTable = { 
-//     100: function() { if (characterLevel === 1)dispatch({type: "SET_LEVEL_UP"})},
-//     200: function() { if (characterLevel === 2) dispatch({type: "SET_LEVEL_UP"})},
-//     300: function() { if (characterLevel === 3) dispatch({type: "SET_LEVEL_UP"})},
-//     400: function() { if (characterLevel === 4) dispatch({type: "SET_LEVEL_UP"})}
+//     100: function() { if (currentEligibleLevel === 1)dispatch({type: "SET_LEVEL_UP"})},
+//     200: function() { if (currentEligibleLevel === 2) dispatch({type: "SET_LEVEL_UP"})},
+//     300: function() { if (currentEligibleLevel === 3) dispatch({type: "SET_LEVEL_UP"})},
+//     400: function() { if (currentEligibleLevel === 4) dispatch({type: "SET_LEVEL_UP"})}
 //    }
 
 //  function processLevelUp(command)  {
@@ -144,7 +145,9 @@ function CharacterSheet() {
                 Level Up
             </Button>
             :
-            null
+            <Button disabled>
+            Level Up
+        </Button>
             }   
         <form>
             <div>
@@ -372,9 +375,9 @@ function CharacterSheet() {
                 </div>
                 <div>
                     Background: 
-                        <input
+                        <textarea
                             className="notes"
-                            type="textarea"
+                            
                             name={character.background}
                             value={characterBackground}
                             rows='990'
@@ -384,21 +387,20 @@ function CharacterSheet() {
                         >
 
                             
-                        </input>
+                        </textarea>
                 </div>
 
                 <div>
                     Notes: 
-                        <input
+                        <textarea
                             className="notes"
-                            type="textarea"
                             name={character.notes}
                             value={characterNotes}
                             onChange={(event) => dispatch({type: "SET_NOTES", characterNotes: event.target.value})}
                         >
 
                             
-                        </input>
+                        </textarea>
                 </div>
         </form>  
 

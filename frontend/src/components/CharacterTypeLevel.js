@@ -4,7 +4,7 @@ import CharacterOptionModal from '../components/CharacterOptionModal'
 
 function CharacterTypeLevel() {
     let dispatch = useDispatch()
-    let level = useSelector(state => state.characterLevel)
+    let level = useSelector(state => state.currentEligibleLevel)
     let typelevels = useSelector(state => state.typelevels)
     let selectedType = useSelector(state => state.characterType)
     let selectedLevels = useSelector(state => state.characterTypeLevel)

@@ -11,7 +11,7 @@ function CharacterStats() {
     let dispatch = useDispatch()
     
     
-    let characterLevel = useSelector(state => state.characterLevel)
+    let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     
     
   
@@ -19,7 +19,7 @@ function CharacterStats() {
         <div className="selection_options">
              <div className="character_box ">
              <div> </div>
-               {characterLevel === 1 
+               {currentEligibleLevel === 1 
 
               ? 
                <CharacterStatsNew/>

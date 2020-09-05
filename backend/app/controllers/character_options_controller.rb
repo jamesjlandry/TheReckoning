@@ -14,7 +14,7 @@ class CharacterOptionsController < ApplicationController
         character_options['blessinglevels'] = BlessingLevel.all
         character_options['curselevels'] = CurseLevel.all
         character_options['startingstats'] = StartingStat.all
-        character_options['characters'] = Character.all
+        character_options['characters'] = Character.all.order(:id)
         render json: character_options
     end
 

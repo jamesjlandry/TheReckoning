@@ -34,7 +34,8 @@ const reducer = (currentState, action) => {
       characterHP: action.selectedCharacter.hp,
       coins: action.selectedCharacter.coins,
       characterBackground: action.selectedCharacter.background,
-      characterNotes: action.selectedCharacter.notes
+      characterNotes: action.selectedCharacter.notes,
+      currentEligibleLevel: action.selectedCharacter.level
     }
    }
    else if (action.type === 'SET_USER'){
@@ -46,8 +47,7 @@ const reducer = (currentState, action) => {
 
    else if (action.type === 'SET_LEVEL_UP'){
     return {...currentState, 
-     levelUp: true,
-     characterLevel: currentState.characterLevel + 1,
+     currentEligibleLevel: currentState.currentEligibleLevel + 1,
      characterXP: action.characterXP
      }
   }
@@ -174,7 +174,7 @@ const reducer = (currentState, action) => {
     characterBlessingLevel: [],
     characterCurseLevel: [],
     characterTypeLevel: [],
-    characterLevel: 1
+    currentEligibleLevel: 1
      }
   }
 
@@ -369,8 +369,7 @@ let initialState = {
     characterCharms: [],
     characterArtifacts: [],
     coins: 35,
-    characterLevel: 1,
-    currentCharacterLevel: 1,
+    currentEligibleLevel: 1,
     characterXP: 0,
     characterHP: 0,
     characterStrengthPool: 0,

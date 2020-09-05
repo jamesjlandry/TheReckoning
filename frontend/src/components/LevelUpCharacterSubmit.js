@@ -15,7 +15,7 @@ function LevelUpCharacterSubmit() {
     let characterEquipment = useSelector(state => state.characterEquipment)
     let characterArmor = useSelector(state => state.characterArmor)
     let characterWeapons = useSelector(state => state.characterWeapons)
-    let characterLevel = useSelector(state => state.characterLevel)
+    let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     let coins = useSelector(state => state.coins)
     let characterBlessingLevel = useSelector(state => state.characterBlessingLevel)
     let characterCurseLevel = useSelector(state => state.characterCurseLevel)
@@ -34,13 +34,13 @@ function LevelUpCharacterSubmit() {
     let blessingLevelIds = characterBlessingLevel.map(blessing => blessing.id)
     let equipmentIds = characterEquipment.map(equipment => equipment.id)
     let weaponIds = characterWeapons.map(weapon => weapon.id)
-    const [name, setName] = useState('');
+    const [name, setName] = useState(selectedCharacter.name);
     
     let handleUpdate = async (e) => {
         e.preventDefault()
         let character = {
             name: name,
-            level: characterLevel,
+            level: currentEligibleLevel,
             image: selectedCharacter.image,
             coins: coins,
             background: selectedCharacter.background,
@@ -98,18 +98,13 @@ function LevelUpCharacterSubmit() {
                         onChange={(event) => setName(event.target.value)} 
                         id="name"
                         name="name" 
-                        placeholder={selectedCharacter.name}
                         type="text" 
                         value={name}
                         />
-                        {name !== '' ? 
                         <Button type='submit'>
                             Level Up
                         </Button>
-                        :
-                        <Button type='button' disabled>
-                            Level Up
-                        </Button>} 
+                       
                     </form> 
                     <div>Race: {characterRace.name}</div>
                     <div>Type: {characterType.name}</div>
