@@ -42,12 +42,12 @@ code {
 }
 
 .header {
-  display: flex;
-  flex-flow: column wrap;
+  display: grid;
+  
   position: relative;
 
   align-content: left;
-  height: 30%;
+  height: 10%;
   align-items: left;
   text-align: left;
 
@@ -297,6 +297,40 @@ code {
   background: #db3434;
   border-color:  #db3434;
   
+}
+
+.sidenav {
+  height: 100%;
+  width: 140px;
+  position: fixed;
+  z-index: 1;
+  background-color: #252424;
+  
+  top: 24%;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  
+}
+
+.sidenav a:hover {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #db3434;
+  display: block;
+  border-bottom-color: #db3434;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  border-bottom: 1px solid lightgray;
+  transition: 0.25s;
+  display: block;
 }
 
 /* .test-button{

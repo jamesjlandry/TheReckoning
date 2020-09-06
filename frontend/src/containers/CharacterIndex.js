@@ -21,8 +21,11 @@ function CharacterIndex() {
     }
     return (
         <React.Fragment>
-            <div className="ui inverted vertical menu">
-            <a className ='active item'></a> 
+            <div className="sidenav">
+
+            <a className='item' onClick={() => { dispatch({ type: 'CREATE_CHARACTER_MODE'}) }}>New Character</a>
+
+            <br></br>
                     {characters.map(character => 
             
                     <a className='item' onClick={() => {getCharacter(character)}}>
@@ -30,7 +33,7 @@ function CharacterIndex() {
                     </a>
                     )}
             
-            <a className='item' onClick={() => { dispatch({ type: 'CREATE_CHARACTER_MODE'}) }}>New Character</a>
+           
                 </div>
                
 
