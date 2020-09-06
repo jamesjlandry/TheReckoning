@@ -12,7 +12,7 @@ function CharacterBox() {
     let createCharacter = useSelector(state => state.createCharacter)
     let dispatch = useDispatch()
     return (
-        <div className="character_box">
+        <div className="character_main_box">
             {createCharacter ? <CharacterOptionContainer/> : <CharacterSheet/>}
                 
         </div>

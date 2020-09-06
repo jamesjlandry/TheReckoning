@@ -106,7 +106,7 @@ function LevelUpCharacterSubmit() {
                         </Button>
                        
                     </form> 
-                    <div>Race: {characterRace.name}</div>
+                    <div >Race: {characterRace.name}</div>
                     <div>Type: {characterType.name}</div>
                     <div>Blessing: {characterBlessing.name}</div>
                     <div>Blessing Abilities: {characterBlessingLevel.map(blessing => <div>{blessing.name}</div>)}</div>
