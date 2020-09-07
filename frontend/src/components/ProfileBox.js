@@ -25,8 +25,8 @@ function ProfileBox() {
             </div>
             :
             <div>
-            <div>Welcome {user.username}</div>
-            <div onClick={() => handleLogout()}>Log Out</div>
+            <div className="profile_name">Welcome {user.username}</div>
+            <div className="profile_name" onClick={() => handleLogout()}>Log Out</div>
             </div>
             }
             

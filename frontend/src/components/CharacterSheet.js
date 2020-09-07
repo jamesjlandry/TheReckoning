@@ -2,6 +2,8 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
 import {Button} from 'semantic-ui-react'
+import CharacterSheetClickableModal from '../components/CharacterSheetClickableOptionModal'
+import CharacterSheetClickableOptionModal from '../components/CharacterSheetClickableOptionModal';
 
 function CharacterSheet() {
     const dispatch = useDispatch()
@@ -170,15 +172,9 @@ function CharacterSheet() {
                 <div className="character_info_box">
                 Level {character.level}
                 </div >
-                <div className="character_info_box">
-                {race.name}
-                </div>
-                <div className="character_info_box">
-                {type.name}
-                </div>
-                <div className="character_info_box">
-               {blessing.name}
-                </div>
+                <CharacterSheetClickableOptionModal option={race} /> 
+                <CharacterSheetClickableOptionModal option={type} /> 
+                <CharacterSheetClickableOptionModal option={blessing} /> 
                 <div className="character_info_box">
                     Cursed with the {blessing.curse_name}
                 </div>
@@ -346,7 +342,7 @@ function CharacterSheet() {
            
                 <div className="skill_box">            
                     <div className="character_sheet_box">
-                        Skills: {skills.map(skill => <div>{skill.name}</div>)}
+                        Skills: {skills.map(skill => <CharacterSheetClickableOptionModal option={skill} /> )}
                     </div>
                 </div>  
                 <div className="items_box">
@@ -369,35 +365,35 @@ function CharacterSheet() {
                         />
                     </div>
                     <div className="item_middle_grid">
-                        Armor: {armor.map(armor => <div>{armor.name}</div>)}
+                        Armor: {armor.map(armor => <CharacterSheetClickableOptionModal option={armor} /> )}
                     </div>
                     <div className="item_middle_grid">
-                        Weapons: {weapons.map(weapon => <div>{weapon.name}</div>)}
+                        Weapons: {weapons.map(weapon => <CharacterSheetClickableOptionModal option={weapon} /> )}
                     </div>
                     <div>
-                        Equipment: {equipment.map(item => <div>{item.name}</div>)}
+                        Equipment: {equipment.map(item => <CharacterSheetClickableOptionModal option={equipment} /> )}
                     </div>
                     <div className="item_middle_grid">
-                        Magic Items: {charms.map(charm => <div>{charm.name}</div>)}
+                        Magic Items: {charms.map(charm => <CharacterSheetClickableOptionModal option={charm} /> )}
                     </div>
                     <div className="item_middle_grid">
-                        Artifacts: {artifacts.map(artifact => <div>{artifact.name}</div>)}
+                        Artifacts: {artifacts.map(artifact => <CharacterSheetClickableOptionModal option={artifact} /> )}
                     </div>
                 </div>
                 <div className="abilities_box">
                 <div className="character_sheet_box">
                     Abilities: 
                         <div>
-                            {typeAbilities.map(ability => <div>{ability.name}</div>)}
+                            {typeAbilities.map(ability => <CharacterSheetClickableOptionModal option={ability} /> )}
                         </div>
                         <div>
-                            {blessingAbilities.map(ability => <div>{ability.name}</div>)}
+                            {blessingAbilities.map(ability => <CharacterSheetClickableOptionModal option={ability} /> )}
                         </div>
                 </div>
                 <div className="character_sheet_box">
                     Curse effects: 
                         <div>
-                            {curseAbilities.map(ability => <div>{ability.name}</div>)}
+                            {curseAbilities.map(ability => <CharacterSheetClickableOptionModal option={ability} /> )}
                         </div>
                 </div>
                 </div>
