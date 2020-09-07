@@ -12,12 +12,13 @@ const CharacterOptionModal = (props) => {
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
-  trigger={<Button>{props.option.name}</Button>}
+      trigger={<div className="clickable_option" >{props.option.name}</div>}
     >
-      <Modal.Header>{props.option.name}</Modal.Header>
-      <Modal.Content image scrolling>
+      <Modal.Content  scrolling>
 
         <Modal.Description>
+          <div> <strong>{props.option.name}</strong></div>
+          <br></br>
           <p >
            {props.option.text}
           </p>

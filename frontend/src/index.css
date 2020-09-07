@@ -27,6 +27,28 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: lightslategrey
 }
+
+.clickable_option {
+  text-align: center;
+  padding: 2px;
+  width: 100%;
+  background-color: rgb(236, 219, 215);
+  border: 1px solid rgba(201, 174, 174, 0.3);
+  color: #252424;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.clickable_option:hover {
+  text-align: center;
+  width: 100%;
+  background-color: rgb(182, 169, 166);
+  text-decoration: none;
+  font-size: 14px;
+  color: #db3434;
+  transition: 0.25s;
+}
+
 .notes {
   word-wrap: break-word;
   resize: none;
@@ -43,9 +65,12 @@ code {
 
 .header {
   display: grid;
-  
+  background-image: url("https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg");
   position: fixed;
-
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* border-bottom: solid 1px rgba(156, 141, 141, 0.8); */
+  box-shadow: 0 3px 2px -2px darkgray;
   align-content: left;
   height: 25%;
   width: 100%;
@@ -59,26 +84,34 @@ code {
   font-family: 'Kanit', sans-serif;
   color: rgb(36, 41, 46);
 
-  background: rgb(110, 81, 81);
+ 
 }
 
+
+
 .character_main_box{
+  /* background-image: url('https://cdn.pixabay.com/photo/2018/01/12/04/25/retro-3077539_1280.png'); */
   position: absolute;
   display: block;
-  top: 26%;
+  top: 25%;
   left: 20%;
-  right: 1%;
-  height: 73%;
+  right: 0%;
+  bottom: 0%;
+  height: 75%;
   overflow: scroll;
-  border: 1px solid lightgray;
-  border-radius: 1%;
   padding: 2%;
+  background-color: rgb(189, 178, 176);
 }
 
 .character_box{
   display: grid;
   grid-template-columns: 1;
   
+}
+
+.option_text {
+  text-align: left;
+  word-wrap: break-word;
 }
 
 .character_stats_box{
@@ -118,7 +151,7 @@ code {
   align-content: space-around;
   float: left;
   
-  border: 1px solid lightgray;
+  box-shadow: 1px 1px 1px 1px rgba(172, 157, 157, 0.9) inset;
   overflow: none;
 }
 
@@ -185,6 +218,7 @@ code {
   grid-template-columns: 15% 20% 20% 45%;
   grid-template-rows: 5% 40% 30% auto;
   float: left;
+  
   padding: 2px;
   height: 25%;
   width: 90%;
@@ -229,7 +263,10 @@ code {
   transition: 0.25s;
 }
 .box_background{
+  background-image: url("https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg");
   position: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
   top: 0;
   left: 0;
   min-width: 100%;
@@ -305,6 +342,11 @@ code {
   
 }
 
+.single_stat_box{
+  margin: 3px;
+  box-shadow: 0 4px 2px -3px rgb(124, 119, 119, 0.5);
+}
+
 .sidenav {
   height: 100%;
   width: 20%;
@@ -339,12 +381,49 @@ code {
   display: block;
 }
 
+.character_main_info_box{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 13px;
+  color: #252424;
+  border-bottom: 1px solid #252424;
+  display: block;
+}
+.character_main_info_box_clickable {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 13px;
+  color: #252424;
+  border-bottom: 1px solid #252424;
+  transition: 0.25s;
+  display: block;
+}
+
+.character_main_info_box_clickable:hover{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 13px;
+  color: #db3434;
+  display: block;
+  border-bottom-color: #db3434;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.character_info_box{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 13px;
+  color: #252424;
+  
+  display: block;
+}
 .character_info_box_clickable {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 15px;
-  color: #818181;
-  border-bottom: 1px solid lightgray;
+  font-size: 13px;
+  color: #252424;
+  
   transition: 0.25s;
   display: block;
 }
@@ -352,10 +431,10 @@ code {
 .character_info_box_clickable:hover{
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 13px;
   color: #db3434;
   display: block;
-  border-bottom-color: #db3434;
+  background-color: rgb(182, 169, 166);
   transition: 0.25s;
   cursor: pointer;
 }

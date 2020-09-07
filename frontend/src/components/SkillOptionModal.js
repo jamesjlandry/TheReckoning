@@ -14,10 +14,11 @@ const SkillOptionModal = (props) => {
       onOpen={() => setOpen(true)}
   trigger={<Button>{props.option.name}</Button>}
     >
-      <Modal.Header>{props.option.name}</Modal.Header>
-      <Modal.Content image scrolling>
+      
+      <Modal.Content  scrolling>
 
         <Modal.Description>
+        <div> <strong>{props.option.name}</strong></div>
           <p >
            {props.option.text}
           </p>

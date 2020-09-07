@@ -14,10 +14,13 @@ const BlessingOptionModal = (props) => {
       onOpen={() => setOpen(true)}
       trigger={<Button>{props.blessingOption.name}</Button>}
     >
-      <Modal.Header>{props.blessingOption.name}</Modal.Header>
-      <Modal.Content image scrolling>
+     
+      <Modal.Content  scrolling>
 
         <Modal.Description>
+        <div> <strong>{props.blessingOption.name}</strong></div>
+        <br></br>
+        <br></br>
           <p >
            {props.blessingOption.text}
           </p>

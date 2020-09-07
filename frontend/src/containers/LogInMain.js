@@ -14,7 +14,7 @@ function LogInMain()  {
     return (
         <React.Fragment>
             <div className="box_background">
-                <img src='https://cdn.pixabay.com/photo/2017/04/06/09/37/toy-2207781_1280.jpg'></img>
+                {/* <img src='https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg'></img> */}
             {registerAccount ? 
             <Register/>
             :

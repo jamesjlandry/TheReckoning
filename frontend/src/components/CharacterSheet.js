@@ -165,17 +165,17 @@ function CharacterSheet() {
         <form>
             <div className="character_sheet_container">
             <div className="character_info">
-                <div className="character_info_box">
+                <div className="character_main_info_box">
                 {character.name}
                 </div>
               
-                <div className="character_info_box">
+                <div className="character_main_info_box">
                 Level {character.level}
                 </div >
                 <CharacterSheetClickableOptionModal option={race} /> 
                 <CharacterSheetClickableOptionModal option={type} /> 
                 <CharacterSheetClickableOptionModal option={blessing} /> 
-                <div className="character_info_box">
+                <div className="character_main_info_box">
                     Cursed with the {blessing.curse_name}
                 </div>
 
@@ -183,8 +183,8 @@ function CharacterSheet() {
                 </div>
                 
                 <div className="stats_box">
-
-                <div className="character_stats_box"> 
+                <div className="single_stat_box">
+                <div className="character_info_box"> 
                     <label>XP: </label>
                     <input
                     className="input" 
@@ -201,8 +201,10 @@ function CharacterSheet() {
                     min={character.xp}
                     max='900'
                     />
+                    </div>
                 </div>
-                 <div className="character_stats_box">
+                <div className="single_stat_box">
+                 <div className="character_info_box">
                     <label>HP: </label>
                     <input
                         className="input" 
@@ -217,10 +219,12 @@ function CharacterSheet() {
                         min='0'
                         max={character.hp}
                         />
+                        </div>
                     </div>
-                    <div className="character_stats_box">Strength <div>{character.strength}</div></div>
-                    <div className="character_stats_box">
-                        <label>Strength Pool: </label>
+                    <div className="single_stat_box">
+                    <div className="character_info_box">Strength {character.strength}</div>
+                    <div className="character_info_box">
+                        <label>Pool: </label>
                         <input
                         className="input" 
                         onChange={(event) => {
@@ -234,10 +238,12 @@ function CharacterSheet() {
                         min='0'
                         max={maxStrengthPool}
                         />
+                        </div>
                     </div>
-                    <div className="character_stats_box">Dexterity {character.dexterity}</div>
-                        <div className="character_stats_box">
-                            <label>Dexterity Pool: </label>
+                    <div className="single_stat_box">
+                    <div className="character_info_box">Dexterity {character.dexterity}</div>
+                        <div className="character_info_box">
+                            <label>Pool: </label>
                             <input
                             className="input" 
                             onChange={(event) => {
@@ -251,11 +257,13 @@ function CharacterSheet() {
                             min='0'
                             max={maxDexterityPool}
                             />
+                            </div>
                         </div>  
-                    <div className="character_stats_box">Charisma {character.charisma}</div>
+                        <div className="single_stat_box">
+                    <div className="character_info_box">Charisma {character.charisma}</div>
 
-                        <div className="character_stats_box">
-                            <label>Charisma Pool: </label>
+                        <div className="character_info_box">
+                            <label>Pool: </label>
                             <input
                             className="input" 
                             onChange={(event) => {
@@ -270,9 +278,11 @@ function CharacterSheet() {
                             max={maxCharismaPool}
                             />
                         </div>
-                    <div className="character_stats_box">Wisdom {character.wisdom}</div>
-                        <div className="character_stats_box">
-                            <label>Wisdom Pool: </label>
+                        </div>
+                        <div className="single_stat_box">
+                    <div className="character_info_box">Wisdom {character.wisdom}</div>
+                        <div className="character_info_box">
+                            <label>Pool: </label>
                             <input
                             className="input" 
                             onChange={(event) => {
@@ -287,9 +297,11 @@ function CharacterSheet() {
                             max={maxWisdomPool}
                             />
                         </div>
-                    <div className="character_stats_box">Magic {character.magic}</div>
-                        <div className="character_stats_box">
-                            <label>Magic Pool: </label>
+                        </div>
+                        <div className="single_stat_box">
+                    <div className="character_info_box">Magic {character.magic}</div>
+                        <div className="character_info_box">
+                            <label>Pool: </label>
                             <input
                             className="input" 
                             onChange={(event) => {
@@ -303,10 +315,12 @@ function CharacterSheet() {
                             min='0'
                             max={maxMagicPool}
                             />
+                            </div>
                         </div>
-                    <div className="character_stats_box">Recovery {character.recovery}</div>
-                        <div className="character_stats_box">
-                            <label>Recovery Pool: </label>
+                        <div className="single_stat_box">
+                    <div className="character_info_box">Recovery {character.recovery}</div>
+                        <div className="character_info_box">
+                            <label>Pool: </label>
                             <input
                             className="input" 
                             onChange={(event) => {
@@ -321,7 +335,8 @@ function CharacterSheet() {
                             max={maxRecoveryPool}
                             />
                         </div>
-                        <div className="character_stats_box">
+                        </div>
+                        <div className="character_info_box">
                             <label>Armor Cost: </label>
                             <input
                             className="input" 
@@ -340,7 +355,7 @@ function CharacterSheet() {
                 
                 </div>
            
-                <div className="skill_box">            
+                <div className="character_info_box">            
                     <div className="character_sheet_box">
                         Skills: {skills.map(skill => <CharacterSheetClickableOptionModal option={skill} /> )}
                     </div>

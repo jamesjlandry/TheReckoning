@@ -10,13 +10,15 @@ const CharacterSheetClickableOptionModal = (props) => {
   return (
     <Modal
       open={open}
+      size="mini"
+
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
   trigger={<div className="character_info_box_clickable">{props.option.name}</div>}
     >
-      <Modal.Content image scrolling>
+      <Modal.Content  scrolling>
 
-        <Modal.Description>
+        <Modal.Description >
           <p >
            {props.option.text}
           </p>
