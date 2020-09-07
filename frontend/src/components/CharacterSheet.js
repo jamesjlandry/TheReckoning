@@ -414,7 +414,7 @@ function CharacterSheet() {
                 </div>
                 <div className="notes_box">
                 <div className="character_sheet_box">
-                    Background: 
+                    Background: <div></div>
                         <textarea
                             className="notes"
                             
@@ -431,7 +431,7 @@ function CharacterSheet() {
                 </div>
 
                 <div className="character_sheet_box">
-                    Notes: 
+                    Notes: <div></div>
                         <textarea
                             className="notes"
                             name={character.notes}

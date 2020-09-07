@@ -9,6 +9,8 @@ const CharacterOptionModal = (props) => {
 
   return (
     <Modal
+    basic
+    size='mini'
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
@@ -39,11 +41,13 @@ const CharacterOptionModal = (props) => {
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={() => {setOpen(false)
+        <Button basic 
+        color='red' onClick={() => {setOpen(false)
            dispatch({type: selectOptions, option: props.option})}} primary>
           Choose this Option <Icon name='chevron right' />
         </Button>
-        <Button onClick={() => setOpen(false)} primary>
+        <Button  basic 
+        color='red' onClick={() => setOpen(false)} primary>
           Close <Icon name='chevron right' />
         </Button>
       </Modal.Actions>

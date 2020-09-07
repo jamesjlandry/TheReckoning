@@ -151,7 +151,7 @@ const reducer = (currentState, action) => {
 
   else if (action.type === 'SET_SKILLS'){
     return {...currentState, 
-     characterSkills: [...currentState.characterSkills, action.characterSkills]
+     characterSkills: [...currentState.characterSkills, ...action.characterSkills]
      }
   }
 

@@ -12,6 +12,8 @@ const EquipmentOptionModal = (props) => {
 
   return (
     <Modal
+    basic
+    size='mini'
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
@@ -32,7 +34,8 @@ const EquipmentOptionModal = (props) => {
       </Modal.Content>
       <Modal.Actions>
       { availableCoins >= props.option.cost ? 
-        <Button onClick={() => {
+        <Button  basic 
+        color='red' onClick={() => {
           setOpen(false)
            dispatch({type: selectOptions, option: props.option, cost: props.option.cost})
            }} primary>
@@ -40,12 +43,14 @@ const EquipmentOptionModal = (props) => {
         </Button>
         :
         <Button 
+        basic 
+        color='red'
         type='button'
           disabled>
             Add Item
         </Button>
         }
-        <Button onClick={() => setOpen(false)} primary>
+        <Button basic color='red' onClick={() => setOpen(false)} primary>
           Close <Icon name='chevron right' />
         </Button>
       </Modal.Actions>

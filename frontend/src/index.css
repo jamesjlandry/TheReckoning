@@ -28,6 +28,12 @@ body {
     background-color: lightslategrey
 }
 
+input[type=number] {
+  color: rgb(94, 70, 70) ;
+  border: none;
+  background-color: rgb(214, 196, 193);
+}
+
 .clickable_option {
   text-align: center;
   padding: 2px;
@@ -51,12 +57,15 @@ body {
 
 .notes {
   word-wrap: break-word;
+  margin: 2px;
   resize: none;
   overflow: auto;
   outline: none;
   width: 300px;
   height: 81px;
   border: hidden;
+  background-image: url("https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg");
+  background-size: 800px;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -238,7 +247,8 @@ code {
   padding: 2px;
   height: 99%;
   width: 90%;
- 
+  margin-right: 8px;
+  box-shadow: 0 4px 2px -3px rgb(124, 119, 119, 0.5);
   
 
 }
@@ -382,36 +392,16 @@ code {
 }
 
 .character_main_info_box{
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px 6px 8px;
   text-decoration: none;
   font-size: 13px;
   color: #252424;
-  border-bottom: 1px solid #252424;
-  display: block;
-}
-.character_main_info_box_clickable {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 13px;
-  color: #252424;
-  border-bottom: 1px solid #252424;
-  transition: 0.25s;
   display: block;
 }
 
-.character_main_info_box_clickable:hover{
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 13px;
-  color: #db3434;
-  display: block;
-  border-bottom-color: #db3434;
-  transition: 0.25s;
-  cursor: pointer;
-}
 
 .character_info_box{
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px 6px 8px;
   text-decoration: none;
   font-size: 13px;
   color: #252424;
@@ -419,7 +409,7 @@ code {
   display: block;
 }
 .character_info_box_clickable {
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px 6px 8px;
   text-decoration: none;
   font-size: 13px;
   color: #252424;
@@ -429,7 +419,7 @@ code {
 }
 
 .character_info_box_clickable:hover{
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px 6px 10px;
   text-decoration: none;
   font-size: 13px;
   color: #db3434;
