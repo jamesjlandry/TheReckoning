@@ -8,6 +8,7 @@ import CharacterBox from '../containers/CharacterBox'
 function CharacterIndex() {
     let createCharacter = useSelector(state => state.createCharacter)
     let editCharacter = useSelector(state => state.editCharacter)
+    let defaultPage = useSelector(state => state.defaultPage)
     let characters = useSelector(state => state.characters.filter(character => character.user_id === state.currentUser.id))
     let dispatch = useDispatch()
 
@@ -38,9 +39,10 @@ function CharacterIndex() {
                
 
                 
-                <div className="edit_create_character_box">
+                <div >
                 {createCharacter ? <CharacterBox/> : null}
                 {editCharacter ? <CharacterBox/> : null}
+                {defaultPage ? <div className="edit_create_character_box"></div> : null}
                 </div>
         </React.Fragment>
         

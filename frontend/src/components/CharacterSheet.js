@@ -51,6 +51,7 @@ function CharacterSheet() {
     const maxCharismaPool = Math.floor(characterCharisma / 2)
     const maxWisdomPool = Math.floor(characterWisdom / 2)
     const maxDexterityPool = Math.floor(characterDexterity / 2)
+    const maxHP = character.strength + 20
     
     let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     let levelUp = currentEligibleLevel > character.level //useSelector(state => state.levelUp)
@@ -143,24 +144,25 @@ function CharacterSheet() {
 // Name Race Type as one line as description of character for the title.
 
     return(
-        <React.Fragment>
+        <div className='character_sheet_modal_impersonation_background'>
+            <div className='character_sheet_modal_impersonation'>
              {
                 levelUp ?
-            <Button onClick={() => {dispatch({type: "LEVEL_UP_MODE" }) }}>
+            <button onClick={() => {dispatch({type: "LEVEL_UP_MODE" }) }}>
                 Level Up
-            </Button>
+            </button>
             :
-            <Button disabled>
+            <button disabled>
             Level Up
-            </Button>
+            </button>
             }   
-            <Button>
+            <button>
             Ye Olde Item Shop
-            </Button>
+            </button>
         
-            <Button onClick={event => handleUpdate(event)}>
+            <button onClick={event => handleUpdate(event)}>
                 Save and Close
-            </Button>
+            </button>
             
         <form>
             <div className="character_sheet_container">
@@ -217,7 +219,7 @@ function CharacterSheet() {
                         type="number" 
                         value={characterHP}
                         min='0'
-                        max={character.hp}
+                        max={maxHP}
                         />
                         </div>
                     </div>
@@ -449,8 +451,8 @@ function CharacterSheet() {
 
        
        
-        
-        </React.Fragment>
+        </div>
+        </div>
 
     )
 

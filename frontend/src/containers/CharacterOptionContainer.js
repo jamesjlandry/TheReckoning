@@ -65,7 +65,7 @@ import CharacterSkills from '../components/CharacterSkills'
             panes.splice( 2, 0, { menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel /></Tab.Pane> })
        
         else if (selectedTypeLevels.length < availableTypeAbilities && currentEligibleLevel !==1)
-            panes.splice(2, 0,  { menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel /></Tab.Pane> })
+            panes.splice(0, 0,  { menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel /></Tab.Pane> })
     }
     if(selectedBlessing) {
         if(selectedBlessingLevels.length === 0 && currentEligibleLevel === 1) {

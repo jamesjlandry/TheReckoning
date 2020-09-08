@@ -55,6 +55,20 @@ input[type=number] {
   transition: 0.25s;
 }
 
+.edit_create_character_box {
+  display: block;
+  background-image: url('https://i.pinimg.com/originals/a2/77/83/a27783081e2e98500d154c016df7d1ab.jpg');
+  background-size: cover;
+  position: fixed;
+  top: 25%;
+  left: 20%;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  
+}
+
+
 .notes {
   word-wrap: break-word;
   margin: 2px;
@@ -281,7 +295,6 @@ code {
   left: 0;
   min-width: 100%;
   min-height: 100%;
-
 }
 .box_background img{
   position: absolute; 
@@ -350,6 +363,32 @@ code {
   background: #db3434;
   border-color:  #db3434;
   
+}
+
+.character_sheet_modal_impersonation_background {
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  position: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.character_sheet_modal_impersonation {
+  width: 92%;
+  height: 95%;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(236, 219, 215);
+  text-align: center;
+  border-radius: 2px;
+  overflow: scroll;
 }
 
 .single_stat_box{

@@ -10,6 +10,7 @@ const reducer = (currentState, action) => {
       selectedCharacter: action.selectedCharacter,
       editCharacter: true,
       createCharacter: false,
+      defaultPage: false,
       coins: action.selectedCharacter.coins,   
       characterBlessing: action.selectedCharacter.blessing,
       characterType: action.selectedCharacter.type,
@@ -61,7 +62,10 @@ const reducer = (currentState, action) => {
 
    else if (action.type === 'UPDATE_CHARACTERS') {
     return {...currentState,
-    
+      registerAccount: false,
+      createCharacter: false,
+      editCharacter: false,
+      defaultPage: true,
     }
   }
 
@@ -159,6 +163,7 @@ const reducer = (currentState, action) => {
     return {...currentState, 
      createCharacter: true,
      editCharacter: false,
+     defaultPage: false,
      selectedCharacter: null,
      characterSkills: [],
     characterEquipment: [],
@@ -333,6 +338,7 @@ let initialState = {
     registerAccount: false,
     createCharacter: false,
     editCharacter: false,
+    defaultPage: true,
     characters: [],
     blessings: [],
     blessinglevels: [],
