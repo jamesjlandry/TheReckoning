@@ -1,15 +1,16 @@
+  
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
 import {Button} from 'semantic-ui-react'
-import CheckBox from '../components/CheckBox'
+import LevelUpCheckBox from '../components/CheckBox'
 
 
 
 
 function CharacterSkillsLevelUp() {
     
-    let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
+    let characterLevel = useSelector(state => state.characterLevel)
     let selectedCharacter = useSelector(state => state.selectedCharacter)
     let currentSkills = useSelector(state => state.characterSkills)
     let skills = useSelector(state => state.skills)
@@ -68,7 +69,7 @@ function CharacterSkillsLevelUp() {
              <form onSubmit={event => handleSubmit(event)}>
                 <div>Available Skills: {remainingSkills}</div>
                  {filteredSkills.map(skill => 
-                 <CheckBox handleChange={handleChange} count={remainingSkills} skill={skill}/>
+                 <LevelUpCheckBox handleChange={handleChange} count={remainingSkills} skill={skill}/>
                     
                 
                 )}

@@ -43,7 +43,7 @@ const CharacterOptionModal = (props) => {
       <Modal.Actions>
         <Button basic 
         color='red' onClick={() => {setOpen(false)
-           dispatch({type: selectOptions, option: props.option})}} primary>
+           dispatch({type: selectOptions, option: props.option})}} >
           Choose this Option <Icon name='chevron right' />
         </Button>
         <Button  basic 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Icon, Image, Modal } from 'semantic-ui-react'
+import {Icon, Image, Modal, Button } from 'semantic-ui-react'
 import { useSelector, useDispatch } from 'react-redux';
 
 const CharacterSheetClickableOptionModal = (props) => {
@@ -11,7 +11,7 @@ const CharacterSheetClickableOptionModal = (props) => {
     <Modal
       open={open}
       size="mini"
-
+      basic
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
   trigger={<div className="character_info_box_clickable">{props.option.name}</div>}
@@ -39,9 +39,9 @@ const CharacterSheetClickableOptionModal = (props) => {
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-        <button onClick={() => setOpen(false)} primary>
+        <Button basic  color="red"  onClick={() => setOpen(false)} >
           Close <Icon name='chevron right' />
-        </button>
+        </Button >
       </Modal.Actions>
     </Modal>
   )

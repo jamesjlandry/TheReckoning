@@ -1,11 +1,12 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
+import {Button} from 'semantic-ui-react'
 
-function CheckBox(props) {
-    const characterSkills = useSelector(state => state.characterSkills)
-    const checkedSkill = characterSkills.find(skill => skill.id === props.skill.id)
-    const [checked, setChecked] = useState(checkedSkill != null ? true : false)
+function LevelUpCheckBox(props) {
+
+    const [checked, setChecked] = useState(false)
+   
 
     return(
         <div>
@@ -16,7 +17,7 @@ function CheckBox(props) {
                             props.handleChange(event, props.skill)
                             setChecked( !checked )
                         }}
-                        checked={checked}
+                        
                         id={props.skill.name}
                         name={props.skill.name}
                         placeholder={props.skill.name}
@@ -33,4 +34,4 @@ function CheckBox(props) {
 
 }
 
-export default CheckBox;
+export default LevelUpCheckBox;

@@ -50,7 +50,7 @@ const EquipmentOptionModal = (props) => {
             Add Item
         </Button>
         }
-        <Button basic color='red' onClick={() => setOpen(false)} primary>
+        <Button basic color='red' onClick={() => setOpen(false)} >
           Close <Icon name='chevron right' />
         </Button>
       </Modal.Actions>
