@@ -17,7 +17,7 @@ const EquipmentOptionModal = (props) => {
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
-  trigger={<Button>{props.option.name}</Button>}
+  trigger={<div className="clickable_option">{props.option.name}</div>}
     >
    
       <Modal.Content image scrolling>
@@ -38,7 +38,7 @@ const EquipmentOptionModal = (props) => {
         color='red' onClick={() => {
           setOpen(false)
            dispatch({type: selectOptions, option: props.option, cost: props.option.cost})
-           }} primary>
+           }} >
           Add Item <Icon name='chevron right' />
         </Button>
         :

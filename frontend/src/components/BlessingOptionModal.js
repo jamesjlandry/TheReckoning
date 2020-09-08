@@ -9,10 +9,11 @@ const BlessingOptionModal = (props) => {
 
   return (
     <Modal
+    basic
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
-      trigger={<Button>{props.blessingOption.name}</Button>}
+      trigger={<div className="character_info_box_clickable">{props.blessingOption.name}</div>}
     >
      
       <Modal.Content  scrolling>
@@ -27,15 +28,20 @@ const BlessingOptionModal = (props) => {
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={() => {setOpen(false)
+        <Button basic
+        color='red'
+        onClick={() => {setOpen(false)
            dispatch({type: "SELECT_BLESSING_LEVEL", option: {
                blessing: props.blessingOption, 
                curse: props.curseLevel
                }})
-               }} primary>
+               }} >
           Choose this Option <Icon name='chevron right' />
         </Button>
-        <Button onClick={() => setOpen(false)} primary>
+        <Button 
+        basic
+        color='red'
+        onClick={() => setOpen(false)} >
           Close <Icon name='chevron right' />
         </Button>
       </Modal.Actions>

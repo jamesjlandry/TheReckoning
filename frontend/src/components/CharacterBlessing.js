@@ -11,7 +11,7 @@ function CharacterBlessing() {
     return (
         <div className="selection_options">
              <div className="character_box ">
-             <div>Choose one of the following Blessings: </div>
+             <div>Choose from following Blessings: </div>
                  {blessings.map(blessing=> <CharacterOptionModal option={blessing} selectOptions={selectOptions}/>)}
               
           </div>

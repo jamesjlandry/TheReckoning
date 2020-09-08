@@ -36,7 +36,7 @@ input[type=number] {
 
 .clickable_option {
   text-align: center;
-  padding: 2px;
+  padding: 5px;
   width: 100%;
   background-color: rgb(236, 219, 215);
   border: 1px solid rgba(201, 174, 174, 0.3);
