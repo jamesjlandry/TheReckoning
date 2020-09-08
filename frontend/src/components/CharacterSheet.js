@@ -156,9 +156,9 @@ function CharacterSheet() {
             Level Up
             </button>
             }   
-            <button>
+            {/* <button>
             Ye Olde Item Shop
-            </button>
+            </button> */}
         
             <button onClick={event => handleUpdate(event)}>
                 Save and Close

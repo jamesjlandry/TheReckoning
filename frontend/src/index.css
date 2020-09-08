@@ -30,7 +30,12 @@ body {
 
 input[type=number] {
   color: rgb(94, 70, 70) ;
-  border: none;
+  border-radius: 20%;
+  height: 40px;
+  width: 50px;
+  padding: 2px;
+  text-align: center;
+  border: 1px solid rgb(75, 71, 71);
   background-color: rgb(214, 196, 193);
 }
 
@@ -247,6 +252,8 @@ code {
   width: 90%;
   overflow: scroll;
 }
+
+
 
 .character_info{
   grid-row: 1;
