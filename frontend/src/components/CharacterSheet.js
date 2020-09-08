@@ -386,7 +386,7 @@ function CharacterSheet() {
                         Weapons: {weapons.map(weapon => <CharacterSheetClickableOptionModal option={weapon} /> )}
                     </div>
                     <div>
-                        Equipment: {equipment.map(item => <CharacterSheetClickableOptionModal option={equipment} /> )}
+                        Equipment: {equipment.map(equipment=> <CharacterSheetClickableOptionModal option={equipment} /> )}
                     </div>
                     <div className="item_middle_grid">
                         Magic Items: {charms.map(charm => <CharacterSheetClickableOptionModal option={charm} /> )}

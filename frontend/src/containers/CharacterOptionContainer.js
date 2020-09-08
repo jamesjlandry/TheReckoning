@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { Tab } from 'semantic-ui-react'
+import { Tab, Menu } from 'semantic-ui-react'
 import CharacterBlessing from '../components/CharacterBlessing'
 import CharacterEquipment from '../components/CharacterEquipment'
 import CharacterRace from '../components/CharacterRace'
@@ -49,51 +49,51 @@ import CharacterSkills from '../components/CharacterSkills'
         // { menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel/></Tab.Pane> },
         
         // { menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel/></Tab.Pane> },
-        { menuItem: 'Armor', render: () => <Tab.Pane><CharacterArmor className="panes"/></Tab.Pane> },
-        { menuItem: 'Weapons', render: () => <Tab.Pane><CharacterWeapon className="panes"/></Tab.Pane> },
-        { menuItem: 'Equipment', render: () => <Tab.Pane><CharacterEquipment className="panes"/></Tab.Pane> },
+        { menuItem: <Menu.Item>Armor <i className="check icon"></i></Menu.Item>, render: () => <Tab.Pane><CharacterArmor /></Tab.Pane> },
+        { menuItem: 'Weapons', render: () => <Tab.Pane><CharacterWeapon /></Tab.Pane> },
+        { menuItem: 'Equipment', render: () => <Tab.Pane><CharacterEquipment /></Tab.Pane> },
       ]
 
     if(currentEligibleLevel === 1) {
-      panes.unshift({ menuItem: 'Race', render: () => <Tab.Pane><CharacterRace className ="panes"/></Tab.Pane>  }, 
-      { menuItem: 'Type', render: () => <Tab.Pane><CharacterType className ="panes"/></Tab.Pane> }, 
-      { menuItem: 'Blessing', render: () => <Tab.Pane><CharacterBlessing className ="panes"/></Tab.Pane>  } )
+      panes.unshift({ menuItem: 'Race', render: () => <Tab.Pane><CharacterRace /></Tab.Pane>  }, 
+      { menuItem: 'Type', render: () => <Tab.Pane><CharacterType /></Tab.Pane> }, 
+      { menuItem: 'Blessing', render: () => <Tab.Pane><CharacterBlessing /></Tab.Pane>  } )
     }
 
     if(selectedType) {
         if(selectedTypeLevels.length < 2 && currentEligibleLevel === 1)
-            panes.push({ menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel className ="panes"/></Tab.Pane> })
+            panes.push({ menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel /></Tab.Pane> })
        
         else if (selectedTypeLevels.length < availableTypeAbilities && currentEligibleLevel !==1)
-            panes.unshift({ menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel className ="panes"/></Tab.Pane> })
+            panes.unshift({ menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel /></Tab.Pane> })
     }
     if(selectedBlessing) {
         if(selectedBlessingLevels.length === 0 && currentEligibleLevel === 1) {
-        panes.push({ menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel className ="panes"/></Tab.Pane> })
+        panes.push({ menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel /></Tab.Pane> })
         } else if (selectedBlessingLevels.length < currentEligibleLevel) {
-        panes.unshift({ menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel className ="panes"/></Tab.Pane> })
+        panes.unshift({ menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel /></Tab.Pane> })
         }
     } 
 
     if(selectedType && selectedRace && selectedBlessing) {
 
-            panes.push({ menuItem: 'Stats', render: () => <Tab.Pane><CharacterStats className ="panes"/></Tab.Pane> })
+            panes.push({ menuItem: 'Stats', render: () => <Tab.Pane><CharacterStats /></Tab.Pane> })
     }
 
     if(selectedType && selectedRace && selectedBlessing && currentEligibleLevel === 1 || currentEligibleLevel === 2 || currentEligibleLevel === 4 || currentEligibleLevel === 6 ) {
     
-      panes.push({ menuItem: 'Skills', render: () => <Tab.Pane><CharacterSkills className ="panes"/></Tab.Pane> })
+      panes.push({ menuItem: 'Skills', render: () => <Tab.Pane><CharacterSkills /></Tab.Pane> })
 }
 
     if(selectedType && selectedRace && selectedBlessing && characterStats && characterSkills || currentEligibleLevel >=2 && characterStats ) {
         
-      panes.push({ menuItem: 'Review Character', render: () => <Tab.Pane><CharacterBuild className ="panes"/></Tab.Pane> })
+      panes.push({ menuItem: 'Review Character', render: () => <Tab.Pane><CharacterBuild /></Tab.Pane> })
 }
 
     console.log(Object.values(selectedCharacter))
     return (
         <React.Fragment>
-        <Tab panes={panes} className="panes"/>
+        <Tab panes={panes} />
         {/* {Object.values(selectedCharacter).every( property => property !== undefined) ? <button>Create Character</button> : null} */}
         </React.Fragment>
     )

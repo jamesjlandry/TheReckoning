@@ -16,11 +16,12 @@ function CharacterSkillsNew() {
     let startingStats = useSelector(state => state.startingStats)
     let characterType = useSelector(state => state.characterType)
     let characterRace = useSelector(state => state.characterRace)
+    let characterSkills = useSelector(state => state.characterSkills)
     let selectedCharacterAvailability = startingStats.filter(stat => stat.type_id === characterType.id && stat.race_id === characterRace.id)
     let availableSkills = selectedCharacterAvailability[0].skill_slots
     let dispatch = useDispatch()
-    const [characterSkills, setCharacterSkills] = useState([])
-    const [remainingSkills, setRemainingSkills] = useState(availableSkills)
+    const [newCharacterSkills, setCharacterSkills] = useState([])
+    const [remainingSkills, setRemainingSkills] = useState(availableSkills - characterSkills.length)
    
    
     let handleChange = (event, skill) => {
@@ -31,7 +32,7 @@ function CharacterSkillsNew() {
                 console.log(characterSkills)
                 setCharacterSkills(
                     
-                        [...characterSkills, skill]
+                        [...newCharacterSkills, skill]
                     
                 )
                 
@@ -43,7 +44,7 @@ function CharacterSkillsNew() {
         } else if (!event.target.checked) {
             
                 let skill = filteredSkills.find(e => parseInt(event.target.value) === e.id)
-                    characterSkills.splice(characterSkills.indexOf(skill), 1)
+                    characterSkills.splice(newCharacterSkills.indexOf(skill), 1)
               
                 setRemainingSkills(
                     remainingSkills + 1
@@ -54,7 +55,7 @@ function CharacterSkillsNew() {
     }
     let handleSubmit = (e) => {
         e.preventDefault();
-            dispatch({type: "SET_SKILLS", characterSkills: characterSkills})
+            dispatch({type: "SET_SKILLS", characterSkills: newCharacterSkills})
         }
   
     return (

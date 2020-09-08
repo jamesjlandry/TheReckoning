@@ -4,9 +4,9 @@ import {useState} from 'react';
 import {Button} from 'semantic-ui-react'
 
 function CheckBox(props) {
-
-    const [checked, setChecked] = useState(false)
-   
+    const characterSkills = useSelector(state => state.characterSkills)
+    const checkedSkill = characterSkills.find(skill => skill.id === props.skill.id)
+    const [checked, setChecked] = useState(checkedSkill != null ? true : false)
 
     return(
         <div>
@@ -17,7 +17,7 @@ function CheckBox(props) {
                             props.handleChange(event, props.skill)
                             setChecked( !checked )
                         }}
-                        
+                        checked={checked}
                         id={props.skill.name}
                         name={props.skill.name}
                         placeholder={props.skill.name}

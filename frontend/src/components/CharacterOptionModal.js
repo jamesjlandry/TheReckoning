@@ -47,7 +47,7 @@ const CharacterOptionModal = (props) => {
           Choose this Option <Icon name='chevron right' />
         </Button>
         <Button  basic 
-        color='red' onClick={() => setOpen(false)} primary>
+        color='red' onClick={() => setOpen(false)} >
           Close <Icon name='chevron right' />
         </Button>
       </Modal.Actions>

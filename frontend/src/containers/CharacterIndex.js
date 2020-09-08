@@ -23,7 +23,7 @@ function CharacterIndex() {
         <React.Fragment>
             <div className="sidenav">
 
-            <a className='item' onClick={() => { dispatch({ type: 'CREATE_CHARACTER_MODE'}) }}>New Character</a>
+            <a className='item' onClick={() => { dispatch({ type: 'CREATE_CHARACTER_MODE'}) }}>New Character   <i className='plus icon'></i></a>
 
             <br></br>
                     {characters.map(character => 

@@ -11,12 +11,13 @@ function CharacterStatsNew() {
     let characterRace = useSelector(state => state.characterRace)
     let statOptions = startingStats.filter(stat => stat.type_id === characterType.id && stat.race_id === characterRace.id)
     let statPointsAvailable = statOptions[0].remaining_stat_points
-    const [remainingStats, setRemainingStats] = useState(statPointsAvailable);
-    const [dexterity, setDexterity] = useState(statOptions[0].dexterity)
-    const [strength, setStrength] = useState(statOptions[0].strength)
-    const [wisdom, setWisdom] = useState(statOptions[0].wisdom)
-    const [charisma, setCharisma] = useState(statOptions[0].charisma)
-    const [magic, setMagic] = useState(statOptions[0].magic)
+    const characterStats = useSelector(state => state.characterStats)
+    const [remainingStats, setRemainingStats] = useState(characterStats ? 0 : statPointsAvailable );
+    const [dexterity, setDexterity] = useState(characterStats?.dexterity || statOptions[0].dexterity)
+    const [strength, setStrength] = useState(characterStats?.strength|| statOptions[0].strength)
+    const [wisdom, setWisdom] = useState(characterStats?.wisdom || statOptions[0].wisdom)
+    const [charisma, setCharisma] = useState(characterStats?.charisma || statOptions[0].charisma)
+    const [magic, setMagic] = useState(characterStats?.magic || statOptions[0].magic)
     let stats = {
         strength: strength,
         dexterity: dexterity,
