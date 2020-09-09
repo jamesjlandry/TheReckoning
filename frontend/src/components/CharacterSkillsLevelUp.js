@@ -25,7 +25,7 @@ function CharacterSkillsLevelUp() {
     
 
     let dispatch = useDispatch()
-    const [characterSkills, setCharacterSkills] = useState(currentSkills)
+    const [characterSkills, setCharacterSkills] = useState([])
     const [remainingSkills, setRemainingSkills] = useState(availableSkills)
     
 

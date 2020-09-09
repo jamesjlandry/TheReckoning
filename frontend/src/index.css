@@ -225,9 +225,25 @@ code {
   padding: 2px;
   overflow: scroll;
   align-content: space-around;
+  margin-bottom: 14px;
+  margin-top: 5px;
+  box-shadow: 0 4px 2px -3px rgb(124, 119, 119, 0.5);
+}
+
+.skills_box{
+  grid-row: 2;
+  grid-column: 3;
+  padding: 2px;
+  overflow: scroll;
+  align-content: space-around;
+  margin-bottom: 14px;
+  margin-top: 5px;
+  box-shadow: 0 4px 2px -3px rgb(124, 119, 119, 0.5);
 }
 
 .notes_box{
+  margin-bottom: 14px;
+  margin-top: 5px;
   grid-row: 2;
   grid-column: 4;
   align-content: space-around;
@@ -369,7 +385,27 @@ code {
 .box button[type = "submit"]:hover{
   background: #db3434;
   border-color:  #db3434;
-  
+}
+
+.test-button{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #5a5656;
+  padding: 14px 14px;
+  width: 80px;
+  outline: none;
+  color: rgb(37, 34, 34);
+  border-radius: 4px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.test_but:hover{
+  background: #db3434;
+  border-color:  #db3434;
 }
 
 .character_sheet_modal_impersonation_background {
@@ -475,70 +511,3 @@ code {
   cursor: pointer;
 }
 
-/* .test-button{
-  font-size: 20px;
-  color: gray;
-  padding: 5px;
-  margin: 20px;
-}
-.modals {
-  position: fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height: 300px;
-}
-.modal-wrapper{
-  position: absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  top: 0;
-  background: rgba(0,0,0,0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.modal {
-  width: 200px;
-  background: #fff;
-  border-radius: 5px;
-  min-width: 500px;
-  position: relative;
-}
-.text {
-  font-weight: bold;
-  font-size: 20px;
-  margin: 20px 0;
-    text-align: center;
-}
-.buttons {
-  margin: 10px 0;
-  display: flex;
-  justify-content: space-around;
-}
-.modal-button {
-  font-size: 15px;
-  color: gray;
-  padding: 5px;
-  border-radius: 5px;
-}
-.close {
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 2em;
-  cursor: pointer;
-}
-.modal-content {
-  background:  rgba(193, 29, 29,0.5);
-  color: rgb(160, 104, 104);
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */

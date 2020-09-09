@@ -148,11 +148,15 @@ function CharacterSheet() {
             <div className='character_sheet_modal_impersonation'>
              {
                 levelUp ?
-            <button onClick={() => {dispatch({type: "LEVEL_UP_MODE" }) }}>
+            <button 
+            className="test_button" 
+            onClick={() => {dispatch({type: "LEVEL_UP_MODE" }) }}>
                 Level Up
             </button>
             :
-            <button disabled>
+            <button 
+            className="test_button" 
+            disabled>
             Level Up
             </button>
             }   
@@ -357,7 +361,7 @@ function CharacterSheet() {
                 
                 </div>
            
-                <div className="character_info_box">            
+                <div className="skills_box">            
                     <div className="character_sheet_box">
                         Skills: {skills.map(skill => <CharacterSheetClickableOptionModal option={skill} /> )}
                     </div>
