@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
-import {Button} from 'semantic-ui-react'
 import CharacterSheetClickableModal from '../components/CharacterSheetClickableOptionModal'
 import CharacterSheetClickableOptionModal from '../components/CharacterSheetClickableOptionModal';
 
@@ -164,7 +163,7 @@ function CharacterSheet() {
             Ye Olde Item Shop
             </button> */}
         
-            <button onClick={event => handleUpdate(event)}>
+            <button className="test_button"onClick={event => handleUpdate(event)}>
                 Save and Close
             </button>
             
@@ -367,8 +366,24 @@ function CharacterSheet() {
                     </div>
                 </div>  
                 <div className="items_box">
-                    <label>Items: </label>
+    
 
+                   
+                    <div className="item_middle_grid">
+                        Armor: {armor.map(armor => <CharacterSheetClickableOptionModal option={armor} /> )}
+                    </div>
+                    <div className="item_middle_grid">
+                        Weapons: {weapons.map(weapon => <CharacterSheetClickableOptionModal option={weapon} /> )}
+                    </div>
+                    <div>
+                        Equipment: {equipment.map(equipment=> <CharacterSheetClickableOptionModal option={equipment} /> )}
+                    </div>
+                    {/* <div className="item_middle_grid">
+                        Magic Items: {charms.map(charm => <CharacterSheetClickableOptionModal option={charm} /> )}
+                    </div>
+                    <div className="item_middle_grid">
+                        Artifacts: {artifacts.map(artifact => <CharacterSheetClickableOptionModal option={artifact} /> )}
+                    </div> */}
                     <div className="item_middle_grid">
                         <label>Coins: </label>
                         <input
@@ -384,21 +399,6 @@ function CharacterSheet() {
                         min='0'
                         max='10000'
                         />
-                    </div>
-                    <div className="item_middle_grid">
-                        Armor: {armor.map(armor => <CharacterSheetClickableOptionModal option={armor} /> )}
-                    </div>
-                    <div className="item_middle_grid">
-                        Weapons: {weapons.map(weapon => <CharacterSheetClickableOptionModal option={weapon} /> )}
-                    </div>
-                    <div>
-                        Equipment: {equipment.map(equipment=> <CharacterSheetClickableOptionModal option={equipment} /> )}
-                    </div>
-                    <div className="item_middle_grid">
-                        Magic Items: {charms.map(charm => <CharacterSheetClickableOptionModal option={charm} /> )}
-                    </div>
-                    <div className="item_middle_grid">
-                        Artifacts: {artifacts.map(artifact => <CharacterSheetClickableOptionModal option={artifact} /> )}
                     </div>
                 </div>
                 <div className="abilities_box">

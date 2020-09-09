@@ -20,13 +20,21 @@ const EquipmentOptionModal = (props) => {
   trigger={<div className="clickable_option">{props.option.name}</div>}
     >
    
-      <Modal.Content image scrolling>
+      <Modal.Content scrolling>
 
         <Modal.Description>
         <div> <strong>{props.option.name}</strong></div>
           <p >
             {props.option.text}
           </p>
+          {props.option.damage ?
+          <div>
+          <div> Damage: 1d6 + {props.option.damage}</div>
+          <br></br>
+          </div>
+          : 
+          null
+          }
           <p>
               Cost: {props.option.cost} coins
           </p>

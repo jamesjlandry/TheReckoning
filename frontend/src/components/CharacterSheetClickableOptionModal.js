@@ -23,6 +23,10 @@ const CharacterSheetClickableOptionModal = (props) => {
            {props.option.text}
           </p>
           <br></br>
+          {props.option.damage ?
+          <div> Damage: 1d6 + {props.option.damage}</div>
+          : null
+          }
           <p>
             {props.option.curse_name ?
             <div>Along with  {props.option.name} you have the following Curse:<br></br>

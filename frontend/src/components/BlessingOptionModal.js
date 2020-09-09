@@ -13,7 +13,7 @@ const BlessingOptionModal = (props) => {
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
-      trigger={<div className="character_info_box_clickable">{props.blessingOption.name}</div>}
+      trigger={<div className="clickable_option">{props.blessingOption.name}</div>}
     >
      
       <Modal.Content  scrolling>

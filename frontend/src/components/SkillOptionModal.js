@@ -29,7 +29,7 @@ const SkillOptionModal = (props) => {
            dispatch({type: selectOptions, option: props.option})}} primary>
           Choose this Option <Icon name='chevron right' />
         </Button>
-        <Button onClick={() => setOpen(false)} primary>
+        <Button onClick={() => setOpen(false)} >
           Close <Icon name='chevron right' />
         </Button>
       </Modal.Actions>
