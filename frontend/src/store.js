@@ -186,7 +186,8 @@ const reducer = (currentState, action) => {
   else if (action.type === 'LEVEL_UP_MODE'){
     return {...currentState, 
      createCharacter: true,
-     editCharacter: false
+     editCharacter: false,
+     levelUpSkills: currentState.characterSkills,
      }
   }
 
@@ -387,6 +388,7 @@ let initialState = {
     characterRecoveryPool: 0,
     characterBackground: '',
     characterNotes: '',
+    levelUpSkills: [],
    
   }
 

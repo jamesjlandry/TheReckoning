@@ -12,16 +12,17 @@ function CharacterSkillsLevelUp() {
     
     let characterLevel = useSelector(state => state.characterLevel)
     let selectedCharacter = useSelector(state => state.selectedCharacter)
+    let levelUpSkills = useSelector(state => state.levelUpSkills)
     let currentSkills = useSelector(state => state.characterSkills)
     let skills = useSelector(state => state.skills)
-    const currentSkillIDs = currentSkills.map(skill => skill.id)
+    const currentSkillIDs = levelUpSkills.map(skill => skill.id)
 
     let filteredSkills = skills.filter(skill => !currentSkillIDs.includes(skill.id) &&
     skill.name !== "Medium Blades" && skill.name !== "Heavy Blades" && skill.name !== "Medium Bludgeon" 
     && skill.name !== "Heavy Bludgeon" && skill.name !== "Medium Ranged" && skill.name !== "Heavy Ranged")
     let characterType = useSelector(state => state.characterType)
    
-    let availableSkills = 2
+    let availableSkills = 2 - (currentSkills.length - levelUpSkills.length)
     
 
     let dispatch = useDispatch()
