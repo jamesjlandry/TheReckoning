@@ -50,7 +50,7 @@ function CharacterSheet() {
     const maxCharismaPool = Math.floor(characterCharisma / 2)
     const maxWisdomPool = Math.floor(characterWisdom / 2)
     const maxDexterityPool = Math.floor(characterDexterity / 2)
-    const maxHP = character.strength + 20
+    const maxHP = character.strength + 20 + (character.level)
     
     let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     let levelUp = currentEligibleLevel > character.level //useSelector(state => state.levelUp)
@@ -145,6 +145,8 @@ function CharacterSheet() {
     return(
         <div className='character_sheet_modal_impersonation_background'>
             <div className='character_sheet_modal_impersonation'>
+                <div className="character_sheet_buttons">
+                    <div>
              {
                 levelUp ?
             <button 
@@ -158,20 +160,22 @@ function CharacterSheet() {
             disabled>
             Level Up
             </button>
-            }   
+            }  
+            </div> 
             {/* <button>
             Ye Olde Item Shop
             </button> */}
-        
+            <div>
             <button className="test_button"onClick={event => handleUpdate(event)}>
                 Save and Close
             </button>
-            
+            </div>
+            </div>
         <form>
             <div className="character_sheet_container">
             <div className="character_info">
                 <div className="character_main_info_box">
-                {character.name}
+                <strong>{character.name}</strong>
                 </div>
               
                 <div className="character_main_info_box">

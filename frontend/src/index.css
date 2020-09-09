@@ -16,8 +16,8 @@ body {
 
 input[type=number] {
   color: rgb(94, 70, 70) ;
-  border-radius: 20%;
-  height: 40px;
+  border-radius: 9%;
+  height: 30px;
   width: 50px;
   padding: 2px;
   text-align: center;
@@ -124,6 +124,14 @@ code {
   
 }
 
+.skill_select_box{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.skills_checkbox_options{
+  font-size: 13px;
+}
 .option_text {
   text-align: left;
   word-wrap: break-word;
@@ -141,9 +149,8 @@ code {
   grid-row: span 3;
   display: grid;
   grid-template-columns: 2;
-  grid-template-rows: auto;
-  padding: 2px;
-  
+  grid-template-rows: 11%, 11%, 11%, 11%, 11%, 11%, 11%, 11%, 11%;
+  padding: 1px;
   align-content: space-around;
   overflow: scroll;
 }
@@ -159,7 +166,7 @@ code {
 }
 
 .items_box{
-  grid-area: 3 / 2 / 5/ 5;
+  grid-area: 3 / 2 / 3/ 5;
   display: flex;
   flex-flow: row;
   padding: 10px;
@@ -249,7 +256,7 @@ code {
 .character_sheet_container{
   display: grid;
   grid-template-columns: 15% 20% 20% 45%;
-  grid-template-rows: 5% 40% 30% auto;
+  grid-template-rows: 5% 35% 40% auto;
   float: left;
   
   padding: 2px;
@@ -376,6 +383,51 @@ code {
   border-color:  #db3434;
 }
 
+.character_main_box button{
+  border: 0;
+  background: transparent;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #2b2727;
+  padding: 5px 5px;
+  width: auto;
+  outline: none;
+  color: rgb(37, 34, 34);
+  border-radius: 15px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+character_main_box button:hover{
+  background: rgb(182, 169, 166);
+  border-color:  #db3434;
+  color: #db3434;
+  transition: 0.25s;
+}
+
+.character_main_box button:hover:disabled{
+  border: 0;
+  color: rgb(151, 148, 148);
+  background: none;
+ 
+  
+  border: 2px solid #dac3c3;
+  
+  outline: none;
+}
+
+.character_main_box button:disabled {
+  border: 0;
+  color: rgb(151, 148, 148);
+  background: none;
+ 
+  
+  border: 2px solid #dac3c3;
+  
+  outline: none;
+}
+
 .test-button{
   
   border: 0;
@@ -437,6 +489,18 @@ code {
   overflow: scroll;
 }
 
+.character_sheet_buttons{
+  display: flex;
+  flex-flow: row;
+  float: right;
+  margin-left: 10px;
+  justify-content: space-between;
+}
+
+.character_sheet_buttons button{
+  margin: 6px;
+}
+
 .single_stat_box{
   margin: 3px;
   box-shadow: 0 4px 2px -3px rgb(124, 119, 119, 0.5);
@@ -452,7 +516,9 @@ code {
   top: 25%;
   left: 0;
   overflow-x: hidden;
+  overflow-y: hidden;
   padding-top: 20px;
+  overflow: scroll;
   
 }
 

@@ -65,8 +65,15 @@ function CharacterSkillsLevelUp() {
   
     return (
       <div className="selection_options">
-             <div className="character_box ">
-            
+             <div className="skill_select_box">
+             {remainingSkills === 0 ? 
+                <button className='test_button' type='submit'>
+                    Select Skills
+                </button>
+                :
+                <button className='test_button' type='button' disabled>
+                    Select Skills
+                </button>}
              <form onSubmit={event => handleSubmit(event)}>
                 <div>Available Skills: {remainingSkills}</div>
                  {filteredSkills.map(skill => 
@@ -75,14 +82,7 @@ function CharacterSkillsLevelUp() {
                 
                 )}
                    
-               {remainingSkills === 0 ? 
-                <Button type='submit'>
-                    Select Skills
-                </Button>
-                :
-                <Button type='button' disabled>
-                    Select Skills
-                </Button>}
+            
                 
                 </form>
               

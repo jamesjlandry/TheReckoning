@@ -13,7 +13,9 @@ function CharacterTypeLevel() {
   
     return (
         <div className="selection_options">
+          
              <div className="character_box ">
+             <div>Choose Two of the following Abilities:</div>
                  {filteredlevels.map(typelevel=> <CharacterOptionModal option={typelevel} selectOptions={selectOptions}/>)}
               
           </div>

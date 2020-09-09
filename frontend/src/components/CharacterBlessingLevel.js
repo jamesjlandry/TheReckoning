@@ -18,7 +18,9 @@ function CharacterBlessingLevel() {
   
     return (
         <div className="selection_options">
+          
              <div className="character_box ">
+             <div>Choose One of the following Abilities:</div>
                  {filteredlevels.map(blessinglevel=> <BlessingOptionModal blessingOption={blessinglevel} curseLevel={thisCurse} />)}
               
           </div>

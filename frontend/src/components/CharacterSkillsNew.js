@@ -60,23 +60,26 @@ function CharacterSkillsNew() {
   
     return (
       <div className="selection_options">
-             <div className="character_box ">
+             <div className="skill_select_box">
+                 <div>
+             {remainingSkills === 0 ? 
+                <button className='test_button' type='submit'>
+                    Select Skills
+                </button>
+                :
+                <button className='test_button' type='button' disabled>
+                    Select Skills
+                </button>}
+                </div>
              <form onSubmit={event => handleSubmit(event)}>
                 <div>Available Skills: {remainingSkills}</div>
                  {filteredSkills.map(skill => 
-                 <CheckBox handleChange={handleChange} count={remainingSkills}skill={skill}/>
+                 <div className="skills_checkbox_options"><CheckBox handleChange={handleChange} count={remainingSkills}skill={skill}/>
                     
                 
-                )}
+                    </div>)}
                    
-               {characterSkills ? 
-                <Button type='submit'>
-                    Select Skills
-                </Button>
-                :
-                <Button type='button' disabled>
-                    Select Skills
-                </Button>}
+              
                 
                 </form>
               

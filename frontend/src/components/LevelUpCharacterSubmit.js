@@ -89,9 +89,14 @@ function LevelUpCharacterSubmit() {
     return (
         <div className="selection_options">
              <div className="character_box ">
-             <div> </div>
+             <div > 
              
                     <form onSubmit={event => handleUpdate(event)}>
+                    <button 
+                    className='test_button'
+                    type='submit'>
+                            Level Up
+                        </button>
                         <label> Name: </label>
                         <input
                         className="input" 
@@ -101,11 +106,9 @@ function LevelUpCharacterSubmit() {
                         type="text" 
                         value={name}
                         />
-                        <Button type='submit'>
-                            Level Up
-                        </Button>
-                       
+                        
                     </form> 
+                    </div>
                     <div >Race: {characterRace.name}</div>
                     <div>Type: {characterType.name}</div>
                     <div>Blessing: {characterBlessing.name}</div>

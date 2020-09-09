@@ -32,6 +32,7 @@ function NewCharacterSubmit() {
     let blessingLevelIds = characterBlessingLevel.map(blessing => blessing.id)
     let equipmentIds = characterEquipment.map(equipment => equipment.id)
     let weaponIds = characterWeapons.map(weapon => weapon.id)
+    let characterHP = 21 + characterStats.strength
     const [name, setName] = useState('');
 
     
@@ -60,7 +61,7 @@ function NewCharacterSubmit() {
             charisma_pool: charismaPool,
             magic_pool: magicPool,
             xp: 0,
-            hp: 20,
+            hp: characterHP,
             status: '',
             recovery_pool: 4,
             armor_cost: 0,
@@ -107,13 +108,13 @@ function NewCharacterSubmit() {
                         value={name}
                         />
                         {name !== '' ? 
-                        <Button type='submit'>
+                        <button  className="test_button" type='submit'>
                             Create Character
-                        </Button>
+                        </button>
                         :
-                        <Button type='button' disabled>
+                        <button className="test_button" type='button' disabled>
                             Create Character
-                        </Button>} 
+                        </button>} 
                     </form> 
                     <div>Race: {characterRace.name}</div>
                     <div>Type: {characterType.name}</div>

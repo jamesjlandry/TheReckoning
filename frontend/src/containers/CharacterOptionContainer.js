@@ -62,16 +62,16 @@ import CharacterSkills from '../components/CharacterSkills'
 
     if(selectedType) {
         if(selectedTypeLevels.length < 2 && currentEligibleLevel === 1)
-            panes.splice( 2, 0, { menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel /></Tab.Pane> })
+            panes.splice( 2, 0, { menuItem: 'Type Abilities', render: () => <Tab.Pane><CharacterTypeLevel /></Tab.Pane> })
        
         else if (selectedTypeLevels.length < availableTypeAbilities && currentEligibleLevel !==1)
-            panes.splice(0, 0,  { menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel /></Tab.Pane> })
+            panes.splice(0, 0,  { menuItem: 'Type Abilities', render: () => <Tab.Pane><CharacterTypeLevel /></Tab.Pane> })
     }
     if(selectedBlessing) {
         if(selectedBlessingLevels.length === 0 && currentEligibleLevel === 1) {
-        panes.splice(2, 0, { menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel /></Tab.Pane> })
+        panes.splice(2, 0, { menuItem: 'Blessing Abilities', render: () => <Tab.Pane><CharacterBlessingLevel /></Tab.Pane> })
         } else if (selectedBlessingLevels.length < currentEligibleLevel) {
-        panes.splice(1, 0, { menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel /></Tab.Pane> })
+        panes.splice(1, 0, { menuItem: 'Blessing Abilities', render: () => <Tab.Pane><CharacterBlessingLevel /></Tab.Pane> })
         }
     } 
 
