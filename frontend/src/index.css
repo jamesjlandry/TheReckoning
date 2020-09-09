@@ -48,11 +48,12 @@ input[type=number] {
 
 .edit_create_character_box {
   display: block;
-  background-image: url('https://i.pinimg.com/originals/a2/77/83/a27783081e2e98500d154c016df7d1ab.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg');
   background-size: cover;
+  z-index: 0;
   position: fixed;
-  top: 25%;
-  left: 20%;
+  top: 0%;
+  left: 0%;
   padding: 0px;
   height: 100%;
   width: 100%;
@@ -79,7 +80,7 @@ code {
 
 .header {
   display: grid;
-  background-image: url("https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg");
+  
   position: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -97,7 +98,7 @@ code {
 
   font-family: 'Kanit', sans-serif;
   color: rgb(36, 41, 46);
-
+  z-index: 2;
  
 }
 
