@@ -9,6 +9,7 @@ const BlessingOptionModal = (props) => {
 
   return (
     <Modal
+    size='mini'
     basic
       open={open}
       onClose={() => setOpen(false)}

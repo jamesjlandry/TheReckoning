@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
-import {Button} from 'semantic-ui-react'
 
 
 function CharacterStatsNew() {
@@ -132,13 +131,17 @@ function CharacterStatsNew() {
                 </div>
                
                 {remainingStats === 0 ? 
-                <Button type='submit'>
+                <button 
+                className='test_button'
+                type='submit'>
                     Set Stats
-                </Button>
+                </button>
                 :
-                <Button type='button' disabled>
+                <button 
+                className='test_button'
+                type='button' disabled>
                     Set Stats
-                </Button>} 
+                </button>} 
                 
                 </form>    
               

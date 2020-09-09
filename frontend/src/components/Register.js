@@ -110,7 +110,7 @@ function LogInMain()  {
             </div>
 
             <div>
-                <button className="register_button" onClick={() => dispatch({type: "SET_REGISTER"})}>Back to Log In</button>
+                <button type="button" className="register_button" onClick={() => dispatch({type: "SET_REGISTER"})}>Back to Log In</button>
             </div>
 
           </form>

@@ -80,7 +80,7 @@ let logIn = async (user) => {
             </div>
 
             <div>
-                <button onClick={() => {dispatch({type: "SET_REGISTER"})}}>Register New Account</button>
+                <button type="button" onClick={() => {dispatch({type: "SET_REGISTER"})}}>Register New Account</button>
             </div>
 
             </form>

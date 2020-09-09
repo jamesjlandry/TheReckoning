@@ -9,6 +9,7 @@ const SkillOptionModal = (props) => {
 
   return (
     <Modal
+    
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
