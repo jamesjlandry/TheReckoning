@@ -97,6 +97,14 @@ function NewCharacterSubmit() {
              <div> </div>
              
                     <form onSubmit={event => handleCreate(event)}>
+                    {name !== '' ? 
+                        <button  className="test_button" type='submit'>
+                            Create Character
+                        </button>
+                        :
+                        <button className="test_button" type='button' disabled>
+                            Create Character
+                        </button>} 
                         <label> Name: </label>
                         <input
                         className="input" 
@@ -107,14 +115,7 @@ function NewCharacterSubmit() {
                         type="text" 
                         value={name}
                         />
-                        {name !== '' ? 
-                        <button  className="test_button" type='submit'>
-                            Create Character
-                        </button>
-                        :
-                        <button className="test_button" type='button' disabled>
-                            Create Character
-                        </button>} 
+                      
                     </form> 
                     <div>Race: {characterRace.name}</div>
                     <div>Type: {characterType.name}</div>

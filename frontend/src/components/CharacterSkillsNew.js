@@ -29,7 +29,7 @@ function CharacterSkillsNew() {
        
 
                let skill = filteredSkills.find(e => parseInt(event.target.value) === e.id)
-                console.log(characterSkills)
+               
                 setCharacterSkills(
                     
                         [...newCharacterSkills, skill]
@@ -44,7 +44,7 @@ function CharacterSkillsNew() {
         } else if (!event.target.checked) {
             
                 let skill = filteredSkills.find(e => parseInt(event.target.value) === e.id)
-                    characterSkills.splice(newCharacterSkills.indexOf(skill), 1)
+                    newCharacterSkills.splice(newCharacterSkills.indexOf(skill), 1)
               
                 setRemainingSkills(
                     remainingSkills + 1
@@ -61,7 +61,9 @@ function CharacterSkillsNew() {
     return (
       <div className="selection_options">
              <div className="skill_select_box">
-                 <div>
+                
+             <form onSubmit={event => handleSubmit(event)}>
+             <div>
              {remainingSkills === 0 ? 
                 <button className='test_button' type='submit'>
                     Select Skills
@@ -71,7 +73,6 @@ function CharacterSkillsNew() {
                     Select Skills
                 </button>}
                 </div>
-             <form onSubmit={event => handleSubmit(event)}>
                 <div>Available Skills: {remainingSkills}</div>
                  {filteredSkills.map(skill => 
                  <div className="skills_checkbox_options"><CheckBox handleChange={handleChange} count={remainingSkills}skill={skill}/>

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
 
 
+
 function CharacterStatsNew() {
     let dispatch = useDispatch()
     let startingStats = useSelector(state => state.startingStats)

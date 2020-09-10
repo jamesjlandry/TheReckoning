@@ -80,7 +80,7 @@ code {
 
 .header {
   display: grid;
-  
+  background-image: url('https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg');
   position: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -451,6 +451,13 @@ code {
   border-radius: 15px;
   transition: 0.25s;
   cursor: pointer;
+}
+
+.stats_options_box{
+  display: flex;
+  flex-flow: flex-start;
+
+  
 }
 
 character_main_box button:hover{
