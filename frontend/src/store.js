@@ -1,9 +1,16 @@
 import {createStore, bindActionCreators} from 'redux';
+import { editCharacterReducer } from './Reducers/EditCharacter';
+
 
 
 
 
 const reducer = (currentState, action) => {
+
+  // currentState = editCharacterReducer(currentState, action)
+  
+  // return currentState
+
   if (action.type === 'SELECT_CHARACTER') {
     return {
       ...currentState, 

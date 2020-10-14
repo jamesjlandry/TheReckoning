@@ -1,8 +1,8 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import CharacterSkillsNew from '../components/CharacterSkillsNew';
-import CharacterSkillsLevelUp from '../components/CharacterSkillsLevelUp';
+import CharacterSkillsNew from '../components/NewCharacterComponents/CharacterSkillsNew';
+import CharacterSkillsLevelUp from '../components/EditCharacterComponents/CharacterSkillsLevelUp';
 
 
 

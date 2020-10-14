@@ -1,7 +1,5 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import {useState} from 'react';
-import CharacterSheetClickableModal from '../components/CharacterSheetClickableOptionModal'
 import CharacterSheetClickableOptionModal from '../components/CharacterSheetClickableOptionModal';
 
 function CharacterSheet() {
@@ -127,17 +125,6 @@ function CharacterSheet() {
         } 
         dispatch({type: 'UPDATE_CHARACTERS', selectedCharacter: selectedCharacter})
         }
-
-//    let levelUpTable = { 
-//     100: function() { if (currentEligibleLevel === 1)dispatch({type: "SET_LEVEL_UP"})},
-//     200: function() { if (currentEligibleLevel === 2) dispatch({type: "SET_LEVEL_UP"})},
-//     300: function() { if (currentEligibleLevel === 3) dispatch({type: "SET_LEVEL_UP"})},
-//     400: function() { if (currentEligibleLevel === 4) dispatch({type: "SET_LEVEL_UP"})}
-//    }
-
-//  function processLevelUp(command)  {
-//        levelUpTable[command]()
-//    }
 
 
 // Name Race Type as one line as description of character for the title.

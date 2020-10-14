@@ -1,6 +1,5 @@
 import React from 'react';
 import {useState} from 'react';
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 
@@ -14,7 +13,6 @@ function LogInMain()  {
     const [accountType, setAccountType] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [register, setRegister] = useState(false)
     const dispatch = useDispatch()
 
 

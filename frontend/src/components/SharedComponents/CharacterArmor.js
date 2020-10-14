@@ -1,11 +1,10 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import EquipmentOptionModal from '../containers/EquipmentOptionModal'
+import { useSelector } from 'react-redux';
+import EquipmentOptionModal from '../../containers/EquipmentOptionModal'
 
 function CharacterArmor() {
     let armors = useSelector(state => state.armors)
     let coins = useSelector(state => state.coins)
-    let dispatch = useDispatch()
     let selectOptions = 'SELECT_ARMOR'
   
     

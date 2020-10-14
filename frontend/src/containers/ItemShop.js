@@ -7,6 +7,9 @@ import CharacterEquipment from '../components/CharacterEquipment'
 import MagicItems from '../components/MagicItems'
 import Artifacts from '../components/Artifacts'
 
+// currently the Item Shop is not being used. future update will add this to the character sheet
+// in order to purchase or add items during game play
+
 const itemShop = () => {
 
     const coins = useSelector(state => state.coins)

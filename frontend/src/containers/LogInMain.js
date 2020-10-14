@@ -1,7 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
 import Register from '../components/Register'
 import LogIn from '../components/LogIn'
 

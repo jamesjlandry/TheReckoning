@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import BlessingOptionModal from '../components/BlessingOptionModal'
+import BlessingOptionModal from '../SharedComponents/BlessingOptionModal'
 
 function CharacterBlessingLevel() {
     let dispatch = useDispatch()

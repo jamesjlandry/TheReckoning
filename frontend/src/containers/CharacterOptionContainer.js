@@ -1,14 +1,14 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import { Tab, Menu } from 'semantic-ui-react'
-import CharacterBlessing from '../components/CharacterBlessing'
-import CharacterEquipment from '../components/CharacterEquipment'
-import CharacterRace from '../components/CharacterRace'
-import CharacterType from '../components/CharacterType'
-import CharacterArmor from '../components/CharacterArmor'
-import CharacterWeapon from '../components/CharacterWeapon'
-import CharacterTypeLevel from '../components/CharacterTypeLevel'
-import CharacterBlessingLevel from '../components/CharacterBlessingLevel'
+import { useSelector } from 'react-redux';
+import { Tab } from 'semantic-ui-react'
+import CharacterBlessing from '../components/NewCharacterComponents/CharacterBlessing'
+import CharacterEquipment from '../components/SharedComponents/CharacterEquipment'
+import CharacterRace from '../components/NewCharacterComponents/CharacterRace'
+import CharacterType from '../components/NewCharacterComponents/CharacterType'
+import CharacterArmor from '../components/SharedComponents/CharacterArmor'
+import CharacterWeapon from '../components/SharedComponents/CharacterWeapon'
+import CharacterTypeLevel from '../components/SharedComponents/CharacterTypeLevel'
+import CharacterBlessingLevel from '../components/SharedComponents/CharacterBlessingLevel'
 import CharacterStats from '../components/CharacterStats'
 import CharacterBuild from '../components/CharacterBuild'
 import CharacterSkills from '../components/CharacterSkills'
@@ -43,12 +43,8 @@ import CharacterSkills from '../components/CharacterSkills'
     }
 
    
-    
+    // panes render conditionally in the Semantic tab based on selected choices that are updated in the store.
     const panes = [
-       
-        // { menuItem: 'Type Level Options', render: () => <Tab.Pane><CharacterTypeLevel/></Tab.Pane> },
-        
-        // { menuItem: 'Blessing Level Options', render: () => <Tab.Pane><CharacterBlessingLevel/></Tab.Pane> },
         { menuItem: 'Armor', render: () => <Tab.Pane><CharacterArmor /></Tab.Pane> },
         { menuItem: 'Weapons', render: () => <Tab.Pane><CharacterWeapon /></Tab.Pane> },
         { menuItem: 'Equipment', render: () => <Tab.Pane><CharacterEquipment /></Tab.Pane> },
@@ -94,7 +90,6 @@ import CharacterSkills from '../components/CharacterSkills'
     return (
         <React.Fragment>
         <Tab panes={panes} />
-        {/* {Object.values(selectedCharacter).every( property => property !== undefined) ? <button>Create Character</button> : null} */}
         </React.Fragment>
     )
   }

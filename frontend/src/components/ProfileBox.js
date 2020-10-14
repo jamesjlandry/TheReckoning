@@ -19,16 +19,12 @@ function ProfileBox() {
     
     return (
         <div className="profile_box">
-            {user = null ? 
-            <div>
-            <div>log in</div>
-            </div>
-            :
+          
             <div>
             <div className="profile_name">Welcome {user.username}</div>
             <div className="profile_name" onClick={() => handleLogout()}>Log Out</div>
             </div>
-            }
+            
             
         </div>
     );

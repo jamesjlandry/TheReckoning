@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import CharacterOptionModal from '../components/CharacterOptionModal'
+import CharacterOptionModal from '../SharedComponents/CharacterOptionModal'
 
 function CharacterBlessing() {
-    let dispatch = useDispatch()
+    
     let blessings = useSelector(state => state.blessings)
     let selectOptions = 'SELECT_BLESSING'
     

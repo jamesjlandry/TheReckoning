@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import {useState} from 'react';
 import CharacterBox from '../containers/CharacterBox'
 
 

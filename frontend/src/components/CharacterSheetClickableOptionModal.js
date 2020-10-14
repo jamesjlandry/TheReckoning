@@ -1,10 +1,8 @@
 import React from 'react'
-import {Icon, Image, Modal, Button } from 'semantic-ui-react'
-import { useSelector, useDispatch } from 'react-redux';
+import {Icon, Modal, Button } from 'semantic-ui-react'
 
 const CharacterSheetClickableOptionModal = (props) => {
   const [open, setOpen] = React.useState(false)
-  const dispatch = useDispatch()
   
 
   return (
