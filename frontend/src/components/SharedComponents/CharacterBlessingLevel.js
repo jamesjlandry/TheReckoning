@@ -1,9 +1,8 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import BlessingOptionModal from '../SharedComponents/BlessingOptionModal'
 
 function CharacterBlessingLevel() {
-    let dispatch = useDispatch()
     let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     let level = useSelector(state => state.currentEligibleLevel)
     let blessingLevels = useSelector(state => state.blessingLevels)
