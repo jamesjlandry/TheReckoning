@@ -22,7 +22,7 @@ import CharacterSkills from '../components/CharacterSkills'
     const selectedRace = useSelector(state => state.characterRace)
     const currentUser = useSelector(state => state.currentUser)
     const selectedTypeLevels = useSelector(state => state.characterTypeLevel)
-    const selectedBlessingLevels = useSelector(state => state.characterBlessingLevel)
+    const selectedblessingLevels = useSelector(state => state.characterBlessingLevel)
     const coins = useSelector(state => state.coins)
     const characterStats = useSelector(state => state.characterStats)
     const characterSkills = useSelector(state => state.characterSkills)
@@ -64,9 +64,9 @@ import CharacterSkills from '../components/CharacterSkills'
             panes.splice(0, 0,  { menuItem: 'Type Abilities', render: () => <Tab.Pane><CharacterTypeLevel /></Tab.Pane> })
     }
     if(selectedBlessing) {
-        if(selectedBlessingLevels.length === 0 && currentEligibleLevel === 1) {
+        if(selectedblessingLevels.length === 0 && currentEligibleLevel === 1) {
         panes.splice(2, 0, { menuItem: 'Blessing Abilities', render: () => <Tab.Pane><CharacterBlessingLevel /></Tab.Pane> })
-        } else if (selectedBlessingLevels.length < currentEligibleLevel) {
+        } else if (selectedblessingLevels.length < currentEligibleLevel) {
         panes.splice(1, 0, { menuItem: 'Blessing Abilities', render: () => <Tab.Pane><CharacterBlessingLevel /></Tab.Pane> })
         }
     } 

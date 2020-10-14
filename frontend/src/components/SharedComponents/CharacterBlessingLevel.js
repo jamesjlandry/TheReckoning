@@ -6,13 +6,13 @@ function CharacterBlessingLevel() {
     let dispatch = useDispatch()
     let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     let level = useSelector(state => state.currentEligibleLevel)
-    let blessinglevels = useSelector(state => state.blessinglevels)
+    let blessingLevels = useSelector(state => state.blessingLevels)
     let selectedBlessing = useSelector(state => state.characterBlessing)
-    let filteredlevels = blessinglevels.filter(blessinglevel => blessinglevel.level === level && blessinglevel.blessing_id === selectedBlessing.id)
-    let curselevels = useSelector(state => state.curselevels)
-    let selectedCurses = curselevels.filter(curse => curse.blessing_id === selectedBlessing.id)
-    let curselevel = selectedCurses.filter(curse => curse.level === currentEligibleLevel)
-    let thisCurse = curselevel[0]
+    let filteredLevels = blessingLevels.filter(blessingLevel => blessingLevel.level === level && blessingLevel.blessing_id === selectedBlessing.id)
+    let curseLevels = useSelector(state => state.curseLevels)
+    let selectedCurses = curseLevels.filter(curse => curse.blessing_id === selectedBlessing.id)
+    let curseLevel = selectedCurses.filter(curse => curse.level === currentEligibleLevel)
+    let thisCurse = curseLevel[0]
     
     
   
@@ -21,7 +21,7 @@ function CharacterBlessingLevel() {
           
              <div className="character_box ">
              <div>Choose One of the following Abilities:</div>
-                 {filteredlevels.map(blessinglevel=> <BlessingOptionModal blessingOption={blessinglevel} curseLevel={thisCurse} />)}
+                 {filteredLevels.map(blessingLevel=> <BlessingOptionModal blessingOption={blessingLevel} curseLevel={thisCurse} />)}
               
           </div>
 
