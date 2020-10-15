@@ -36,9 +36,7 @@ Header renders ProfileBox renders the username and logout option. Future update 
 
 LoginMain conditionally renders the LogIn component or the Register component.
 
-CharacterIndex renders CharacterBox or the default page. 
-
-CharacterBox renders CharacterOptionsContainer or CharacterSheet 
+CharacterIndex renders CharacterOptionsContainer or CharacterSheet or the default page.
 
 CharacterOptionsContainer renders Tab from semantic-ui-react which conditionally renders components within the tabs. 
 Components rendered are 

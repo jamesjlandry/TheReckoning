@@ -48,7 +48,7 @@ input[type=number] {
 
 .edit_create_character_box {
   display: block;
-  background-image: url('https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg');
+  background-image: url('https://vgg8pa.dm.files.1drv.com/y4mzhhdRO2fUvd3YwySlg2_4L5TCuxruduLqXBAgRUDVJlBXv-C3nw2W_VSyDeAGhnC1WgxuNHFzpjdEcTzke-PPygDFEgjye7T3DlM4DHYCxGaTUb6jdwwefnvIhIwSwrJqXWXmaDLs8KfK-5qC4opJWQXy3RwhZsMCCdmXGWLMvpW0LC_GPNCFaBQFyydo8AT21GkgS19BTOwAeEjUd8Gzw?width=5600&height=3920&cropmode=none');
   background-size: cover;
   z-index: 0;
   position: fixed;
@@ -70,7 +70,7 @@ input[type=number] {
   width: 300px;
   height: 81px;
   border: hidden;
-  background-image: url("https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg");
+  background-image: url("https://vgg8pa.dm.files.1drv.com/y4mzhhdRO2fUvd3YwySlg2_4L5TCuxruduLqXBAgRUDVJlBXv-C3nw2W_VSyDeAGhnC1WgxuNHFzpjdEcTzke-PPygDFEgjye7T3DlM4DHYCxGaTUb6jdwwefnvIhIwSwrJqXWXmaDLs8KfK-5qC4opJWQXy3RwhZsMCCdmXGWLMvpW0LC_GPNCFaBQFyydo8AT21GkgS19BTOwAeEjUd8Gzw?width=5600&height=3920&cropmode=none");
   background-size: 800px;
 }
 code {
@@ -80,7 +80,7 @@ code {
 
 .header {
   display: grid;
-  background-image: url('https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg');
+  background-image: url('https://vgg8pa.dm.files.1drv.com/y4mzhhdRO2fUvd3YwySlg2_4L5TCuxruduLqXBAgRUDVJlBXv-C3nw2W_VSyDeAGhnC1WgxuNHFzpjdEcTzke-PPygDFEgjye7T3DlM4DHYCxGaTUb6jdwwefnvIhIwSwrJqXWXmaDLs8KfK-5qC4opJWQXy3RwhZsMCCdmXGWLMvpW0LC_GPNCFaBQFyydo8AT21GkgS19BTOwAeEjUd8Gzw?width=5600&height=3920&cropmode=none');
   position: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -306,7 +306,7 @@ code {
   transition: 0.25s;
 }
 .box_background{
-  background-image: url("https://cdn.pixabay.com/photo/2019/04/05/17/48/fog-4105667_1280.jpg");
+  background-image: url("https://vgg8pa.dm.files.1drv.com/y4mzhhdRO2fUvd3YwySlg2_4L5TCuxruduLqXBAgRUDVJlBXv-C3nw2W_VSyDeAGhnC1WgxuNHFzpjdEcTzke-PPygDFEgjye7T3DlM4DHYCxGaTUb6jdwwefnvIhIwSwrJqXWXmaDLs8KfK-5qC4opJWQXy3RwhZsMCCdmXGWLMvpW0LC_GPNCFaBQFyydo8AT21GkgS19BTOwAeEjUd8Gzw?width=5600&height=3920&cropmode=none");
   position: fixed;
   background-size: cover;
   background-repeat: no-repeat;
