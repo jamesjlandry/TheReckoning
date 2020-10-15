@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import CharacterBox from '../containers/CharacterBox'
+import CharacterOptionContainer from '../containers/CharacterOptionContainer'
+import CharacterSheet from '../components/CharacterSheet'
 
 
 function CharacterIndex() {
@@ -39,8 +40,8 @@ function CharacterIndex() {
 
                 
                 <div >
-                {createCharacter ? <CharacterBox/> : null}
-                {editCharacter ? <CharacterBox/> : null}
+                {createCharacter ? <div className="character_main_box"><CharacterOptionContainer/></div> : null}
+                {editCharacter ? <CharacterSheet/> : null}
                 {defaultPage ? <div className="edit_create_character_box"></div> : null}
                 </div>
         </React.Fragment>

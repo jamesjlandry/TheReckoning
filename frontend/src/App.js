@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import Header from './containers/Header';
 import CharacterIndex from './containers/CharacterIndex';
 import LogInMain from './containers/LogInMain'
-import CharacterBox from './containers/CharacterBox';
 
 let user 
 let options
