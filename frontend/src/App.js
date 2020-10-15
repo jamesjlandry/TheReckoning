@@ -6,8 +6,7 @@ import Header from './containers/Header';
 import CharacterIndex from './containers/CharacterIndex';
 import LogInMain from './containers/LogInMain'
 
-let user 
-let options
+
 function App() {
   
   let loggedIn = useSelector(state => state.loggedIn)
