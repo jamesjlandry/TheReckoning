@@ -1,8 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
-import {Button} from 'semantic-ui-react'
-import CheckBox from '../components/CheckBox'
+import CheckBox from '../SharedComponents/CheckBox'
 
 
 
@@ -16,11 +15,12 @@ function CharacterSkillsNew() {
     let startingStats = useSelector(state => state.startingStats)
     let characterType = useSelector(state => state.characterType)
     let characterRace = useSelector(state => state.characterRace)
+    let characterSkills = useSelector(state => state.characterSkills)
     let selectedCharacterAvailability = startingStats.filter(stat => stat.type_id === characterType.id && stat.race_id === characterRace.id)
     let availableSkills = selectedCharacterAvailability[0].skill_slots
     let dispatch = useDispatch()
-    const [characterSkills, setCharacterSkills] = useState([])
-    const [remainingSkills, setRemainingSkills] = useState(availableSkills)
+    const [newCharacterSkills, setCharacterSkills] = useState([])
+    const [remainingSkills, setRemainingSkills] = useState(availableSkills - characterSkills.length)
    
    
     let handleChange = (event, skill) => {
@@ -28,10 +28,10 @@ function CharacterSkillsNew() {
        
 
                let skill = filteredSkills.find(e => parseInt(event.target.value) === e.id)
-                console.log(characterSkills)
+               
                 setCharacterSkills(
                     
-                        [...characterSkills, skill]
+                        [...newCharacterSkills, skill]
                     
                 )
                 
@@ -43,7 +43,7 @@ function CharacterSkillsNew() {
         } else if (!event.target.checked) {
             
                 let skill = filteredSkills.find(e => parseInt(event.target.value) === e.id)
-                    characterSkills.splice(characterSkills.indexOf(skill), 1)
+                    newCharacterSkills.splice(newCharacterSkills.indexOf(skill), 1)
               
                 setRemainingSkills(
                     remainingSkills + 1
@@ -54,28 +54,32 @@ function CharacterSkillsNew() {
     }
     let handleSubmit = (e) => {
         e.preventDefault();
-            dispatch({type: "SET_SKILLS", characterSkills: characterSkills})
+            dispatch({type: "SET_SKILLS", characterSkills: newCharacterSkills})
         }
   
     return (
       <div className="selection_options">
-             <div className="character_box ">
+             <div className="skill_select_box">
+                
              <form onSubmit={event => handleSubmit(event)}>
+             <div>
+             {remainingSkills === 0 ? 
+                <button className='test_button' type='submit'>
+                    Select Skills
+                </button>
+                :
+                <button className='test_button' type='button' disabled>
+                    Select Skills
+                </button>}
+                </div>
                 <div>Available Skills: {remainingSkills}</div>
                  {filteredSkills.map(skill => 
-                 <CheckBox handleChange={handleChange} count={remainingSkills}skill={skill}/>
+                 <div className="skills_checkbox_options"><CheckBox handleChange={handleChange} count={remainingSkills}skill={skill}/>
                     
                 
-                )}
+                    </div>)}
                    
-               {characterSkills ? 
-                <Button type='submit'>
-                    Select Skills
-                </Button>
-                :
-                <Button type='button' disabled>
-                    Select Skills
-                </Button>}
+              
                 
                 </form>
               

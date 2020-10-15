@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import CharacterOptionModal from '../components/CharacterOptionModal'
+import CharacterOptionModal from '../SharedComponents/CharacterOptionModal'
 
 function CharacterRace() {
     let races = useSelector(state => state.races)

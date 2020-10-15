@@ -1,15 +1,23 @@
 import {createStore, bindActionCreators} from 'redux';
+import { editCharacterReducer } from './Reducers/EditCharacter';
+
 
 
 
 
 const reducer = (currentState, action) => {
+
+  // currentState = editCharacterReducer(currentState, action)
+  
+  // return currentState
+
   if (action.type === 'SELECT_CHARACTER') {
     return {
       ...currentState, 
       selectedCharacter: action.selectedCharacter,
       editCharacter: true,
       createCharacter: false,
+      defaultPage: false,
       coins: action.selectedCharacter.coins,   
       characterBlessing: action.selectedCharacter.blessing,
       characterType: action.selectedCharacter.type,
@@ -32,7 +40,10 @@ const reducer = (currentState, action) => {
       characterArmorCost: action.selectedCharacter.armor_cost,
       characterRecoveryPool: action.selectedCharacter.recovery_pool,
       characterHP: action.selectedCharacter.hp,
-      coins: action.selectedCharacter.coins
+      coins: action.selectedCharacter.coins,
+      characterBackground: action.selectedCharacter.background,
+      characterNotes: action.selectedCharacter.notes,
+      currentEligibleLevel: action.selectedCharacter.level
     }
    }
    else if (action.type === 'SET_USER'){
@@ -44,8 +55,7 @@ const reducer = (currentState, action) => {
 
    else if (action.type === 'SET_LEVEL_UP'){
     return {...currentState, 
-     levelUp: true,
-     characterLevel: currentState.characterLevel + 1,
+     currentEligibleLevel: currentState.currentEligibleLevel + 1,
      characterXP: action.characterXP
      }
   }
@@ -59,7 +69,10 @@ const reducer = (currentState, action) => {
 
    else if (action.type === 'UPDATE_CHARACTERS') {
     return {...currentState,
-    
+      registerAccount: false,
+      createCharacter: false,
+      editCharacter: false,
+      defaultPage: true,
     }
   }
 
@@ -135,9 +148,21 @@ const reducer = (currentState, action) => {
      }
   }
 
+  else if (action.type === 'SET_BACKGROUND'){
+    return {...currentState, 
+     characterBackground: action.characterBackground
+     }
+  }
+
+  else if (action.type === 'SET_NOTES'){
+    return {...currentState, 
+     characterNotes: action.characterNotes
+     }
+  }
+
   else if (action.type === 'SET_SKILLS'){
     return {...currentState, 
-     characterSkills: [...currentState.characterSkills, action.characterSkills]
+     characterSkills: [...currentState.characterSkills, ...action.characterSkills]
      }
   }
 
@@ -145,6 +170,7 @@ const reducer = (currentState, action) => {
     return {...currentState, 
      createCharacter: true,
      editCharacter: false,
+     defaultPage: false,
      selectedCharacter: null,
      characterSkills: [],
     characterEquipment: [],
@@ -160,14 +186,15 @@ const reducer = (currentState, action) => {
     characterBlessingLevel: [],
     characterCurseLevel: [],
     characterTypeLevel: [],
-    characterLevel: 1
+    currentEligibleLevel: 1
      }
   }
 
   else if (action.type === 'LEVEL_UP_MODE'){
     return {...currentState, 
      createCharacter: true,
-     editCharacter: false
+     editCharacter: false,
+     levelUpSkills: currentState.characterSkills,
      }
   }
 
@@ -291,8 +318,8 @@ const reducer = (currentState, action) => {
      curses: action.options.curses,
      types: action.options.types,
      races: action.options.races,
-     blessinglevels: action.options.blessinglevels,
-     curselevels: action.options.curselevels,
+     blessingLevels: action.options.blessingLevels,
+     curseLevels: action.options.curseLevels,
      typelevels: action.options.typelevels,
      equipments: action.options.equipments,
      armors: action.options.armors,
@@ -301,6 +328,11 @@ const reducer = (currentState, action) => {
      startingStats: action.options.startingstats,
      characters: action.options.characters
      }
+  }
+  else if (action.type === "SET_REGISTER") {
+    return { ...currentState,
+    registerAccount: !currentState.registerAccount
+    }
   }
   
     return currentState
@@ -311,13 +343,15 @@ const reducer = (currentState, action) => {
 let initialState = {
     currentUser: null,
     loggedIn: false,
+    registerAccount: false,
     createCharacter: false,
     editCharacter: false,
+    defaultPage: true,
     characters: [],
     blessings: [],
-    blessinglevels: [],
+    blessingLevels: [],
     curses: [],
-    curselevels: [],
+    curseLevels: [],
     types: [],
     typelevels: [],
     races: [],
@@ -349,8 +383,7 @@ let initialState = {
     characterCharms: [],
     characterArtifacts: [],
     coins: 35,
-    characterLevel: 1,
-    currentCharacterLevel: 1,
+    currentEligibleLevel: 1,
     characterXP: 0,
     characterHP: 0,
     characterStrengthPool: 0,
@@ -360,7 +393,10 @@ let initialState = {
     characterMagicPool: 0,
     characterArmorCost: 0,
     characterRecoveryPool: 0,
-    levelUp: false,
+    characterBackground: '',
+    characterNotes: '',
+    levelUpSkills: [],
+   
   }
 
 const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

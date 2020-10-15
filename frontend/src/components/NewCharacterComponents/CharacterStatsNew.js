@@ -1,19 +1,23 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
-import {Button} from 'semantic-ui-react'
 
 
-function CharacterStatsLevelUp() {
+
+function CharacterStatsNew() {
     let dispatch = useDispatch()
-    let selectedCharacter = useSelector(state => state.selectedCharacter)
-    let statPointsAvailable = 2
-    const [remainingStats, setRemainingStats] = useState(statPointsAvailable);
-    const [dexterity, setDexterity] = useState(selectedCharacter.dexterity)
-    const [strength, setStrength] = useState(selectedCharacter.strength)
-    const [wisdom, setWisdom] = useState(selectedCharacter.wisdom)
-    const [charisma, setCharisma] = useState(selectedCharacter.charisma)
-    const [magic, setMagic] = useState(selectedCharacter.magic)
+    let startingStats = useSelector(state => state.startingStats)
+    let characterType = useSelector(state => state.characterType)
+    let characterRace = useSelector(state => state.characterRace)
+    let statOptions = startingStats.filter(stat => stat.type_id === characterType.id && stat.race_id === characterRace.id)
+    let statPointsAvailable = statOptions[0].remaining_stat_points
+    const characterStats = useSelector(state => state.characterStats)
+    const [remainingStats, setRemainingStats] = useState(characterStats ? 0 : statPointsAvailable );
+    const [dexterity, setDexterity] = useState(characterStats?.dexterity || statOptions[0].dexterity)
+    const [strength, setStrength] = useState(characterStats?.strength|| statOptions[0].strength)
+    const [wisdom, setWisdom] = useState(characterStats?.wisdom || statOptions[0].wisdom)
+    const [charisma, setCharisma] = useState(characterStats?.charisma || statOptions[0].charisma)
+    const [magic, setMagic] = useState(characterStats?.magic || statOptions[0].magic)
     let stats = {
         strength: strength,
         dexterity: dexterity,
@@ -27,6 +31,7 @@ function CharacterStatsLevelUp() {
             dispatch({type: "SET_STATS", characterStats: stats})
         }
     
+  
     return (
         <div className="selection_options">
              <div className="character_box ">
@@ -48,7 +53,7 @@ function CharacterStatsLevelUp() {
                   placeholder={strength}
                   type="number" 
                   value={strength}
-                  min={selectedCharacter.strength}
+                  min={statOptions[0].strength}
                   max={strength + remainingStats}
                 />
                     <div></div>
@@ -66,7 +71,7 @@ function CharacterStatsLevelUp() {
                   placeholder={dexterity}
                   type="number" 
                   value={dexterity}
-                  min={selectedCharacter.dexterity}
+                  min={statOptions[0].dexterity}
                   max={dexterity + remainingStats}
                 />
                 <div></div>
@@ -84,7 +89,7 @@ function CharacterStatsLevelUp() {
                   placeholder={wisdom}
                   type="number" 
                   value={wisdom}
-                  min={selectedCharacter.wisdom}
+                  min={statOptions[0].wisdom}
                   max={wisdom + remainingStats}
                 />
                  <div></div>
@@ -102,7 +107,7 @@ function CharacterStatsLevelUp() {
                   placeholder={charisma}
                   type="number" 
                   value={charisma}
-                  min={selectedCharacter.charisma}
+                  min={statOptions[0].charisma}
                   max={charisma + remainingStats}
                 />
                  <div></div>
@@ -120,20 +125,24 @@ function CharacterStatsLevelUp() {
                   placeholder={magic}
                   type="number" 
                   value={magic}
-                  min={selectedCharacter.magic}
+                  min={statOptions[0].magic}
                   max={magic + remainingStats}
                 />
                 <div>
                 </div>
                
                 {remainingStats === 0 ? 
-                <Button type='submit'>
+                <button 
+                className='test_button'
+                type='submit'>
                     Set Stats
-                </Button>
+                </button>
                 :
-                <Button type='button' disabled>
+                <button 
+                className='test_button'
+                type='button' disabled>
                     Set Stats
-                </Button>} 
+                </button>} 
                 
                 </form>    
               
@@ -143,4 +152,4 @@ function CharacterStatsLevelUp() {
       );
   }
   
-  export default CharacterStatsLevelUp;
+  export default CharacterStatsNew;

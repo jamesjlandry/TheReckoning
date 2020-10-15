@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
 import {Button} from 'semantic-ui-react'
 
-function CheckBox(props) {
+function LevelUpCheckBox(props) {
 
     const [checked, setChecked] = useState(false)
    
@@ -34,4 +34,4 @@ function CheckBox(props) {
 
 }
 
-export default CheckBox;
+export default LevelUpCheckBox;

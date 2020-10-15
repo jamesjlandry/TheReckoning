@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
-import {Button} from 'semantic-ui-react'
 
 
 
@@ -32,6 +31,7 @@ function NewCharacterSubmit() {
     let blessingLevelIds = characterBlessingLevel.map(blessing => blessing.id)
     let equipmentIds = characterEquipment.map(equipment => equipment.id)
     let weaponIds = characterWeapons.map(weapon => weapon.id)
+    let characterHP = 21 + characterStats.strength
     const [name, setName] = useState('');
 
     
@@ -60,7 +60,7 @@ function NewCharacterSubmit() {
             charisma_pool: charismaPool,
             magic_pool: magicPool,
             xp: 0,
-            hp: 20,
+            hp: characterHP,
             status: '',
             recovery_pool: 4,
             armor_cost: 0,
@@ -96,6 +96,14 @@ function NewCharacterSubmit() {
              <div> </div>
              
                     <form onSubmit={event => handleCreate(event)}>
+                    {name !== '' ? 
+                        <button  className="test_button" type='submit'>
+                            Create Character
+                        </button>
+                        :
+                        <button className="test_button" type='button' disabled>
+                            Create Character
+                        </button>} 
                         <label> Name: </label>
                         <input
                         className="input" 
@@ -106,14 +114,7 @@ function NewCharacterSubmit() {
                         type="text" 
                         value={name}
                         />
-                        {name !== '' ? 
-                        <Button type='submit'>
-                            Create Character
-                        </Button>
-                        :
-                        <Button type='button' disabled>
-                            Create Character
-                        </Button>} 
+                      
                     </form> 
                     <div>Race: {characterRace.name}</div>
                     <div>Type: {characterType.name}</div>

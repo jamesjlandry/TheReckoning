@@ -1,25 +1,23 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import {useState} from 'react';
-import {Button} from 'semantic-ui-react'
-import CheckBox from '../components/CheckBox'
-import CharacterSkillsNew from '../components/CharacterSkillsNew';
-import CharacterSkillsLevelUp from '../components/CharacterSkillsLevelUp';
+import { useSelector } from 'react-redux';
+
+import CharacterSkillsNew from '../components/NewCharacterComponents/CharacterSkillsNew';
+import CharacterSkillsLevelUp from '../components/EditCharacterComponents/CharacterSkillsLevelUp';
 
 
 
 
 function CharacterSkill() {
     
-    let characterLevel = useSelector(state => state.characterLevel)
+    let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     
-    console.log(characterLevel)
+    console.log(currentEligibleLevel)
     
     return (
       <div className="selection_options">
              <div className="character_box ">
              
-                {characterLevel === 1 
+                {currentEligibleLevel === 1 
                 ? 
                 <CharacterSkillsNew />
                 :

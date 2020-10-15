@@ -1,10 +1,9 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import EquipmentOptionModal from '../containers/EquipmentOptionModal'
+import { useSelector } from 'react-redux';
+import EquipmentOptionModal from '../../containers/EquipmentOptionModal'
 
 function Artifacts() {
     let artifacts = useSelector(state => state.artifacts)
-    let dispatch = useDispatch()
     let selectOptions = 'SELECT_ARTIFACT'
   
     

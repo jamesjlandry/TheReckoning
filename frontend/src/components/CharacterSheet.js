@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import {useState} from 'react';
-import {Button} from 'semantic-ui-react'
+import CharacterSheetClickableOptionModal from '../components/CharacterSheetClickableOptionModal';
 
 function CharacterSheet() {
     const dispatch = useDispatch()
@@ -27,6 +26,8 @@ function CharacterSheet() {
     let recovery_pool = useSelector(state => state.characterRecoveryPool)
     let characterHP = useSelector(state => state.characterHP)
     let characterCoins = useSelector(state => state.coins)
+    let characterBackground = useSelector(state => state.characterBackground)
+    let characterNotes = useSelector(state => state.characterNotes)
     let armorIds = armor.map(armor => armor.id)
     let skillIds = skills.map(skill => skill.id)
     let curseLevelIds = curseAbilities.map(curse => curse.id)
@@ -41,41 +42,39 @@ function CharacterSheet() {
     const characterWisdom = useSelector(state => state.selectedCharacter.wisdom)
     const characterMagic = useSelector(state => state.selectedCharacter.magic)
     const characterCurrentLevel = useSelector(state => state.selectedCharacter.level)
-    const maxRecoveryPool = Math.floor(( 8 + characterCurrentLevel) / 2)
+    const maxRecoveryPool = Math.floor(( 7 + characterCurrentLevel) / 2)
     const maxMagicPool = Math.floor(characterMagic / 2)
     const maxStrengthPool = Math.floor(characterStrength / 2)
     const maxCharismaPool = Math.floor(characterCharisma / 2)
     const maxWisdomPool = Math.floor(characterWisdom / 2)
     const maxDexterityPool = Math.floor(characterDexterity / 2)
-    console.log(maxRecoveryPool)
-    // const [XP, setXP] = useState(characterXP)
-    // const [HP, setHP] = useState(character.hp)
-    // const [coins, setCoins] = useState(character.coins)
-    let levelUp = useSelector(state => state.levelUp)
-    let characterLevel = useSelector(state => state.characterLevel)
+    const maxHP = character.strength + 20 + (character.level)
+    
+    let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
+    let levelUp = currentEligibleLevel > character.level //useSelector(state => state.levelUp)
 
-   if(characterXP >= 100 &&  characterLevel === 1) {
+   if(characterXP >= 100 &&  currentEligibleLevel === 1 ) {
        dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
    } 
-   else if(characterXP >= 200 && characterLevel === 2) {
+   else if(characterXP >= 200 && currentEligibleLevel === 2 && character.level === 2) {
        dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
    }
-   else if(characterXP >= 300  && characterLevel === 3) {
+   else if(characterXP >= 300  && currentEligibleLevel === 3 && character.level === 3) {
     dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
-    else if(characterXP >= 400  && characterLevel === 4) {
+    else if(characterXP >= 400  && currentEligibleLevel === 4 && character.level === 4) {
         dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
-    else if(characterXP >= 500  && characterLevel === 5) {
+    else if(characterXP >= 500  && currentEligibleLevel === 5 && character.level === 5) {
         dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
-    else if(characterXP >= 600  && characterLevel === 6) {
+    else if(characterXP >= 600  && currentEligibleLevel === 6 && character.level === 6) {
         dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
-    else if(characterXP >= 700 && characterLevel === 7) {
+    else if(characterXP >= 700 && currentEligibleLevel === 7 && character.level === 7) {
         dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
-    else if(characterXP >= 800 && characterLevel === 8) {
+    else if(characterXP >= 800 && currentEligibleLevel === 8 && character.level === 8) {
         dispatch({type: "SET_LEVEL_UP", characterXP: characterXP})
     }
 
@@ -86,8 +85,8 @@ function CharacterSheet() {
             image: '',
             level: character.level,
             coins: characterCoins,
-            background: '',
-            notes: '',
+            background: characterBackground,
+            notes: characterNotes,
             strength: character.strength,
             charisma: character.charisma,
             wisdom: character.wisdom,
@@ -127,263 +126,328 @@ function CharacterSheet() {
         dispatch({type: 'UPDATE_CHARACTERS', selectedCharacter: selectedCharacter})
         }
 
-//    let levelUpTable = { 
-//     100: function() { if (characterLevel === 1)dispatch({type: "SET_LEVEL_UP"})},
-//     200: function() { if (characterLevel === 2) dispatch({type: "SET_LEVEL_UP"})},
-//     300: function() { if (characterLevel === 3) dispatch({type: "SET_LEVEL_UP"})},
-//     400: function() { if (characterLevel === 4) dispatch({type: "SET_LEVEL_UP"})}
-//    }
 
-//  function processLevelUp(command)  {
-//        levelUpTable[command]()
-//    }
+// Name Race Type as one line as description of character for the title.
 
     return(
-        <React.Fragment>
+        <div className='character_sheet_modal_impersonation_background'>
+            <div className='character_sheet_modal_impersonation'>
+                <div className="character_sheet_buttons">
+                    <div>
              {
                 levelUp ?
-            <Button onClick={() => {dispatch({type: "LEVEL_UP_MODE" }) }}>
+            <button 
+            className="test_button" 
+            onClick={() => {dispatch({type: "LEVEL_UP_MODE" }) }}>
                 Level Up
-            </Button>
+            </button>
             :
-            null
-            }   
+            <button 
+            className="test_button" 
+            disabled>
+            Level Up
+            </button>
+            }  
+            </div> 
+            {/* <button>
+            Ye Olde Item Shop
+            </button> */}
+            <div>
+            <button className="test_button"onClick={event => handleUpdate(event)}>
+                Save and Close
+            </button>
+            </div>
+            </div>
         <form>
-            <div>
-                Name: {character.name}
-            </div>
-            <div> 
-            <label>XP: </label>
-                <input
-                  className="input" 
-                  onChange={(event) => {
-                      dispatch({type: "SET_XP", xp: parseInt(event.target.value)})
-                    //   setXP(parseInt(event.target.value)) 
-                    //   processLevelUp(event.target.value)
-                    }} 
-                  id="XP"
-                  name="XP" 
-                  placeholder={character.xp}
-                  type="number" 
-                  value={characterXP}
-                  min={character.xp}
-                  max='900'
-                /></div>
-            <div>
+            <div className="character_sheet_container">
+            <div className="character_info">
+                <div className="character_main_info_box">
+                <strong>{character.name}</strong>
+                </div>
+              
+                <div className="character_main_info_box">
                 Level {character.level}
-            </div>
-            <div>
-                Race {race.name}
-            </div>
-            <div>
-                Type {type.name}
-            </div>
-            <div>
-               {blessing.name}
-            </div>
-            <div>
-                Curse {blessing.curse_name}
-            </div>
+                </div >
+                <CharacterSheetClickableOptionModal option={race} /> 
+                <CharacterSheetClickableOptionModal option={type} /> 
+                <CharacterSheetClickableOptionModal option={blessing} /> 
+                <div className="character_main_info_box">
+                    Cursed with the {blessing.curse_name}
+                </div>
 
-            <div>
-                <label>HP: </label>
-                <input
+               
+                </div>
+                
+                <div className="stats_box">
+                <div className="single_stat_box">
+                <div className="character_info_box"> 
+                    <label>XP: </label>
+                    <input
                     className="input" 
                     onChange={(event) => {
-                        dispatch({type: "SET_HP", hp: parseInt(event.target.value)})
+                        dispatch({type: "SET_XP", xp: parseInt(event.target.value)})
+                        //   setXP(parseInt(event.target.value)) 
+                        //   processLevelUp(event.target.value)
                         }} 
-                    id="HP"
-                    name="HP" 
-                    placeholder={character.hp}
+                    id="XP"
+                    name="XP" 
+                    placeholder={character.xp}
                     type="number" 
-                    value={characterHP}
-                    min='0'
-                    max={character.hp}
+                    value={characterXP}
+                    min={character.xp}
+                    max='900'
                     />
-            </div>
-            <div>
-                <label>Coins: </label>
-                <input
-                  className="input" 
-                  onChange={(event) => {
-                    dispatch({type: "SET_COINS", coins: parseInt(event.target.value)})
-                    }} 
-                  id="coins"
-                  name="coins" 
-                  placeholder={character.coins}
-                  type="number" 
-                  value={characterCoins}
-                  min='0'
-                  max='10000'
-                /></div>
-            <div>Strength {character.strength}</div>
-            <div>Dexterity {character.dexterity}</div>
-            <div>Charisma {character.charisma}</div>
-            <div>Wisdom {character.wisdom}</div>
-            <div>Magic {character.magic}</div>
-            <div>Recovery {character.recovery}</div>
-            
+                    </div>
+                </div>
+                <div className="single_stat_box">
+                 <div className="character_info_box">
+                    <label>HP: </label>
+                    <input
+                        className="input" 
+                        onChange={(event) => {
+                            dispatch({type: "SET_HP", hp: parseInt(event.target.value)})
+                            }} 
+                        id="HP"
+                        name="HP" 
+                        placeholder={character.hp}
+                        type="number" 
+                        value={characterHP}
+                        min='0'
+                        max={maxHP}
+                        />
+                        </div>
+                    </div>
+                    <div className="single_stat_box">
+                    <div className="character_info_box">Strength {character.strength}</div>
+                    <div className="character_info_box">
+                        <label>Pool: </label>
+                        <input
+                        className="input" 
+                        onChange={(event) => {
+                            dispatch({type: "SET_STRENGTH_POOL", strengthPool: parseInt(event.target.value)})
+                            }} 
+                        id="strength_pool"
+                        name="strength_pool" 
+                        placeholder={character.strength_pool}
+                        type="number" 
+                        value={strength_pool}
+                        min='0'
+                        max={maxStrengthPool}
+                        />
+                        </div>
+                    </div>
+                    <div className="single_stat_box">
+                    <div className="character_info_box">Dexterity {character.dexterity}</div>
+                        <div className="character_info_box">
+                            <label>Pool: </label>
+                            <input
+                            className="input" 
+                            onChange={(event) => {
+                                dispatch({type: "SET_DEXTERITY_POOL", dexterityPool: parseInt(event.target.value)}) 
+                                }} 
+                            id="dexterity_pool"
+                            name="dexterity_pool" 
+                            placeholder={character.dexterity_pool}
+                            type="number" 
+                            defaultValue={dexterity_pool}
+                            min='0'
+                            max={maxDexterityPool}
+                            />
+                            </div>
+                        </div>  
+                        <div className="single_stat_box">
+                    <div className="character_info_box">Charisma {character.charisma}</div>
+
+                        <div className="character_info_box">
+                            <label>Pool: </label>
+                            <input
+                            className="input" 
+                            onChange={(event) => {
+                                dispatch({type: "SET_CHARISMA_POOL", charismaPool: parseInt(event.target.value)}) 
+                                }} 
+                            id="charisma_pool"
+                            name="charisma_pool" 
+                            placeholder={character.charisma_pool}
+                            type="number" 
+                            value={charisma_pool}
+                            min='0'
+                            max={maxCharismaPool}
+                            />
+                        </div>
+                        </div>
+                        <div className="single_stat_box">
+                    <div className="character_info_box">Wisdom {character.wisdom}</div>
+                        <div className="character_info_box">
+                            <label>Pool: </label>
+                            <input
+                            className="input" 
+                            onChange={(event) => {
+                                dispatch({type: "SET_WISDOM_POOL", wisdomPool: parseInt(event.target.value)}) 
+                                }} 
+                            id="wisdom_pool"
+                            name="wisdom_pool" 
+                            placeholder={character.wisdom_pool}
+                            type="number" 
+                            value={wisdom_pool}
+                            min='0'
+                            max={maxWisdomPool}
+                            />
+                        </div>
+                        </div>
+                        <div className="single_stat_box">
+                    <div className="character_info_box">Magic {character.magic}</div>
+                        <div className="character_info_box">
+                            <label>Pool: </label>
+                            <input
+                            className="input" 
+                            onChange={(event) => {
+                                dispatch({type: "SET_MAGIC_POOL", magicPool: parseInt(event.target.value)}) 
+                                }} 
+                            id="magic_pool"
+                            name="magic_pool" 
+                            placeholder={character.magic_pool}
+                            type="number" 
+                            value={magic_pool}
+                            min='0'
+                            max={maxMagicPool}
+                            />
+                            </div>
+                        </div>
+                        <div className="single_stat_box">
+                    <div className="character_info_box">Recovery {character.recovery}</div>
+                        <div className="character_info_box">
+                            <label>Pool: </label>
+                            <input
+                            className="input" 
+                            onChange={(event) => {
+                                dispatch({type: "SET_RECOVERY_POOL", recoveryPool: parseInt(event.target.value)}) 
+                                }} 
+                            id="recovery_pool"
+                            name="recovery_pool" 
+                            placeholder={character.recovery_pool}
+                            type="number" 
+                            value={recovery_pool}
+                            min='0'
+                            max={maxRecoveryPool}
+                            />
+                        </div>
+                        </div>
+                        <div className="character_info_box">
+                            <label>Armor Cost: </label>
+                            <input
+                            className="input" 
+                            onChange={(event) => {
+                                dispatch({type: "SET_ARMOR_COST", armorCostPool: parseInt(event.target.value)})
+                                }} 
+                            id="armor_cost"
+                            name="armor_cost" 
+                            placeholder={character.armor_cost}
+                            type="number" 
+                            value={armor_cost}
+                            min='0'
+                            max='3'
+                            />
+                        </div>
+                
+                </div>
            
-                    
-                 <div>
-                    <label>Strength Pool: </label>
-                    <input
-                    className="input" 
-                    onChange={(event) => {
-                        dispatch({type: "SET_STRENGTH_POOL", strengthPool: parseInt(event.target.value)})
-                        }} 
-                    id="strength_pool"
-                    name="strength_pool" 
-                    placeholder={character.strength_pool}
-                    type="number" 
-                    value={strength_pool}
-                    min='0'
-                    max={maxStrengthPool}
-                    />
-                </div>
-                <div>
-                    <label>Dexterity Pool: </label>
-                    <input
-                    className="input" 
-                    onChange={(event) => {
-                        dispatch({type: "SET_DEXTERITY_POOL", dexterityPool: parseInt(event.target.value)}) 
-                        }} 
-                    id="dexterity_pool"
-                    name="dexterity_pool" 
-                    placeholder={character.dexterity_pool}
-                    type="number" 
-                    defaultValue={dexterity_pool}
-                    min='0'
-                    max={maxDexterityPool}
-                    />
-                </div>
+                <div className="skills_box">            
+                    <div className="character_sheet_box">
+                        Skills: {skills.map(skill => <CharacterSheetClickableOptionModal option={skill} /> )}
+                    </div>
+                </div>  
+                <div className="items_box">
+    
 
-                <div>
-                    <label>Wisdom Pool: </label>
-                    <input
-                    className="input" 
-                    onChange={(event) => {
-                        dispatch({type: "SET_WISDOM_POOL", wisdomPool: parseInt(event.target.value)}) 
-                        }} 
-                    id="wisdom_pool"
-                    name="wisdom_pool" 
-                    placeholder={character.wisdom_pool}
-                    type="number" 
-                    value={wisdom_pool}
-                    min='0'
-                    max={maxWisdomPool}
-                    />
+                   
+                    <div className="item_middle_grid">
+                        Armor: {armor.map(armor => <CharacterSheetClickableOptionModal option={armor} /> )}
+                    </div>
+                    <div className="item_middle_grid">
+                        Weapons: {weapons.map(weapon => <CharacterSheetClickableOptionModal option={weapon} /> )}
+                    </div>
+                    <div>
+                        Equipment: {equipment.map(equipment=> <CharacterSheetClickableOptionModal option={equipment} /> )}
+                    </div>
+                    {/* <div className="item_middle_grid">
+                        Magic Items: {charms.map(charm => <CharacterSheetClickableOptionModal option={charm} /> )}
+                    </div>
+                    <div className="item_middle_grid">
+                        Artifacts: {artifacts.map(artifact => <CharacterSheetClickableOptionModal option={artifact} /> )}
+                    </div> */}
+                    <div className="item_middle_grid">
+                        <label>Coins: </label>
+                        <input
+                        className="input" 
+                        onChange={(event) => {
+                            dispatch({type: "SET_COINS", coins: parseInt(event.target.value)})
+                            }} 
+                        id="coins"
+                        name="coins" 
+                        placeholder={character.coins}
+                        type="number" 
+                        value={characterCoins}
+                        min='0'
+                        max='10000'
+                        />
+                    </div>
                 </div>
-                <div>
-                    <label>Charisma Pool: </label>
-                    <input
-                    className="input" 
-                    onChange={(event) => {
-                        dispatch({type: "SET_CHARISMA_POOL", charismaPool: parseInt(event.target.value)}) 
-                        }} 
-                    id="charisma_pool"
-                    name="charisma_pool" 
-                    placeholder={character.charisma_pool}
-                    type="number" 
-                    value={charisma_pool}
-                    min='0'
-                    max={maxCharismaPool}
-                    />
-                </div>
-                <div>
-                    <label>Magic Pool: </label>
-                    <input
-                    className="input" 
-                    onChange={(event) => {
-                        dispatch({type: "SET_MAGIC_POOL", magicPool: parseInt(event.target.value)}) 
-                        }} 
-                    id="magic_pool"
-                    name="magic_pool" 
-                    placeholder={character.magic_pool}
-                    type="number" 
-                    value={magic_pool}
-                    min='0'
-                    max={maxMagicPool}
-                    />
-                </div>
-            
-                <div>
-                        <label>Recovery Pool: </label>
-                    <input
-                    className="input" 
-                    onChange={(event) => {
-                        dispatch({type: "SET_RECOVERY_POOL", recoveryPool: parseInt(event.target.value)}) 
-                        }} 
-                    id="recovery_pool"
-                    name="recovery_pool" 
-                    placeholder={character.recovery_pool}
-                    type="number" 
-                    value={recovery_pool}
-                    min='0'
-                    max={maxRecoveryPool}
-                    />
-                </div>
-                <div>
-                        <label>Armor Cost: </label>
-                    <input
-                    className="input" 
-                    onChange={(event) => {
-                        dispatch({type: "SET_ARMOR_COST", armorCostPool: parseInt(event.target.value)})
-                        }} 
-                    id="armor_cost"
-                    name="armor_cost" 
-                    placeholder={character.armor_cost}
-                    type="number" 
-                    value={armor_cost}
-                    min='0'
-                    max='3'
-                    />
-                </div>
-                <div>
-                    Skills: {skills.map(skill => <div>{skill.name}</div>)}
-                </div>
-                <div>
-                    Armor: {armor.map(armor => <div>{armor.name}</div>)}
-                </div>
-                <div>
-                    Weapons: {weapons.map(weapon => <div>{weapon.name}</div>)}
-                </div>
-                <div>
-                    Equipment: {equipment.map(item => <div>{item.name}</div>)}
-                </div>
-                <div>
-                    Magic Items: {charms.map(charm => <div>{charm.name}</div>)}
-                </div>
-                <div>
-                    Artifacts: {artifacts.map(artifact => <div>{artifact.name}</div>)}
-                </div>
-                <div>
+                <div className="abilities_box">
+                <div className="character_sheet_box">
                     Abilities: 
                         <div>
-                            {typeAbilities.map(ability => <div>{ability.name}</div>)}
+                            {typeAbilities.map(ability => <CharacterSheetClickableOptionModal option={ability} /> )}
                         </div>
                         <div>
-                            {blessingAbilities.map(ability => <div>{ability.name}</div>)}
+                            {blessingAbilities.map(ability => <CharacterSheetClickableOptionModal option={ability} /> )}
                         </div>
                 </div>
-                <div>
+                <div className="character_sheet_box">
                     Curse effects: 
                         <div>
-                            {curseAbilities.map(ability => <div>{ability.name}</div>)}
+                            {curseAbilities.map(ability => <CharacterSheetClickableOptionModal option={ability} /> )}
                         </div>
                 </div>
+                </div>
+                <div className="notes_box">
+                <div className="character_sheet_box">
+                    Background: <div></div>
+                        <textarea
+                            className="notes"
+                            
+                            name={character.background}
+                            value={characterBackground}
+                            rows='990'
+                            cols='600'
+
+                            onChange={(event) => dispatch({type: "SET_BACKGROUND", characterBackground: event.target.value})}
+                        >
+
+                            
+                        </textarea>
+                </div>
+
+                <div className="character_sheet_box">
+                    Notes: <div></div>
+                        <textarea
+                            className="notes"
+                            name={character.notes}
+                            value={characterNotes}
+                            onChange={(event) => dispatch({type: "SET_NOTES", characterNotes: event.target.value})}
+                        >
+
+                            
+                        </textarea>
+                        </div>
+                </div>
+                </div>
+                
         </form>  
 
-        <Button>
-            Ye Olde Item Shop
-        </Button>
-        
-        <Button onClick={event => handleUpdate(event)}>
-            Save and Close
-        </Button>
        
-        
-        </React.Fragment>
+       
+        </div>
+        </div>
 
     )
 

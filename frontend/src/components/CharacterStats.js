@@ -1,17 +1,15 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import CharacterStatsNew from '../components/CharacterStatsNew';
-import CharacterStatsLevelUp from '../components/CharacterStatsLevelUp'
+import CharacterStatsNew from '../components/NewCharacterComponents/CharacterStatsNew';
+import CharacterStatsLevelUp from '../components/EditCharacterComponents/CharacterStatsLevelUp'
 
-import {useState} from 'react';
-import {Button} from 'semantic-ui-react'
 
 
 function CharacterStats() {
     let dispatch = useDispatch()
     
     
-    let characterLevel = useSelector(state => state.characterLevel)
+    let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     
     
   
@@ -19,7 +17,7 @@ function CharacterStats() {
         <div className="selection_options">
              <div className="character_box ">
              <div> </div>
-               {characterLevel === 1 
+               {currentEligibleLevel === 1 
 
               ? 
                <CharacterStatsNew/>

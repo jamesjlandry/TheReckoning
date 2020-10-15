@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import CharacterOptionModal from '../components/CharacterOptionModal'
+import CharacterOptionModal from '../SharedComponents/CharacterOptionModal'
 
 function CharacterType() {
     let dispatch = useDispatch()
@@ -11,8 +11,8 @@ function CharacterType() {
     return (
         <div className="selection_options">
              <div className="character_box ">
-             <div>Choose one of the following Types: </div>
-                 {types.map(type=> <CharacterOptionModal option={type} selectOptions={selectOptions}/>)}
+             <div>Choose from the following Types: </div>
+                 {types.map(type=> <CharacterOptionModal  option={type} selectOptions={selectOptions}/>)}
               
           </div>
 

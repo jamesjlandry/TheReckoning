@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import {useState} from 'react';
-import CharacterBox from '../containers/CharacterBox'
+import CharacterOptionContainer from '../containers/CharacterOptionContainer'
+import CharacterSheet from '../components/CharacterSheet'
 
 
 function CharacterIndex() {
     let createCharacter = useSelector(state => state.createCharacter)
     let editCharacter = useSelector(state => state.editCharacter)
+    let defaultPage = useSelector(state => state.defaultPage)
     let characters = useSelector(state => state.characters.filter(character => character.user_id === state.currentUser.id))
     let dispatch = useDispatch()
 
@@ -21,8 +22,11 @@ function CharacterIndex() {
     }
     return (
         <React.Fragment>
-            <div className="ui inverted vertical menu">
-            <a className ='active item'></a> 
+            <div className="sidenav">
+
+            <a className='item' onClick={() => { dispatch({ type: 'CREATE_CHARACTER_MODE'}) }}>New Character   <i className='plus icon'></i></a>
+
+            <br></br>
                     {characters.map(character => 
             
                     <a className='item' onClick={() => {getCharacter(character)}}>
@@ -30,14 +34,15 @@ function CharacterIndex() {
                     </a>
                     )}
             
-            <a className='item' onClick={() => { dispatch({ type: 'CREATE_CHARACTER_MODE'}) }}>New Character</a>
+           
                 </div>
                
 
                 
-                <div className="edit_create_character_box">
-                {createCharacter ? <CharacterBox/> : null}
-                {editCharacter ? <CharacterBox/> : null}
+                <div >
+                {createCharacter ? <div className="character_main_box"><CharacterOptionContainer/></div> : null}
+                {editCharacter ? <CharacterSheet/> : null}
+                {defaultPage ? <div className="edit_create_character_box"></div> : null}
                 </div>
         </React.Fragment>
         

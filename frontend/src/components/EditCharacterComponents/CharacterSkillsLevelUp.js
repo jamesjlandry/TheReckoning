@@ -1,30 +1,28 @@
+  
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {useState} from 'react';
-import {Button} from 'semantic-ui-react'
-import CheckBox from '../components/CheckBox'
+import LevelUpCheckBox from '../SharedComponents/CheckBox'
 
 
 
 
 function CharacterSkillsLevelUp() {
-    
-    let characterLevel = useSelector(state => state.characterLevel)
-    let selectedCharacter = useSelector(state => state.selectedCharacter)
+
+    let levelUpSkills = useSelector(state => state.levelUpSkills)
     let currentSkills = useSelector(state => state.characterSkills)
     let skills = useSelector(state => state.skills)
-    const currentSkillIDs = currentSkills.map(skill => skill.id)
+    const currentSkillIDs = levelUpSkills.map(skill => skill.id)
 
     let filteredSkills = skills.filter(skill => !currentSkillIDs.includes(skill.id) &&
     skill.name !== "Medium Blades" && skill.name !== "Heavy Blades" && skill.name !== "Medium Bludgeon" 
     && skill.name !== "Heavy Bludgeon" && skill.name !== "Medium Ranged" && skill.name !== "Heavy Ranged")
-    let characterType = useSelector(state => state.characterType)
    
-    let availableSkills = 2
+    let availableSkills = 2 - (currentSkills.length - levelUpSkills.length)
     
 
     let dispatch = useDispatch()
-    const [characterSkills, setCharacterSkills] = useState(currentSkills)
+    const [characterSkills, setCharacterSkills] = useState([])
     const [remainingSkills, setRemainingSkills] = useState(availableSkills)
     
 
@@ -63,24 +61,24 @@ function CharacterSkillsLevelUp() {
   
     return (
       <div className="selection_options">
-             <div className="character_box ">
-            
+             <div className="skill_select_box">
+             {remainingSkills === 0 ? 
+                <button className='test_button' type='submit'>
+                    Select Skills
+                </button>
+                :
+                <button className='test_button' type='button' disabled>
+                    Select Skills
+                </button>}
              <form onSubmit={event => handleSubmit(event)}>
                 <div>Available Skills: {remainingSkills}</div>
                  {filteredSkills.map(skill => 
-                 <CheckBox handleChange={handleChange} count={remainingSkills} skill={skill}/>
+                 <LevelUpCheckBox handleChange={handleChange} count={remainingSkills} skill={skill}/>
                     
                 
                 )}
                    
-               {remainingSkills === 0 ? 
-                <Button type='submit'>
-                    Select Skills
-                </Button>
-                :
-                <Button type='button' disabled>
-                    Select Skills
-                </Button>}
+            
                 
                 </form>
               

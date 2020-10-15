@@ -1,22 +1,17 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import {useState} from 'react';
-import {Button} from 'semantic-ui-react'
-import NewCharacterSubmit from '../components/NewCharacterSubmit';
-import LevelUpCharacterSubmit from '../components/LevelUpCharacterSubmit'
+import NewCharacterSubmit from '../components/NewCharacterComponents/NewCharacterSubmit';
+import LevelUpCharacterSubmit from '../components/EditCharacterComponents/LevelUpCharacterSubmit'
 
 
 function CharacterBuild() {
 
-   let characterLevel = useSelector(state => state.characterLevel)
-
-    
-  
+   let currentEligibleLevel = useSelector(state => state.currentEligibleLevel)
     return (
         <div className="selection_options">
              <div className="character_box ">
             {
-                characterLevel === 1 
+                currentEligibleLevel === 1 
                 ?
                 <NewCharacterSubmit/>
                 :
