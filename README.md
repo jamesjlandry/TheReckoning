@@ -1,6 +1,6 @@
-# TheCursed
+# TheReckoning
 
-Character Builder App for tabletop role playing game "The Cursed". 
+Character Builder App for tabletop role playing game "The Reckoning". 
 
 Users can create secure log in username and password. 
 
